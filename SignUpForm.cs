@@ -16,5 +16,10 @@ namespace Student_Note
         {
             InitializeComponent();
         }
+
+        private void SignUpForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
