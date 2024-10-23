@@ -28,12 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "HomeworkForm";
+            HeaderLabel = new Label();
+            SuspendLayout();
+            // 
+            // HeaderLabel
+            // 
+            HeaderLabel.BackColor = Color.FromArgb(52, 199, 89);
+            HeaderLabel.Dock = DockStyle.Top;
+            HeaderLabel.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            HeaderLabel.ForeColor = Color.White;
+            HeaderLabel.Location = new Point(0, 0);
+            HeaderLabel.Margin = new Padding(0);
+            HeaderLabel.Name = "HeaderLabel";
+            HeaderLabel.Padding = new Padding(50, 0, 0, 0);
+            HeaderLabel.Size = new Size(800, 50);
+            HeaderLabel.TabIndex = 2;
+            HeaderLabel.Text = "Домашнее задание";
+            HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // HomeworkForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(209, 209, 214);
+            ClientSize = new Size(800, 450);
+            Controls.Add(HeaderLabel);
+            Name = "HomeworkForm";
+            Text = "HomeworkForm";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Label HeaderLabel;
     }
 }

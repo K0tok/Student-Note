@@ -32,6 +32,7 @@ namespace Student_Note
         {
             SignUpForm form = new SignUpForm();
             form.Show();
+            //Close();
         }
     }
 }
