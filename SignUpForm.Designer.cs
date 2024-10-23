@@ -350,6 +350,7 @@
             LogUpLinkLabel.TabIndex = 34;
             LogUpLinkLabel.TabStop = true;
             LogUpLinkLabel.Text = "Войти!";
+            LogUpLinkLabel.LinkClicked += LogUpLinkLabel_LinkClicked;
             // 
             // SignUpForm
             // 
@@ -384,6 +385,7 @@
             Controls.Add(LoginTextBox);
             Controls.Add(HeaderLabel);
             Name = "SignUpForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";
             Load += SignUpForm_Load;
             ResumeLayout(false);

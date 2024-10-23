@@ -154,6 +154,7 @@
             LogUpLinkLabel.TabIndex = 9;
             LogUpLinkLabel.TabStop = true;
             LogUpLinkLabel.Text = "Зарегистрироваться!";
+            LogUpLinkLabel.LinkClicked += LogUpLinkLabel_LinkClicked;
             // 
             // WrongDataLabel
             // 
@@ -185,8 +186,8 @@
             Controls.Add(HeaderLabel);
             Name = "LogInForm";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "LogInForm";
-            TopMost = true;
             Load += LogInForm_Load;
             ResumeLayout(false);
             PerformLayout();

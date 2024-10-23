@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Student_Note;
 
 namespace Student_Note
 {
@@ -20,6 +21,13 @@ namespace Student_Note
         private void SignUpForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LogInForm form = new LogInForm();
+            form.Show();
+            Close();
         }
     }
 }

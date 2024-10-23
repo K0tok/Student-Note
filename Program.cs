@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+
 namespace Student_Note
 {
     internal static class Program
@@ -12,6 +14,7 @@ namespace Student_Note
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new LogInForm());
+            //MainForm = new AppForm();
         }
     }
 }
