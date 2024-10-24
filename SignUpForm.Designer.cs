@@ -384,6 +384,7 @@
             Controls.Add(LoginLabel);
             Controls.Add(LoginTextBox);
             Controls.Add(HeaderLabel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";

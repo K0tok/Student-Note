@@ -184,6 +184,7 @@
             Controls.Add(LoginLabel);
             Controls.Add(LoginTextBox);
             Controls.Add(HeaderLabel);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "LogInForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
