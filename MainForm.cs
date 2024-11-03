@@ -16,5 +16,14 @@ namespace Student_Note
         {
             InitializeComponent();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            bool isLog = Program.isLog;
+            if (!isLog)
+            {
+                Program.ReplaceForm(new LogInForm(), this);
+            }
+        }
     }
 }

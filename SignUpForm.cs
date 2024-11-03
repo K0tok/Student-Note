@@ -25,7 +25,7 @@ namespace Student_Note
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Program.ReplaceForm(new LogInForm());
+            Program.ReplaceForm(new LogInForm(), this);
         }
     }
 }

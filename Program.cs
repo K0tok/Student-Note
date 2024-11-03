@@ -4,16 +4,25 @@ namespace Student_Note
 {
     internal static class Program
     {
+
         [STAThread]
         static public void Main()
         {
-            ApplicationConfiguration.Initialize();
-            Application.Run(new LogInForm());
-            // MainForm form = new MainForm();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(true);
+            Application.Run(MainForm);
         }
-        static public void ReplaceForm(Form form)
+        static public void ReplaceForm(Form newForm, Form oldForm)
         {
-            form.Show();
+            // Закрыть текущую (главную) форму
+            newForm.FormClosed += (s, args) => oldForm.Close();
+            // Показать вторую форму
+            newForm.Show();
+            oldForm.Hide();
+
         }
+
+        static Form MainForm = new MainForm();
+        static public bool isLog = false;
     }
 }

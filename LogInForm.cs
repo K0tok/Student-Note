@@ -30,7 +30,7 @@ namespace Student_Note
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Program.ReplaceForm(new SignUpForm());
+            Program.ReplaceForm(new SignUpForm(), this);
         }
     }
 }
