@@ -14,9 +14,9 @@ namespace Student_Note
         }
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
-            // Закрыть текущую (главную) форму
+            // Р—Р°РєСЂС‹С‚СЊ С‚РµРєСѓС‰СѓСЋ (РіР»Р°РІРЅСѓСЋ) С„РѕСЂРјСѓ
             newForm.FormClosed += (s, args) => oldForm.Close();
-            // Показать вторую форму
+            // РџРѕРєР°Р·Р°С‚СЊ РІС‚РѕСЂСѓСЋ С„РѕСЂРјСѓ
             newForm.Show();
             oldForm.Hide();
 
