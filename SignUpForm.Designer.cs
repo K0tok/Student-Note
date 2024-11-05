@@ -100,9 +100,9 @@
             SurnameText.BorderStyle = BorderStyle.None;
             SurnameText.Font = new Font("Arial", 18F);
             SurnameText.Location = new Point(14, 135);
-            SurnameText.Margin = new Padding(3, 5, 3, 5);
+            SurnameText.Margin = new Padding(3, 4, 3, 4);
             SurnameText.Name = "SurnameText";
-            SurnameText.Size = new Size(334, 35);
+            SurnameText.Size = new Size(330, 35);
             SurnameText.TabIndex = 6;
             SurnameText.TextAlign = HorizontalAlignment.Center;
             // 
@@ -135,7 +135,7 @@
             EmailText.BorderStyle = BorderStyle.None;
             EmailText.Font = new Font("Arial", 18F);
             EmailText.Location = new Point(381, 135);
-            EmailText.Margin = new Padding(3, 5, 3, 5);
+            EmailText.Margin = new Padding(3, 4, 3, 4);
             EmailText.Name = "EmailText";
             EmailText.Size = new Size(330, 35);
             EmailText.TabIndex = 9;
@@ -170,9 +170,9 @@
             NameText.BorderStyle = BorderStyle.None;
             NameText.Font = new Font("Arial", 18F);
             NameText.Location = new Point(14, 249);
-            NameText.Margin = new Padding(3, 5, 3, 5);
+            NameText.Margin = new Padding(3, 4, 3, 4);
             NameText.Name = "NameText";
-            NameText.Size = new Size(334, 35);
+            NameText.Size = new Size(330, 35);
             NameText.TabIndex = 12;
             NameText.TextAlign = HorizontalAlignment.Center;
             // 
@@ -204,8 +204,8 @@
             PhoneNumberText.BackColor = Color.FromArgb(224, 224, 224);
             PhoneNumberText.BorderStyle = BorderStyle.None;
             PhoneNumberText.Font = new Font("Arial", 18F);
-            PhoneNumberText.Location = new Point(381, 251);
-            PhoneNumberText.Margin = new Padding(3, 5, 3, 5);
+            PhoneNumberText.Location = new Point(381, 249);
+            PhoneNumberText.Margin = new Padding(3, 4, 3, 4);
             PhoneNumberText.Name = "PhoneNumberText";
             PhoneNumberText.Size = new Size(330, 35);
             PhoneNumberText.TabIndex = 15;
@@ -260,7 +260,7 @@
             MiddleName.BorderStyle = BorderStyle.None;
             MiddleName.Font = new Font("Arial", 18F);
             MiddleName.Location = new Point(14, 364);
-            MiddleName.Margin = new Padding(3, 5, 3, 5);
+            MiddleName.Margin = new Padding(3, 4, 3, 4);
             MiddleName.Name = "MiddleName";
             MiddleName.Size = new Size(330, 35);
             MiddleName.TabIndex = 21;
@@ -367,7 +367,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
             ClientSize = new Size(725, 639);
-            Controls.Add(PasswordText);
             Controls.Add(label1);
             Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
@@ -375,6 +374,7 @@
             Controls.Add(listBox1);
             Controls.Add(WrongPasswordLabel);
             Controls.Add(label14);
+            Controls.Add(PasswordText);
             Controls.Add(label10);
             Controls.Add(WrongMiddlenameLabel);
             Controls.Add(label12);
@@ -427,11 +427,11 @@
         private TextBox MiddleName;
         private Label WrongPasswordLabel;
         private Label label14;
+        private TextBox PasswordText;
         private ListBox listBox1;
         private ListBox listBox2;
         private Button LogInButton;
         private Label label1;
         private LinkLabel LogUpLinkLabel;
-        private TextBox PasswordText;
     }
 }
