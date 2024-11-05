@@ -25,7 +25,8 @@ namespace Student_Note
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
-
+            Program.isLog = true;
+            Program.ReplaceForm(new MainForm(), this);
         }
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

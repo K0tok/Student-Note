@@ -27,5 +27,11 @@ namespace Student_Note
         {
             Program.ReplaceForm(new LogInForm(), this);
         }
+
+        private void LogInButton_Click(object sender, EventArgs e)
+        {
+            Program.isLog = true;
+            Program.ReplaceForm(new MainForm(), this);
+        }
     }
 }
