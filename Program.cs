@@ -1,4 +1,5 @@
 using Microsoft.VisualBasic.ApplicationServices;
+using Student_Note;
 
 namespace Student_Note
 {
@@ -12,6 +13,7 @@ namespace Student_Note
             Application.SetCompatibleTextRenderingDefault(true);
             Application.Run(MainForm);
         }
+        static Form MainForm = new MainForm();
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
             // Закрыть текущую (главную) форму
@@ -22,7 +24,7 @@ namespace Student_Note
 
         }
 
-        static Form MainForm = new MainForm();
         static public bool isLog = false;
+        
     }
 }

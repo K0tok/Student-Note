@@ -67,6 +67,7 @@
             HeaderLabel.TabIndex = 1;
             HeaderLabel.Text = "Электронный дневник";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
+            HeaderLabel.Click += HeaderLabel_Click;
             // 
             // WeekLable
             // 
