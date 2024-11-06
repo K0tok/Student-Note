@@ -31,29 +31,29 @@
             HeaderLabel = new Label();
             WrongSurnameLabel = new Label();
             LoginLabel = new Label();
-            LoginTextBox = new TextBox();
+            SurnameText = new TextBox();
             WrongMailLabel = new Label();
             label2 = new Label();
-            textBox1 = new TextBox();
+            EmailText = new TextBox();
             WrongNameLable = new Label();
             label4 = new Label();
-            textBox2 = new TextBox();
+            NameText = new TextBox();
             WrongPhoneLabel = new Label();
             label6 = new Label();
-            textBox3 = new TextBox();
+            PhoneNumberText = new TextBox();
             label8 = new Label();
             label10 = new Label();
             WrongMiddlenameLabel = new Label();
             label12 = new Label();
-            textBox6 = new TextBox();
+            MiddleName = new TextBox();
             WrongPasswordLabel = new Label();
             label14 = new Label();
-            textBox7 = new TextBox();
             listBox1 = new ListBox();
             listBox2 = new ListBox();
             LogInButton = new Button();
             label1 = new Label();
             LogUpLinkLabel = new LinkLabel();
+            PasswordText = new TextBox();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -93,18 +93,18 @@
             LoginLabel.TabIndex = 7;
             LoginLabel.Text = "Фамилия";
             // 
-            // LoginTextBox
+            // SurnameText
             // 
-            LoginTextBox.Anchor = AnchorStyles.Top;
-            LoginTextBox.BackColor = Color.FromArgb(224, 224, 224);
-            LoginTextBox.BorderStyle = BorderStyle.None;
-            LoginTextBox.Font = new Font("Arial", 18F);
-            LoginTextBox.Location = new Point(14, 135);
-            LoginTextBox.Margin = new Padding(3, 4, 3, 4);
-            LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.Size = new Size(330, 35);
-            LoginTextBox.TabIndex = 6;
-            LoginTextBox.TextAlign = HorizontalAlignment.Center;
+            SurnameText.Anchor = AnchorStyles.Top;
+            SurnameText.BackColor = Color.FromArgb(224, 224, 224);
+            SurnameText.BorderStyle = BorderStyle.None;
+            SurnameText.Font = new Font("Arial", 18F);
+            SurnameText.Location = new Point(14, 135);
+            SurnameText.Margin = new Padding(3, 4, 3, 4);
+            SurnameText.Name = "SurnameText";
+            SurnameText.Size = new Size(330, 35);
+            SurnameText.TabIndex = 6;
+            SurnameText.TextAlign = HorizontalAlignment.Center;
             // 
             // WrongMailLabel
             // 
@@ -128,18 +128,18 @@
             label2.TabIndex = 10;
             label2.Text = "Почта";
             // 
-            // textBox1
+            // EmailText
             // 
-            textBox1.Anchor = AnchorStyles.Top;
-            textBox1.BackColor = Color.FromArgb(224, 224, 224);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Arial", 18F);
-            textBox1.Location = new Point(381, 135);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(330, 35);
-            textBox1.TabIndex = 9;
-            textBox1.TextAlign = HorizontalAlignment.Center;
+            EmailText.Anchor = AnchorStyles.Top;
+            EmailText.BackColor = Color.FromArgb(224, 224, 224);
+            EmailText.BorderStyle = BorderStyle.None;
+            EmailText.Font = new Font("Arial", 18F);
+            EmailText.Location = new Point(381, 135);
+            EmailText.Margin = new Padding(3, 4, 3, 4);
+            EmailText.Name = "EmailText";
+            EmailText.Size = new Size(330, 35);
+            EmailText.TabIndex = 9;
+            EmailText.TextAlign = HorizontalAlignment.Center;
             // 
             // WrongNameLable
             // 
@@ -163,18 +163,18 @@
             label4.TabIndex = 13;
             label4.Text = "Имя";
             // 
-            // textBox2
+            // NameText
             // 
-            textBox2.Anchor = AnchorStyles.Top;
-            textBox2.BackColor = Color.FromArgb(224, 224, 224);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Arial", 18F);
-            textBox2.Location = new Point(14, 249);
-            textBox2.Margin = new Padding(3, 4, 3, 4);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(330, 35);
-            textBox2.TabIndex = 12;
-            textBox2.TextAlign = HorizontalAlignment.Center;
+            NameText.Anchor = AnchorStyles.Top;
+            NameText.BackColor = Color.FromArgb(224, 224, 224);
+            NameText.BorderStyle = BorderStyle.None;
+            NameText.Font = new Font("Arial", 18F);
+            NameText.Location = new Point(14, 249);
+            NameText.Margin = new Padding(3, 4, 3, 4);
+            NameText.Name = "NameText";
+            NameText.Size = new Size(330, 35);
+            NameText.TabIndex = 12;
+            NameText.TextAlign = HorizontalAlignment.Center;
             // 
             // WrongPhoneLabel
             // 
@@ -198,18 +198,18 @@
             label6.TabIndex = 16;
             label6.Text = "Номер телефона";
             // 
-            // textBox3
+            // PhoneNumberText
             // 
-            textBox3.Anchor = AnchorStyles.Top;
-            textBox3.BackColor = Color.FromArgb(224, 224, 224);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Arial", 18F);
-            textBox3.Location = new Point(381, 249);
-            textBox3.Margin = new Padding(3, 4, 3, 4);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(330, 35);
-            textBox3.TabIndex = 15;
-            textBox3.TextAlign = HorizontalAlignment.Center;
+            PhoneNumberText.Anchor = AnchorStyles.Top;
+            PhoneNumberText.BackColor = Color.FromArgb(224, 224, 224);
+            PhoneNumberText.BorderStyle = BorderStyle.None;
+            PhoneNumberText.Font = new Font("Arial", 18F);
+            PhoneNumberText.Location = new Point(381, 249);
+            PhoneNumberText.Margin = new Padding(3, 4, 3, 4);
+            PhoneNumberText.Name = "PhoneNumberText";
+            PhoneNumberText.Size = new Size(330, 35);
+            PhoneNumberText.TabIndex = 15;
+            PhoneNumberText.TextAlign = HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -253,18 +253,18 @@
             label12.TabIndex = 22;
             label12.Text = "Отчество*";
             // 
-            // textBox6
+            // MiddleName
             // 
-            textBox6.Anchor = AnchorStyles.Top;
-            textBox6.BackColor = Color.FromArgb(224, 224, 224);
-            textBox6.BorderStyle = BorderStyle.None;
-            textBox6.Font = new Font("Arial", 18F);
-            textBox6.Location = new Point(14, 364);
-            textBox6.Margin = new Padding(3, 4, 3, 4);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(330, 35);
-            textBox6.TabIndex = 21;
-            textBox6.TextAlign = HorizontalAlignment.Center;
+            MiddleName.Anchor = AnchorStyles.Top;
+            MiddleName.BackColor = Color.FromArgb(224, 224, 224);
+            MiddleName.BorderStyle = BorderStyle.None;
+            MiddleName.Font = new Font("Arial", 18F);
+            MiddleName.Location = new Point(14, 364);
+            MiddleName.Margin = new Padding(3, 4, 3, 4);
+            MiddleName.Name = "MiddleName";
+            MiddleName.Size = new Size(330, 35);
+            MiddleName.TabIndex = 21;
+            MiddleName.TextAlign = HorizontalAlignment.Center;
             // 
             // WrongPasswordLabel
             // 
@@ -287,19 +287,6 @@
             label14.Size = new Size(119, 35);
             label14.TabIndex = 28;
             label14.Text = "Пароль";
-            // 
-            // textBox7
-            // 
-            textBox7.Anchor = AnchorStyles.Top;
-            textBox7.BackColor = Color.FromArgb(224, 224, 224);
-            textBox7.BorderStyle = BorderStyle.None;
-            textBox7.Font = new Font("Arial", 18F);
-            textBox7.Location = new Point(381, 477);
-            textBox7.Margin = new Padding(3, 4, 3, 4);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(330, 35);
-            textBox7.TabIndex = 27;
-            textBox7.TextAlign = HorizontalAlignment.Center;
             // 
             // listBox1
             // 
@@ -345,7 +332,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(294, 607);
+            label1.Location = new Point(256, 458);
             label1.Name = "label1";
             label1.Size = new Size(101, 20);
             label1.TabIndex = 33;
@@ -354,13 +341,26 @@
             // LogUpLinkLabel
             // 
             LogUpLinkLabel.AutoSize = true;
-            LogUpLinkLabel.Location = new Point(383, 607);
+            LogUpLinkLabel.Location = new Point(335, 458);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(55, 20);
             LogUpLinkLabel.TabIndex = 34;
             LogUpLinkLabel.TabStop = true;
             LogUpLinkLabel.Text = "Войти!";
             LogUpLinkLabel.LinkClicked += LogUpLinkLabel_LinkClicked;
+            // 
+            // PasswordText
+            // 
+            PasswordText.Anchor = AnchorStyles.Top;
+            PasswordText.BackColor = Color.FromArgb(224, 224, 224);
+            PasswordText.BorderStyle = BorderStyle.None;
+            PasswordText.Font = new Font("Arial", 18F);
+            PasswordText.Location = new Point(381, 479);
+            PasswordText.Margin = new Padding(3, 5, 3, 5);
+            PasswordText.Name = "PasswordText";
+            PasswordText.Size = new Size(330, 35);
+            PasswordText.TabIndex = 35;
+            PasswordText.TextAlign = HorizontalAlignment.Center;
             // 
             // SignUpForm
             // 
@@ -375,24 +375,24 @@
             Controls.Add(listBox1);
             Controls.Add(WrongPasswordLabel);
             Controls.Add(label14);
-            Controls.Add(textBox7);
+            Controls.Add(PasswordText);
             Controls.Add(label10);
             Controls.Add(WrongMiddlenameLabel);
             Controls.Add(label12);
-            Controls.Add(textBox6);
+            Controls.Add(MiddleName);
             Controls.Add(label8);
             Controls.Add(WrongPhoneLabel);
             Controls.Add(label6);
-            Controls.Add(textBox3);
+            Controls.Add(PhoneNumberText);
             Controls.Add(WrongNameLable);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(NameText);
             Controls.Add(WrongMailLabel);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(EmailText);
             Controls.Add(WrongSurnameLabel);
             Controls.Add(LoginLabel);
-            Controls.Add(LoginTextBox);
+            Controls.Add(SurnameText);
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 4, 3, 4);
@@ -409,26 +409,26 @@
         private Label HeaderLabel;
         private Label WrongSurnameLabel;
         private Label LoginLabel;
-        private TextBox LoginTextBox;
+        private TextBox SurnameText;
         private Label WrongMailLabel;
         private Label label2;
-        private TextBox textBox1;
+        private TextBox EmailText;
         private Label WrongNameLable;
         private Label label4;
-        private TextBox textBox2;
+        private TextBox NameText;
         private Label WrongPhoneLabel;
         private Label label6;
-        private TextBox textBox3;
+        private TextBox PhoneNumberText;
         private Label label7;
         private Label label8;
         private Label label9;
         private Label label10;
         private Label WrongMiddlenameLabel;
         private Label label12;
-        private TextBox textBox6;
+        private TextBox MiddleName;
         private Label WrongPasswordLabel;
         private Label label14;
-        private TextBox textBox7;
+        private TextBox PasswordText;
         private ListBox listBox1;
         private ListBox listBox2;
         private Button LogInButton;

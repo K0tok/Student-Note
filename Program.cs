@@ -21,7 +21,6 @@ namespace Student_Note
             // Показать вторую форму
             newForm.Show();
             oldForm.Hide();
-
         }
 
         static public bool isLog = false;

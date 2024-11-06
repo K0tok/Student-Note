@@ -66,7 +66,6 @@
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(289, 28);
             LoginTextBox.TabIndex = 1;
-            LoginTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // LoginLabel
             // 
@@ -98,7 +97,6 @@
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(289, 28);
             PasswordTextBox.TabIndex = 3;
-            PasswordTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // WrongLoginLabel
             // 
