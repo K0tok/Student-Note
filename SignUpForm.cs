@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Student_Note;
@@ -30,8 +31,53 @@ namespace Student_Note
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
+            string surname = SurnameText.Text;
+            string name = NameText.Text;
+            string middleName = MiddleName.Text;
+            string gender = listBox1.Text;
+            string email = EmailText.Text;
+            string phohneNumber = PhoneNumberText.Text;
+            string status = listBox2.Text;
+            string password = PasswordText.Text;
+
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
+            {
+                MessageBox.Show("Неверный формат пароля");
+                //return;
+            }
+            if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                MessageBox.Show("Неправильный формат почты");
+                //return;
+            }
+            if (!Regex.IsMatch(phohneNumber, @"^\+?[1-9]\d{9,14}$"))
+            {
+                MessageBox.Show("Неправильный формат номера телефона");
+                //return;
+            }
+            if (!Regex.IsMatch(surname, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
+            {
+                MessageBox.Show("Неправильный формат фамилии");
+                //return;
+            }
+            if (!Regex.IsMatch(name, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
+            {
+                MessageBox.Show("Неправильный формат имени");
+                //return;
+            }
+            if (!Regex.IsMatch(middleName, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
+            {
+                MessageBox.Show("Неправильный формат отчества");
+                //return;
+            }
+
+            //...
+            // Проверка от сервера
             Program.isLog = true;
-            Program.ReplaceForm(new MainForm(), this);
+            //..
+
+            if (Program.isLog)
+                Program.ReplaceForm(new MainForm(), this);
         }
     }
 }

@@ -19,7 +19,6 @@ namespace Student_Note
             // Показать вторую форму
             newForm.Show();
             oldForm.Hide();
-
         }
 
         static Form MainForm = new MainForm();

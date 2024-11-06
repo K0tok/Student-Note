@@ -76,7 +76,7 @@
             WeekLable.AutoSize = true;
             WeekLable.Location = new Point(54, 95);
             WeekLable.Name = "WeekLable";
-            WeekLable.Size = new Size(178, 27);
+            WeekLable.Size = new Size(222, 35);
             WeekLable.TabIndex = 2;
             WeekLable.Text = "Выбор недели:";
             // 
@@ -85,7 +85,7 @@
             WeekComboBox.FormattingEnabled = true;
             WeekComboBox.Location = new Point(238, 91);
             WeekComboBox.Name = "WeekComboBox";
-            WeekComboBox.Size = new Size(363, 35);
+            WeekComboBox.Size = new Size(363, 43);
             WeekComboBox.TabIndex = 3;
             WeekComboBox.Text = "4 неделя (07.10.24 - 13.10.24)";
             // 
@@ -161,8 +161,43 @@
             FridayTLP.RowStyles.Add(new RowStyle());
             FridayTLP.RowStyles.Add(new RowStyle());
             FridayTLP.RowStyles.Add(new RowStyle());
-            FridayTLP.Size = new Size(791, 265);
-            FridayTLP.TabIndex = 43;
+            FridayTLP.Size = new Size(460, 265);
+            FridayTLP.TabIndex = 40;
+            // 
+            // ThursdayDateLabel
+            // 
+            ThursdayDateLabel.AutoSize = true;
+            ThursdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ThursdayDateLabel.Location = new Point(884, 382);
+            ThursdayDateLabel.Name = "ThursdayDateLabel";
+            ThursdayDateLabel.Size = new Size(101, 46);
+            ThursdayDateLabel.TabIndex = 39;
+            ThursdayDateLabel.Text = "10.10";
+            // 
+            // ThursdayLabel
+            // 
+            ThursdayLabel.AutoSize = true;
+            ThursdayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ThursdayLabel.Location = new Point(513, 367);
+            ThursdayLabel.Name = "ThursdayLabel";
+            ThursdayLabel.Size = new Size(246, 67);
+            ThursdayLabel.TabIndex = 38;
+            ThursdayLabel.Text = "Четверг";
+            // 
+            // ThursdayTLP
+            // 
+            ThursdayTLP.ColumnCount = 3;
+            ThursdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 48F));
+            ThursdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            ThursdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            ThursdayTLP.Location = new Point(508, 422);
+            ThursdayTLP.Name = "ThursdayTLP";
+            ThursdayTLP.RowCount = 3;
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.Size = new Size(460, 265);
+            ThursdayTLP.TabIndex = 37;
             // 
             // WednesdayDateLabel
             // 
@@ -360,7 +395,7 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(14F, 27F);
+            AutoScaleDimensions = new SizeF(17F, 35F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSize = true;
