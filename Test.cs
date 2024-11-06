@@ -10,20 +10,11 @@ using System.Windows.Forms;
 
 namespace Student_Note
 {
-    public partial class MainForm : Form
+    public partial class Test : Form
     {
-        public MainForm()
+        public Test()
         {
             InitializeComponent();
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            bool isLog = Program.isLog;
-            if (!isLog)
-            {
-                Program.ReplaceForm(new LogInForm(), this);
-            }
         }
     }
 }

@@ -46,6 +46,8 @@ namespace Student_Note
 
             if (Program.isLog) 
                 Program.ReplaceForm(new MainForm(), this);
+            Program.isLog = true;
+            Program.ReplaceForm(new MainForm(), this);
         }
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
