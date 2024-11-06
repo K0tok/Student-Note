@@ -299,7 +299,7 @@
             listBox1.Items.AddRange(new object[] { "Мужской", "Женский" });
             listBox1.Location = new Point(12, 359);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(289, 0);
+            listBox1.Size = new Size(289, 27);
             listBox1.TabIndex = 30;
             // 
             // listBox2
@@ -312,7 +312,7 @@
             listBox2.Items.AddRange(new object[] { "Студент", "Староста" });
             listBox2.Location = new Point(333, 274);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(289, 0);
+            listBox2.Size = new Size(289, 27);
             listBox2.TabIndex = 31;
             // 
             // LogInButton
@@ -330,7 +330,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(257, 458);
+            label1.Location = new Point(256, 458);
             label1.Name = "label1";
             label1.Size = new Size(80, 15);
             label1.TabIndex = 33;
