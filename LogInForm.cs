@@ -22,7 +22,10 @@ namespace Student_Note
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
-
+            if (Program.isLog)
+            {
+                Program.ReplaceForm(Program.MainForm, this);
+            }
         }
         private void LogInButton_Click(object sender, EventArgs e)
         {
