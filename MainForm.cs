@@ -19,14 +19,8 @@ namespace Student_Note
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-
             // Вызов функции, которая загрузит и выведет данные
-            await new Data_Base().PrintScheduleAsync();
-
-            if (!Program.isLog)
-            {
-                Program.ReplaceForm(new LogInForm(), this);
-            }
+            await new Data_Base().GetScheduleAsync();
         }
 
         private void HeaderLabel_Click(object sender, EventArgs e)

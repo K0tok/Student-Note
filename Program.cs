@@ -11,9 +11,11 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(MainForm);
+            Application.Run(LogInForm);
         }
-        static Form MainForm = new MainForm();
+
+        static public Form MainForm = new MainForm();
+        static public Form LogInForm = new LogInForm();
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
             // Закрыть текущую (главную) форму
