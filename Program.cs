@@ -18,9 +18,7 @@ namespace Student_Note
         static public Form LogInForm = new LogInForm();
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
-            // Закрыть текущую (главную) форму
             newForm.FormClosed += (s, args) => oldForm.Close();
-            // Показать вторую форму
             newForm.Show();
             oldForm.Hide();
         }
