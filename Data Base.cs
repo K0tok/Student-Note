@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Student_Note
 {
@@ -13,31 +14,70 @@ namespace Student_Note
         // Метод для загрузки и вывода расписания
         public async Task GetScheduleAsync()
         {
-            string url = "https://nti.urfu.ru/schedule/schedule_students.json?17";
             try
             {
-                HttpResponseMessage response = await new HttpClient().GetAsync(url);
-                response.EnsureSuccessStatusCode();
+                // Загружаем JSON
+                await GetJson();
 
-                string jsonString = await response.Content.ReadAsStringAsync();
+                // Десериализация расписания
+                var schedule = Deserialize(json);
 
-                // Десериализуем JSON в список объектов ScheduleItem
-                var scheduleData = JsonConvert.DeserializeObject<ScheduleData>(jsonString);
-
-                MessageBox.Show(jsonString.Substring(0, 100));
-
-
-                if (scheduleData != null && scheduleData.Groups != null)
+                // Проверяем, есть ли группы
+                if (schedule != null && schedule.Groups != null && schedule.Groups.Count > 0)
                 {
-                    foreach (var item in scheduleData.Groups)
+                    //MessageBox.Show("Группы найдены! Вывод расписания:");
+
+                    // Обрабатываем каждую группу
+                    foreach (var group in schedule.Groups)
                     {
-                        foreach (var item1 in item.Days)
+                        MessageBox.Show($"\nГруппа: {group.Key}");
+
+                        // Проходим по дням недели
+                        foreach (var day in new Dictionary<string, DaySchedule>
+                    {
+                        {"Понедельник", group.Value.Monday},
+                        {"Вторник", group.Value.Tuesday},
+                        {"Среда", group.Value.Wednesday},
+                        {"Четверг", group.Value.Thursday},
+                        {"Пятница", group.Value.Friday},
+                        {"Суббота", group.Value.Saturday}
+                    })
                         {
-                            foreach (var item2 in item1.Lessons)
+                            MessageBox.Show($"  {day.Key}:");
+                            if (day.Value == null)
                             {
-                                foreach (var item3 in item2.Couples)
+                                //MessageBox.Show("    Данных о расписании нет.");
+                                continue;
+                            }
+
+                            // Обрабатываем каждый период
+                            foreach (var period in new Dictionary<string, List<Lesson>>
+                        {
+                            {"I", day.Value.I},
+                            {"II", day.Value.II},
+                            {"III", day.Value.III},
+                            {"IV", day.Value.IV},
+                            {"V", day.Value.V},
+                            {"I - В", day.Value.I_V},
+                            {"II - В", day.Value.II_V}
+                        })
+                            {
+                                if (period.Value == null || period.Value.Count == 0)
                                 {
-                                    MessageBox.Show($"{item3.a}{item3.n}{item3.p}" );
+                                    //MessageBox.Show($"    Пара: {period.Key} - данных нет.");
+                                    continue;
+                                }
+
+                                MessageBox.Show($"    {period.Key}:");
+                                foreach (var lesson in period.Value)
+                                {
+                                    if (string.IsNullOrWhiteSpace(lesson.Name))
+                                    {
+                                        //MessageBox.Show("      Ошибка: название предмета не указано!");
+                                        continue;
+                                    }
+
+                                    MessageBox.Show($"      Предмет: {lesson.Name}, Аудитория: {lesson.Auditorium}, Преподаватель: {lesson.Professor}");
                                 }
                             }
                         }
@@ -45,24 +85,64 @@ namespace Student_Note
                 }
                 else
                 {
-                    MessageBox.Show("Не удалось десерализировать" + scheduleData.Groups);
+                    MessageBox.Show("Группы не найдены или данные отсутствуют.");
                 }
-
-
-                //MessageBox.Show(scheduleData.Schedule.ToString());
-                // Выводим расписание
-                //if (scheduleData != null && scheduleData.Schedule != null)
-                //{
-                //    foreach (var item in scheduleData.Schedule)
-                //    {
-                //        MessageBox.Show($"Дата: {item.Date}, Время: {item.Time}, Предмет: {item.Subject}, Аудитория: {item.Room}");
-                //    }
-                //}
-                //MesszageBox.Show($"Process try was be finish");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка: {ex.Message}");
+                MessageBox.Show($"Произошла ошибка: {ex.Message}");
+            }
+
+        }
+
+        static public string json = "{}";
+
+        static public async Task GetJson()
+        {
+            // Чтение и десериализация JSON из URL
+            string url = "https://nti.urfu.ru/schedule/schedule_students.json";
+            HttpClient client = new HttpClient();
+
+            try
+            {
+                json = await client.GetStringAsync(url);
+                MessageBox.Show("Полученный JSON загружен успешно.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Не удалось загрузить JSON: {ex.Message}");
+                json = "{}"; // Устанавливаем пустой JSON, чтобы избежать дальнейших ошибок
+            }
+        }
+
+        public static Schedule Deserialize(string json)
+        {
+            try
+            {
+                // Используем JObject для обработки динамических данных
+                var schedule = new Schedule { Groups = new Dictionary<string, GroupSchedule>() };
+
+                var jsonObject = JsonConvert.DeserializeObject<JObject>(json);
+                foreach (var property in jsonObject.Properties())
+                {
+                    // Предполагается, что каждая группа соответствует структуре GroupSchedule
+                    try
+                    {
+                        var groupSchedule = property.Value.ToObject<GroupSchedule>();
+                        schedule.Groups[property.Name] = groupSchedule;
+                    }
+                    catch
+                    {
+                        MessageBox.Show($"Ошибка при обработке группы: {property.Name}. Пропускаем...");
+                    }
+                }
+
+                return schedule;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка десериализации JSON: {ex.Message}");
+                return null;
             }
         }
     }

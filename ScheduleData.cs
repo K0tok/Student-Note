@@ -1,33 +1,75 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
-namespace Student_Note
+public class Lesson
 {
-    public class ScheduleData
-    {
-        public List<Group>? Groups { get; set; }
-    }
+    [JsonProperty("n")]
+    public string Name { get; set; }
 
-    public class Group
-    {
-        public List<Day>? Days { get; set; }
-    }
+    [JsonProperty("a")]
+    [JsonConverter(typeof(AuditoriumConverter))] // Используем кастомный конвертер
+    public string Auditorium { get; set; }
 
-    public class Day
-    {
-        public List<Lesson>? Lessons { get; set; }
-    }
+    [JsonProperty("p")]
+    public string Professor { get; set; }
+}
 
-    public class Lesson
-    {
-        public List<Couple>? Couples { get; set; }
-    }
 
-    public class Couple
+public class DaySchedule
+{
+    public List<Lesson> I { get; set; }
+    public List<Lesson> II { get; set; }
+    public List<Lesson> III { get; set; }
+    public List<Lesson> IV { get; set; }
+    public List<Lesson> V { get; set; }
+    [JsonProperty("I - В")]
+    public List<Lesson> I_V { get; set; }
+    [JsonProperty("II - В")]
+    public List<Lesson> II_V { get; set; }
+}
+
+public class GroupSchedule
+{
+    [JsonProperty("ПОНЕДЕЛЬНИК")]
+    public DaySchedule Monday { get; set; }
+
+    [JsonProperty("ВТОРНИК")]
+    public DaySchedule Tuesday { get; set; }
+
+    [JsonProperty("СРЕДА")]
+    public DaySchedule Wednesday { get; set; }
+
+    [JsonProperty("ЧЕТВЕРГ")]
+    public DaySchedule Thursday { get; set; }
+
+    [JsonProperty("ПЯТНИЦА")]
+    public DaySchedule Friday { get; set; }
+
+    [JsonProperty("СУББОТА")]
+    public DaySchedule Saturday { get; set; }
+}
+
+public class Schedule
+{
+    public Dictionary<string, GroupSchedule> Groups { get; set; }
+
+    public static Schedule Deserialize(string json)
     {
-        public string? n { get; set; }
-        public string? a { get; set; }
-        public string? p { get; set; }
+        var schedule = new Schedule { Groups = new Dictionary<string, GroupSchedule>() };
+
+        var jsonObject = JsonConvert.DeserializeObject<JObject>(json);
+        foreach (var property in jsonObject.Properties())
+        {
+            // Предполагается, что каждая группа соответствует структуре GroupSchedule
+            var groupSchedule = property.Value.ToObject<GroupSchedule>();
+            schedule.Groups[property.Name] = groupSchedule;
+        }
+
+        return schedule;
     }
 }
