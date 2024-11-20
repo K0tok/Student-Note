@@ -23,7 +23,7 @@ namespace Student_Note
         {
             // Вызов функции, которая загрузит и выведет данные
             await new Server().GetScheduleAsync();
-            Data_Base.DBConnection();
+            Data_Base.DBConnectionOpen();
 
             // Получение списка недель 
             DateTime startDate = new DateTime(DateTime.Now.Year, 9, 2);

@@ -334,7 +334,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(229, 460);
+            label1.Location = new Point(247, 460);
             label1.Name = "label1";
             label1.Size = new Size(80, 15);
             label1.TabIndex = 33;
@@ -344,7 +344,7 @@
             // 
             LogUpLinkLabel.AutoSize = true;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(323, 460);
+            LogUpLinkLabel.Location = new Point(333, 460);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(43, 15);
             LogUpLinkLabel.TabIndex = 34;
@@ -370,7 +370,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
-            ClientSize = new Size(634, 479);
+            ClientSize = new Size(634, 490);
             Controls.Add(label1);
             Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
