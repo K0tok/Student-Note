@@ -41,7 +41,7 @@ public class Data_Base
     }
 
     // Для запросов типа INSERT, UPDATE, DELETE
-    public static ResponseMesaage ExecuteNonQueryInDB(string query, params object[] parameters)
+    public static ResponseMesaage QuerySendSet(string query, params object[] parameters)
     {
         if (sqliteConnect == null || sqliteConnect.State != System.Data.ConnectionState.Open)
         {
@@ -75,7 +75,7 @@ public class Data_Base
     //Data_Base.DBConnectionClose();
 
     // Для запросов SELECT
-    public static ResponseMesaage ExecuteQueryInDB(string query, out List<Dictionary<string, object>> result, params object[] parameters)
+    public static ResponseMesaage QuerySendGet(string query, out List<Dictionary<string, object>> result, params object[] parameters)
     {
         result = new List<Dictionary<string, object>>();
 
