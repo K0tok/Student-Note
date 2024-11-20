@@ -94,9 +94,9 @@ namespace Student_Note
 
         }
 
-        static public string json = "{}";
+        public static string json = "{}";
 
-        static public async Task GetJson()
+        public static async Task GetJson()
         {
             // Чтение и десериализация JSON из URL
             string url = "https://nti.urfu.ru/schedule/schedule_students.json";
@@ -143,6 +143,30 @@ namespace Student_Note
                 MessageBox.Show($"Ошибка десериализации JSON: {ex.Message}");
                 return null;
             }
+        }
+        public static bool Entry(string password, string emailOrPhohneNumber)
+        {
+            string query = "SELECT * FROM Users AS U \r\nINNER JOIN Passwords As P ON U.id = P.id \r\nWHERE (U.email = \"offernomail@gmail.com\" or phone_number = \"offernomail@gmail.com\") AND P.password = \"19643826kurwabobr111\"";
+
+            Data_Base.DBConnectionOpen();
+            if (Data_Base.QuerySendGet(query, out var result, emailOrPhohneNumber, emailOrPhohneNumber, password).Status == 200)
+            {
+                foreach (var row in result)
+                {
+                    //MessageBox.Show($"Name: {row["Name"]}, Age: {row["Age"]}");
+                    MessageBox.Show(row["Email"].ToString());
+                    Program.isLog = true;
+                }
+            }
+            else {
+                MessageBox.Show(".Status != 200");
+            }
+            
+
+            Data_Base.DBConnectionClose();
+
+
+            return true; 
         }
     }
 }
