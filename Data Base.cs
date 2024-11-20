@@ -14,7 +14,7 @@ public class ResponseMesaage
 public class Data_Base
 {
     // Подкючение к бд
-    public static SqliteConnection sqliteConnect;
+    public static SqliteConnection? sqliteConnect;
     // открытие подключения
     public static void DBConnectionOpen()
     {
