@@ -21,13 +21,6 @@ namespace Student_Note
             newForm.FormClosed += (s, args) => oldForm.Close();
             newForm.Show();
             oldForm.Hide();
-
-            //закрытие БД
-            if (Data_Base.sqliteConnect != null && Data_Base.sqliteConnect.State == System.Data.ConnectionState.Open)
-            {
-                Data_Base.sqliteConnect.Close();
-                MessageBox.Show("Соединение закрыто.");
-            }
         }
 
         static public bool isLog = false;
