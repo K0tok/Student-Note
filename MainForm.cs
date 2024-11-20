@@ -20,7 +20,8 @@ namespace Student_Note
         private /*async*/ void MainForm_Load(object sender, EventArgs e)
         {
             // Вызов функции, которая загрузит и выведет данные
-            //await new Data_Base().GetScheduleAsync();
+            //await new Server().GetScheduleAsync();
+            //Data_Base.DBConnection();
         }
 
         private void HeaderLabel_Click(object sender, EventArgs e)
