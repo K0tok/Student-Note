@@ -62,7 +62,7 @@
             LoginTextBox.BackColor = Color.FromArgb(224, 224, 224);
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Font = new Font("Arial", 18F);
-            LoginTextBox.Location = new Point(173, 107);
+            LoginTextBox.Location = new Point(173, 115);
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(289, 28);
             LoginTextBox.TabIndex = 1;
@@ -70,9 +70,8 @@
             // LoginLabel
             // 
             LoginLabel.AutoSize = true;
-            LoginLabel.BackColor = Color.Transparent;
             LoginLabel.Font = new Font("Arial", 18F);
-            LoginLabel.Location = new Point(173, 74);
+            LoginLabel.Location = new Point(173, 85);
             LoginLabel.Name = "LoginLabel";
             LoginLabel.Size = new Size(289, 27);
             LoginLabel.TabIndex = 2;
@@ -81,9 +80,8 @@
             // PasswordLabel
             // 
             PasswordLabel.AutoSize = true;
-            PasswordLabel.BackColor = Color.Transparent;
             PasswordLabel.Font = new Font("Arial", 18F);
-            PasswordLabel.Location = new Point(173, 159);
+            PasswordLabel.Location = new Point(173, 162);
             PasswordLabel.Name = "PasswordLabel";
             PasswordLabel.Size = new Size(95, 27);
             PasswordLabel.TabIndex = 4;
@@ -97,17 +95,15 @@
             PasswordTextBox.Font = new Font("Arial", 18F);
             PasswordTextBox.Location = new Point(173, 192);
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.Size = new Size(289, 28);
             PasswordTextBox.TabIndex = 3;
             // 
             // WrongLoginLabel
             // 
             WrongLoginLabel.AutoSize = true;
-            WrongLoginLabel.BackColor = Color.Transparent;
             WrongLoginLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongLoginLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongLoginLabel.Location = new Point(173, 138);
+            WrongLoginLabel.Location = new Point(173, 146);
             WrongLoginLabel.Name = "WrongLoginLabel";
             WrongLoginLabel.Size = new Size(118, 15);
             WrongLoginLabel.TabIndex = 5;
@@ -117,7 +113,6 @@
             // WrongPasswordLabel
             // 
             WrongPasswordLabel.AutoSize = true;
-            WrongPasswordLabel.BackColor = Color.Transparent;
             WrongPasswordLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongPasswordLabel.ForeColor = Color.FromArgb(255, 59, 48);
             WrongPasswordLabel.Location = new Point(173, 223);
@@ -142,7 +137,6 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
             label6.Location = new Point(216, 300);
             label6.Name = "label6";
             label6.Size = new Size(83, 15);
@@ -152,7 +146,6 @@
             // LogUpLinkLabel
             // 
             LogUpLinkLabel.AutoSize = true;
-            LogUpLinkLabel.BackColor = Color.Transparent;
             LogUpLinkLabel.Location = new Point(297, 300);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(122, 15);
@@ -164,7 +157,6 @@
             // WrongDataLabel
             // 
             WrongDataLabel.AutoSize = true;
-            WrongDataLabel.BackColor = Color.Transparent;
             WrongDataLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongDataLabel.ForeColor = Color.FromArgb(255, 59, 48);
             WrongDataLabel.Location = new Point(230, 317);

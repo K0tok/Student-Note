@@ -40,8 +40,6 @@ namespace Student_Note
             string status = listBox2.Text;
             string password = PasswordText.Text;
 
-
-
             if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
             {
                 MessageBox.Show("Неверный формат пароля");
