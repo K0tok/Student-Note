@@ -132,7 +132,7 @@
             FridayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             FridayDateLabel.AutoSize = true;
             FridayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FridayDateLabel.Location = new Point(704, 712);
+            FridayDateLabel.Location = new Point(380, 714);
             FridayDateLabel.Name = "FridayDateLabel";
             FridayDateLabel.Size = new Size(84, 37);
             FridayDateLabel.TabIndex = 45;
@@ -284,7 +284,7 @@
             SaturdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SaturdayDateLabel.AutoSize = true;
             SaturdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            SaturdayDateLabel.Location = new Point(631, 712);
+            SaturdayDateLabel.Location = new Point(230, 714);
             SaturdayDateLabel.Name = "SaturdayDateLabel";
             SaturdayDateLabel.Size = new Size(84, 37);
             SaturdayDateLabel.TabIndex = 48;
@@ -322,7 +322,7 @@
             ThursdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ThursdayDateLabel.AutoSize = true;
             ThursdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ThursdayDateLabel.Location = new Point(631, 371);
+            ThursdayDateLabel.Location = new Point(233, 371);
             ThursdayDateLabel.Name = "ThursdayDateLabel";
             ThursdayDateLabel.Size = new Size(84, 37);
             ThursdayDateLabel.TabIndex = 42;
@@ -346,13 +346,16 @@
             ThursdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             ThursdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             ThursdayTLP.Location = new Point(0, 414);
-            ThursdayTLP.MinimumSize = new Size(327, 0);
+            ThursdayTLP.MinimumSize = new Size(473, 265);
             ThursdayTLP.Name = "ThursdayTLP";
             ThursdayTLP.RowCount = 3;
             ThursdayTLP.RowStyles.Add(new RowStyle());
             ThursdayTLP.RowStyles.Add(new RowStyle());
             ThursdayTLP.RowStyles.Add(new RowStyle());
-            ThursdayTLP.Size = new Size(716, 265);
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.RowStyles.Add(new RowStyle());
+            ThursdayTLP.Size = new Size(473, 265);
             ThursdayTLP.TabIndex = 40;
             // 
             // TuesdayDateLabel
@@ -360,7 +363,7 @@
             TuesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TuesdayDateLabel.AutoSize = true;
             TuesdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            TuesdayDateLabel.Location = new Point(631, 15);
+            TuesdayDateLabel.Location = new Point(207, 15);
             TuesdayDateLabel.Name = "TuesdayDateLabel";
             TuesdayDateLabel.Size = new Size(84, 37);
             TuesdayDateLabel.TabIndex = 36;
@@ -385,21 +388,20 @@
             TuesdayTLP.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
             TuesdayTLP.Location = new Point(0, 55);
             TuesdayTLP.Margin = new Padding(0);
-            TuesdayTLP.MinimumSize = new Size(327, 0);
+            TuesdayTLP.MinimumSize = new Size(473, 265);
             TuesdayTLP.Name = "TuesdayTLP";
             TuesdayTLP.RowCount = 3;
             TuesdayTLP.RowStyles.Add(new RowStyle());
             TuesdayTLP.RowStyles.Add(new RowStyle());
             TuesdayTLP.RowStyles.Add(new RowStyle());
-            TuesdayTLP.Size = new Size(716, 265);
+            TuesdayTLP.Size = new Size(473, 265);
             TuesdayTLP.TabIndex = 34;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(17F, 35F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(209, 209, 214);
             ClientSize = new Size(1008, 761);
@@ -407,14 +409,17 @@
             Controls.Add(WeekComboBox);
             Controls.Add(WeekLable);
             Controls.Add(HeaderLabel);
+            Controls.Add(panel1);
             Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(6, 5, 6, 5);
-            MaximumSize = new Size(1920, 1500);
-            MinimumSize = new Size(1024, 800);
+            MaximumSize = new Size(1920, 1000);
+            MinimumSize = new Size(1024, 700);
             Name = "MainForm";
+            SizeGripStyle = SizeGripStyle.Show;
             StartPosition = FormStartPosition.Manual;
             Text = "MainForm";
             Load += MainForm_Load;
+            panel1.ResumeLayout(false);
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
@@ -430,6 +435,7 @@
         private Label HeaderLabel;
         private Label WeekLable;
         private ComboBox WeekComboBox;
+        private Panel panel1;
         private SplitContainer splitContainer1;
         private Label FridayDateLabel;
         private Label FridayLabel;
