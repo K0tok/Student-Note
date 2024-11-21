@@ -30,10 +30,10 @@ namespace Student_Note
 
         private void LogInForm_Load(object sender, EventArgs e)
         {
+            labels_invisible();
             if (Program.isLog)
             {
                 Program.ReplaceForm(Program.MainForm, this);
-                labels_invisible();
             }
         }
 

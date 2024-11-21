@@ -114,21 +114,49 @@ namespace Student_Note
             }
         }
 
-        public static Schedule Deserialize(string json)
+        public static Schedule? Deserialize(string json)
         {
             try
             {
+                // Проверяем, что входной JSON не пуст
+                if (string.IsNullOrWhiteSpace(json))
+                {
+                    MessageBox.Show("Передан пустой JSON.");
+                    return null;
+                }
+
                 // Используем JObject для обработки динамических данных
                 var schedule = new Schedule { Groups = new Dictionary<string, GroupSchedule>() };
 
+                // Десериализуем JSON в JObject
                 var jsonObject = JsonConvert.DeserializeObject<JObject>(json);
+                if (jsonObject == null)
+                {
+                    MessageBox.Show("Десериализация JSON вернула null.");
+                    return null;
+                }
+
                 foreach (var property in jsonObject.Properties())
                 {
-                    // Предполагается, что каждая группа соответствует структуре GroupSchedule
+                    // Проверяем, что свойство не null перед обработкой
+                    if (property.Value == null)
+                    {
+                        MessageBox.Show($"Группа {property.Name} содержит null. Пропускаем...");
+                        continue;
+                    }
+
                     try
                     {
+                        // Предполагается, что каждая группа соответствует структуре GroupSchedule
                         var groupSchedule = property.Value.ToObject<GroupSchedule>();
-                        schedule.Groups[property.Name] = groupSchedule;
+                        if (groupSchedule != null)
+                        {
+                            schedule.Groups[property.Name] = groupSchedule;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Не удалось преобразовать данные группы: {property.Name}");
+                        }
                     }
                     catch
                     {
@@ -144,6 +172,7 @@ namespace Student_Note
                 return null;
             }
         }
+
         public static bool Entry(string password, string emailOrPhohneNumber)
         {
             string query = "SELECT * FROM Users AS U \r\nINNER JOIN Passwords As P ON U.id = P.id \r\nWHERE (U.email = \"offernomail@gmail.com\" or phone_number = \"offernomail@gmail.com\") AND P.password = \"19643826kurwabobr111\"";

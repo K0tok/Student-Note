@@ -506,9 +506,7 @@
         private Label WrongPhoneLabel;
         private Label label6;
         private TextBox PhoneNumberText;
-        private Label label7;
         private Label label8;
-        private Label label9;
         private Label label10;
         private Label WrongMiddlenameLabel;
         private Label label12;
