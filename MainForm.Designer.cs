@@ -261,7 +261,7 @@
             SaturdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SaturdayDateLabel.AutoSize = true;
             SaturdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            SaturdayDateLabel.Location = new Point(308, 714);
+            SaturdayDateLabel.Location = new Point(389, 714);
             SaturdayDateLabel.Name = "SaturdayDateLabel";
             SaturdayDateLabel.Size = new Size(84, 37);
             SaturdayDateLabel.TabIndex = 48;
@@ -299,7 +299,7 @@
             ThursdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ThursdayDateLabel.AutoSize = true;
             ThursdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ThursdayDateLabel.Location = new Point(311, 371);
+            ThursdayDateLabel.Location = new Point(389, 371);
             ThursdayDateLabel.Name = "ThursdayDateLabel";
             ThursdayDateLabel.Size = new Size(84, 37);
             ThursdayDateLabel.TabIndex = 42;
@@ -343,7 +343,7 @@
             TuesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TuesdayDateLabel.AutoSize = true;
             TuesdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            TuesdayDateLabel.Location = new Point(285, 15);
+            TuesdayDateLabel.Location = new Point(389, 15);
             TuesdayDateLabel.Name = "TuesdayDateLabel";
             TuesdayDateLabel.Size = new Size(84, 37);
             TuesdayDateLabel.TabIndex = 36;
