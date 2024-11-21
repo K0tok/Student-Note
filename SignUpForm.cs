@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.Sqlite;
 using Student_Note;
 
 namespace Student_Note
@@ -34,15 +35,67 @@ namespace Student_Note
             string surname = SurnameText.Text;
             string name = NameText.Text;
             string middleName = MiddleName.Text;
+            if (middleName == null)
+            {
+                middleName = "-";
+            }
             string gender = listBox1.Text;
+            int sex = 1;
+            // Проверка пола
+            if(gender == "Женский")
+            {
+                sex = 0;
+            }
+            string reg_date = DateTime.Now.Date.ToString("dd-MM-yyyy");
             string email = EmailText.Text;
-            string phohneNumber = PhoneNumberText.Text;
+            string phoneNumber = PhoneNumberText.Text;
             string status = listBox2.Text;
+            int status_int = 0;
+            // Проверка статуса
+            if (status == "Староста")
+            {
+                status_int = 1;
+            }
             string password = PasswordText.Text;
+            //if (Data_Base.sqliteConnect != null && Data_Base.sqliteConnect.State == System.Data.ConnectionState.Open)
+            //{
+            //using (SqliteConnection connection = new SqliteConnection("Data Source=Student Note.db"))
+            //{
+            //    // Открываем подключение
+            //    connection.Open();
+                try
+                {
+                    SqliteCommand cmd = new SqliteCommand();
+                    cmd.CommandType = CommandType.Text;
+                    // Параметры с защитой от SQL инъекций
+                    cmd.Parameters.AddWithValue("@Last_name", surname);
+                    cmd.Parameters.AddWithValue("@First_name", name);
+                    cmd.Parameters.AddWithValue("@Second_name", middleName);
+                    cmd.Parameters.AddWithValue("@Sex", sex);
+                    cmd.Parameters.AddWithValue("@Reg_date", reg_date);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
+                    cmd.Parameters.AddWithValue("@Member_type", status_int);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    // Команда для SQL запроса
+                    cmd.CommandText = "INSERT INTO Users(last_name, first_name, second_name, sex, email, phone_number, member_type) " +
+                        "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Reg_date, @Email, @Phone_number, @Member_type)";
+                    cmd.ExecuteNonQuery();
+                    cmd.CommandText = "INSERT INTO Passwords(password) VALUES (@Password)";
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Регистрация прошла успешно!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Регистрация не удалась. Возникла ошибка: " + ex.Message);
+                }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("База данных не открыта!");
+            //}
 
-
-
-            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
+                if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
             {
                 MessageBox.Show("Неверный формат пароля");
                 //return;
@@ -52,7 +105,7 @@ namespace Student_Note
                 MessageBox.Show("Неправильный формат почты");
                 //return;
             }
-            if (!Regex.IsMatch(phohneNumber, @"^\+?[1-9]\d{9,14}$"))
+            if (!Regex.IsMatch(phoneNumber, @"^\+?[1-9]\d{9,14}$"))
             {
                 MessageBox.Show("Неправильный формат номера телефона");
                 //return;
