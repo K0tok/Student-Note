@@ -74,10 +74,11 @@ public class Schedule
     }
 }
 
-class Week
+public class Week
 {
     public int Id { get; set; }
     public int WeekNumber { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 }
+
