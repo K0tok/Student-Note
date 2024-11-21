@@ -24,6 +24,8 @@ namespace Student_Note
         }
 
         static public bool isLog = false;
-        
+
+        public static string relativePath = @"Student Note.db";
+        public static string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
     }
 }

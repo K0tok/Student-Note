@@ -119,12 +119,11 @@ namespace Student_Note
                 return;
             }
 
-            string relativePath = @"Student Note.db";
-            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+            
             try
             {
                 // Укажите строку подключения к вашей базе данных SQLite
-                string connectionString = $"Data Source={fullPath}";
+                string connectionString = $"Data Source={Program.fullPath}";
 
                 // Создаем подключение
                 using (SqliteConnection connection = new SqliteConnection(connectionString))
