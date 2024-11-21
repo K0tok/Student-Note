@@ -22,7 +22,7 @@ namespace Student_Note
 
         private void SignUpForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -91,10 +91,12 @@ namespace Student_Note
                 return;
             }
 
+            string relativePath = @"Student Note.db";
+            string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
             try
             {
                 // Укажите строку подключения к вашей базе данных SQLite
-                string connectionString = "Data Source=C:\\Users\\Егор\\Source\\Repos\\K0tok\\Student-Note\\Student Note.db";
+                string connectionString = $"Data Source={fullPath}";
 
                 // Создаем подключение
                 using (SqliteConnection connection = new SqliteConnection(connectionString))
