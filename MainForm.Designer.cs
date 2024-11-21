@@ -68,7 +68,7 @@
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
             HeaderLabel.Padding = new Padding(100, 0, 0, 0);
-            HeaderLabel.Size = new Size(987, 80);
+            HeaderLabel.Size = new Size(991, 80);
             HeaderLabel.TabIndex = 1;
             HeaderLabel.Text = "Электронный дневник";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -78,7 +78,7 @@
             WeekLable.AutoSize = true;
             WeekLable.Location = new Point(54, 95);
             WeekLable.Name = "WeekLable";
-            WeekLable.Size = new Size(222, 35);
+            WeekLable.Size = new Size(178, 27);
             WeekLable.TabIndex = 2;
             WeekLable.Text = "Выбор недели:";
             // 
@@ -87,7 +87,7 @@
             WeekComboBox.FormattingEnabled = true;
             WeekComboBox.Location = new Point(238, 91);
             WeekComboBox.Name = "WeekComboBox";
-            WeekComboBox.Size = new Size(433, 43);
+            WeekComboBox.Size = new Size(433, 35);
             WeekComboBox.TabIndex = 3;
             WeekComboBox.Text = "4 неделя (07.10.24 - 13.10.24)";
             WeekComboBox.SelectedIndexChanged += WeekComboBox_SelectedIndexChanged;
@@ -144,10 +144,10 @@
             // 
             FridayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             FridayDateLabel.AutoSize = true;
-            FridayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            FridayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FridayDateLabel.Location = new Point(380, 714);
             FridayDateLabel.Name = "FridayDateLabel";
-            FridayDateLabel.Size = new Size(101, 46);
+            FridayDateLabel.Size = new Size(92, 37);
             FridayDateLabel.TabIndex = 45;
             FridayDateLabel.Text = "11.10";
             // 
@@ -157,7 +157,7 @@
             FridayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             FridayLabel.Location = new Point(7, 697);
             FridayLabel.Name = "FridayLabel";
-            FridayLabel.Size = new Size(265, 67);
+            FridayLabel.Size = new Size(216, 55);
             FridayLabel.TabIndex = 44;
             FridayLabel.Text = "Пятница";
             // 
@@ -182,10 +182,10 @@
             // 
             WednesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             WednesdayDateLabel.AutoSize = true;
-            WednesdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            WednesdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WednesdayDateLabel.Location = new Point(380, 371);
             WednesdayDateLabel.Name = "WednesdayDateLabel";
-            WednesdayDateLabel.Size = new Size(101, 46);
+            WednesdayDateLabel.Size = new Size(96, 37);
             WednesdayDateLabel.TabIndex = 42;
             WednesdayDateLabel.Text = "09.10";
             // 
@@ -195,7 +195,7 @@
             WednesdayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WednesdayLabel.Location = new Point(7, 356);
             WednesdayLabel.Name = "WednesdayLabel";
-            WednesdayLabel.Size = new Size(205, 67);
+            WednesdayLabel.Size = new Size(167, 55);
             WednesdayLabel.TabIndex = 41;
             WednesdayLabel.Text = "Среда";
             // 
@@ -221,10 +221,10 @@
             // 
             MondayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MondayDateLabel.AutoSize = true;
-            MondayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            MondayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MondayDateLabel.Location = new Point(380, 15);
             MondayDateLabel.Name = "MondayDateLabel";
-            MondayDateLabel.Size = new Size(101, 46);
+            MondayDateLabel.Size = new Size(96, 37);
             MondayDateLabel.TabIndex = 39;
             MondayDateLabel.Text = "07.10";
             // 
@@ -234,7 +234,7 @@
             MondayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MondayLabel.Location = new Point(7, 0);
             MondayLabel.Name = "MondayLabel";
-            MondayLabel.Size = new Size(395, 67);
+            MondayLabel.Size = new Size(320, 55);
             MondayLabel.TabIndex = 38;
             MondayLabel.Text = "Понедельник";
             // 
@@ -261,10 +261,10 @@
             // 
             SaturdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SaturdayDateLabel.AutoSize = true;
-            SaturdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            SaturdayDateLabel.Location = new Point(311, 714);
+            SaturdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            SaturdayDateLabel.Location = new Point(259, 714);
             SaturdayDateLabel.Name = "SaturdayDateLabel";
-            SaturdayDateLabel.Size = new Size(101, 46);
+            SaturdayDateLabel.Size = new Size(94, 37);
             SaturdayDateLabel.TabIndex = 48;
             SaturdayDateLabel.Text = "12.10";
             // 
@@ -274,7 +274,7 @@
             SaturdayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             SaturdayLabel.Location = new Point(11, 697);
             SaturdayLabel.Name = "SaturdayLabel";
-            SaturdayLabel.Size = new Size(261, 67);
+            SaturdayLabel.Size = new Size(213, 55);
             SaturdayLabel.TabIndex = 47;
             SaturdayLabel.Text = "Суббота";
             // 
@@ -299,10 +299,10 @@
             // 
             ThursdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ThursdayDateLabel.AutoSize = true;
-            ThursdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ThursdayDateLabel.Location = new Point(311, 371);
+            ThursdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            ThursdayDateLabel.Location = new Point(259, 371);
             ThursdayDateLabel.Name = "ThursdayDateLabel";
-            ThursdayDateLabel.Size = new Size(101, 46);
+            ThursdayDateLabel.Size = new Size(94, 37);
             ThursdayDateLabel.TabIndex = 42;
             ThursdayDateLabel.Text = "10.10";
             // 
@@ -312,7 +312,7 @@
             ThursdayLabel.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             ThursdayLabel.Location = new Point(11, 356);
             ThursdayLabel.Name = "ThursdayLabel";
-            ThursdayLabel.Size = new Size(246, 67);
+            ThursdayLabel.Size = new Size(200, 55);
             ThursdayLabel.TabIndex = 41;
             ThursdayLabel.Text = "Четверг";
             // 
@@ -343,10 +343,10 @@
             // 
             TuesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TuesdayDateLabel.AutoSize = true;
-            TuesdayDateLabel.Font = new Font("Arial Narrow", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            TuesdayDateLabel.Location = new Point(311, 15);
+            TuesdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            TuesdayDateLabel.Location = new Point(259, 15);
             TuesdayDateLabel.Name = "TuesdayDateLabel";
-            TuesdayDateLabel.Size = new Size(101, 46);
+            TuesdayDateLabel.Size = new Size(96, 37);
             TuesdayDateLabel.TabIndex = 36;
             TuesdayDateLabel.Text = "08.10";
             // 
@@ -356,7 +356,7 @@
             Tuesday.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Tuesday.Location = new Point(7, 0);
             Tuesday.Name = "Tuesday";
-            Tuesday.Size = new Size(252, 67);
+            Tuesday.Size = new Size(204, 55);
             Tuesday.TabIndex = 35;
             Tuesday.Text = "Вторник";
             // 
@@ -380,7 +380,7 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(17F, 35F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -392,7 +392,7 @@
             Controls.Add(panel1);
             Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(6, 5, 6, 5);
-            MaximumSize = new Size(1920, 1000);
+            MaximumSize = new Size(1920, 1080);
             MinimumSize = new Size(1024, 700);
             Name = "MainForm";
             SizeGripStyle = SizeGripStyle.Show;

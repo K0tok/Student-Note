@@ -11,7 +11,7 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(MainForm);
+            Application.Run(LogInForm);
         }
 
         static public Form MainForm = new MainForm();
