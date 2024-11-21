@@ -32,19 +32,18 @@ namespace Student_Note
             string emailOrPhohneNumber = LoginTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!_ %*?&])[A-Za-z\d@$!%_ *?&]{8,}$")) {
-                MessageBox.Show("Неверный формат пароля");
-                //return;
-            }
-            if (!Regex.IsMatch(emailOrPhohneNumber, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") && !Regex.IsMatch(emailOrPhohneNumber, @"^\+?[1-9]\d{9,14}$"))
+            if (!Regex.IsMatch(emailOrPhohneNumber, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") && !Regex.IsMatch(emailOrPhohneNumber, @"^\+?[0-9]\d{9,14}$"))
             {
                 MessageBox.Show("Неправильный формат номера телефона или почта");
                 //return;
             }
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!_ %*?&])[A-Za-z\d@$!%_ *?&]{8,}$")) {
+                MessageBox.Show("Неверный формат пароля");
+                //return;
+            }
 
             //...
-            // Проверка от сервера
-            Program.isLog = true;
+            Server.Entry(password, emailOrPhohneNumber);
             //..
 
             if (Program.isLog) 
