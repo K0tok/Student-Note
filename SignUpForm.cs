@@ -118,7 +118,6 @@ namespace Student_Note
             {
                 return;
             }
-
             
             try
             {
@@ -126,38 +125,34 @@ namespace Student_Note
                 string connectionString = $"Data Source={Program.fullPath}";
 
                 // Создаем подключение
-                using (SqliteConnection connection = new SqliteConnection(connectionString))
-                {
-                    // Открываем соединение
-                    connection.Open();
+                using SqliteConnection connection = new SqliteConnection(connectionString);
+                // Открываем соединение
+                connection.Open();
 
-                    // Создаем команду
-                    using (SqliteCommand cmd = new SqliteCommand())
-                    {
-                        cmd.Connection = connection; // Указываем подключение для команды
-                        cmd.CommandType = CommandType.Text;
+                // Создаем команду
+                using SqliteCommand cmd = new SqliteCommand();
+                cmd.Connection = connection; // Указываем подключение для команды
+                cmd.CommandType = CommandType.Text;
 
-                        // Добавляем параметры
-                        cmd.Parameters.AddWithValue("@Last_name", surname);
-                        cmd.Parameters.AddWithValue("@First_name", name);
-                        cmd.Parameters.AddWithValue("@Second_name", middleName);
-                        cmd.Parameters.AddWithValue("@Sex", sex);
-                        cmd.Parameters.AddWithValue("@Birthdate", birthdate);
-                        cmd.Parameters.AddWithValue("@Reg_date", reg_date);
-                        cmd.Parameters.AddWithValue("@Email", email);
-                        cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
-                        cmd.Parameters.AddWithValue("@Member_type", status_int);
-                        cmd.Parameters.AddWithValue("@Password", password);
+                // Добавляем параметры
+                cmd.Parameters.AddWithValue("@Last_name", surname);
+                cmd.Parameters.AddWithValue("@First_name", name);
+                cmd.Parameters.AddWithValue("@Second_name", middleName);
+                cmd.Parameters.AddWithValue("@Sex", sex);
+                cmd.Parameters.AddWithValue("@Birthdate", birthdate);
+                cmd.Parameters.AddWithValue("@Reg_date", reg_date);
+                cmd.Parameters.AddWithValue("@Email", email);
+                cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
+                cmd.Parameters.AddWithValue("@Member_type", status_int);
+                cmd.Parameters.AddWithValue("@Password", password);
 
-                        // SQL-запрос
-                        cmd.CommandText = "INSERT INTO Users (last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password) " +
-                            "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Birthdate, @Reg_date, @Email, @Phone_number, @Member_type, @Password)";
-                        cmd.ExecuteNonQuery();
+                // SQL-запрос
+                cmd.CommandText = "INSERT INTO Users (last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password) " +
+                    "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Birthdate, @Reg_date, @Email, @Phone_number, @Member_type, @Password)";
+                cmd.ExecuteNonQuery();
 
-                        // Уведомление об успешной операции
-                        MessageBox.Show("Регистрация прошла успешно!");
-                    }
-                }
+                // Уведомление об успешной операции
+                MessageBox.Show("Регистрация прошла успешно!");
             }
             catch (Exception ex)
             {
