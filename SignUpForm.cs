@@ -35,10 +35,6 @@ namespace Student_Note
             string surname = SurnameText.Text;
             string name = NameText.Text;
             string middleName = MiddleName.Text;
-            if (middleName == null)
-            {
-                middleName = "-";
-            }
             string gender = listBox1.Text;
             int sex = 1;
             // Проверка пола
@@ -46,6 +42,7 @@ namespace Student_Note
             {
                 sex = 0;
             }
+            string birthdate = BirthdateText.Text;
             string reg_date = DateTime.Now.Date.ToString("dd-MM-yyyy");
             string email = EmailText.Text;
             string phoneNumber = PhoneNumberText.Text;
@@ -57,73 +54,86 @@ namespace Student_Note
                 status_int = 1;
             }
             string password = PasswordText.Text;
-            //if (Data_Base.sqliteConnect != null && Data_Base.sqliteConnect.State == System.Data.ConnectionState.Open)
-            //{
-            //using (SqliteConnection connection = new SqliteConnection("Data Source=Student Note.db"))
-            //{
-            //    // Открываем подключение
-            //    connection.Open();
-                try
-                {
-                    SqliteCommand cmd = new SqliteCommand();
-                    cmd.CommandType = CommandType.Text;
-                    // Параметры с защитой от SQL инъекций
-                    cmd.Parameters.AddWithValue("@Last_name", surname);
-                    cmd.Parameters.AddWithValue("@First_name", name);
-                    cmd.Parameters.AddWithValue("@Second_name", middleName);
-                    cmd.Parameters.AddWithValue("@Sex", sex);
-                    cmd.Parameters.AddWithValue("@Reg_date", reg_date);
-                    cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
-                    cmd.Parameters.AddWithValue("@Member_type", status_int);
-                    cmd.Parameters.AddWithValue("@Password", password);
-                    // Команда для SQL запроса
-                    cmd.CommandText = "INSERT INTO Users(last_name, first_name, second_name, sex, email, phone_number, member_type) " +
-                        "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Reg_date, @Email, @Phone_number, @Member_type)";
-                    cmd.ExecuteNonQuery();
-                    cmd.CommandText = "INSERT INTO Passwords(password) VALUES (@Password)";
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Регистрация прошла успешно!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Регистрация не удалась. Возникла ошибка: " + ex.Message);
-                }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("База данных не открыта!");
-            //}
 
-                if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
             {
                 MessageBox.Show("Неверный формат пароля");
-                //return;
+                return;
             }
             if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 MessageBox.Show("Неправильный формат почты");
-                //return;
+                return;
             }
             if (!Regex.IsMatch(phoneNumber, @"^\+?[1-9]\d{9,14}$"))
             {
                 MessageBox.Show("Неправильный формат номера телефона");
-                //return;
+                return;
             }
             if (!Regex.IsMatch(surname, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
             {
                 MessageBox.Show("Неправильный формат фамилии");
-                //return;
+                return;
             }
             if (!Regex.IsMatch(name, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
             {
                 MessageBox.Show("Неправильный формат имени");
-                //return;
+                return;
             }
-            if (!Regex.IsMatch(middleName, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
+            if (!Regex.IsMatch(middleName, @"^([A-Za-zА-Яа-яЁё]{2,50})?$"))
             {
                 MessageBox.Show("Неправильный формат отчества");
-                //return;
+                return;
+            }
+            if (!Regex.IsMatch(birthdate, @"^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$"))
+            {
+                MessageBox.Show("Неправильный формат даты рождения");
+                return;
+            }
+
+            try
+            {
+                // Укажите строку подключения к вашей базе данных SQLite
+                string connectionString = "Data Source=C:\\Users\\Егор\\Source\\Repos\\K0tok\\Student-Note\\Student Note.db";
+
+                // Создаем подключение
+                using (SqliteConnection connection = new SqliteConnection(connectionString))
+                {
+                    // Открываем соединение
+                    connection.Open();
+
+                    // Создаем команду
+                    using (SqliteCommand cmd = new SqliteCommand())
+                    {
+                        cmd.Connection = connection; // Указываем подключение для команды
+                        cmd.CommandType = CommandType.Text;
+
+                        // Добавляем параметры
+                        cmd.Parameters.AddWithValue("@Last_name", surname);
+                        cmd.Parameters.AddWithValue("@First_name", name);
+                        cmd.Parameters.AddWithValue("@Second_name", middleName);
+                        cmd.Parameters.AddWithValue("@Sex", sex);
+                        cmd.Parameters.AddWithValue("@Birthdate", birthdate);
+                        cmd.Parameters.AddWithValue("@Reg_date", reg_date);
+                        cmd.Parameters.AddWithValue("@Email", email);
+                        cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
+                        cmd.Parameters.AddWithValue("@Member_type", status_int);
+                        cmd.Parameters.AddWithValue("@Password", password);
+
+                        // SQL-запрос
+                        cmd.CommandText = "INSERT INTO Users (last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password) " +
+                            "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Birthdate, @Reg_date, @Email, @Phone_number, @Member_type, @Password)";
+                        cmd.ExecuteNonQuery();
+
+                        // Уведомление об успешной операции
+                        MessageBox.Show("Регистрация прошла успешно!");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Обработка ошибки
+                MessageBox.Show("Регистрация не удалась. Возникла ошибка: " + ex.Message);
             }
 
             //...

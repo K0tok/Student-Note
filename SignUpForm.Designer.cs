@@ -54,6 +54,9 @@
             label1 = new Label();
             LogUpLinkLabel = new LinkLabel();
             PasswordText = new TextBox();
+            label3 = new Label();
+            label5 = new Label();
+            BirthdateText = new TextBox();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -322,7 +325,7 @@
             // 
             LogInButton.BackColor = Color.FromArgb(52, 199, 89);
             LogInButton.Font = new Font("Arial", 18F);
-            LogInButton.Location = new Point(183, 408);
+            LogInButton.Location = new Point(347, 422);
             LogInButton.Name = "LogInButton";
             LogInButton.Size = new Size(251, 49);
             LogInButton.TabIndex = 32;
@@ -334,7 +337,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(247, 460);
+            label1.Location = new Point(411, 474);
             label1.Name = "label1";
             label1.Size = new Size(80, 15);
             label1.TabIndex = 33;
@@ -344,7 +347,7 @@
             // 
             LogUpLinkLabel.AutoSize = true;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(333, 460);
+            LogUpLinkLabel.Location = new Point(497, 474);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(43, 15);
             LogUpLinkLabel.TabIndex = 34;
@@ -365,12 +368,51 @@
             PasswordText.Size = new Size(289, 28);
             PasswordText.TabIndex = 35;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.FromArgb(255, 59, 48);
+            label3.Location = new Point(183, 474);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 15);
+            label3.TabIndex = 37;
+            label3.Text = "*Неверный формат";
+            label3.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial", 18F);
+            label5.Location = new Point(12, 409);
+            label5.Name = "label5";
+            label5.Size = new Size(180, 27);
+            label5.TabIndex = 36;
+            label5.Text = "Дата рождения";
+            // 
+            // BirthdateText
+            // 
+            BirthdateText.Anchor = AnchorStyles.Top;
+            BirthdateText.BackColor = Color.FromArgb(224, 224, 224);
+            BirthdateText.BorderStyle = BorderStyle.None;
+            BirthdateText.Font = new Font("Arial", 18F);
+            BirthdateText.Location = new Point(12, 443);
+            BirthdateText.Margin = new Padding(3, 4, 3, 4);
+            BirthdateText.Name = "BirthdateText";
+            BirthdateText.Size = new Size(289, 28);
+            BirthdateText.TabIndex = 38;
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
-            ClientSize = new Size(634, 490);
+            ClientSize = new Size(634, 506);
+            Controls.Add(label3);
+            Controls.Add(label5);
+            Controls.Add(BirthdateText);
             Controls.Add(label1);
             Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
@@ -398,6 +440,7 @@
             Controls.Add(SurnameText);
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";
@@ -436,5 +479,8 @@
         private Button LogInButton;
         private Label label1;
         private LinkLabel LogUpLinkLabel;
+        private Label label3;
+        private Label label5;
+        private TextBox BirthdateText;
     }
 }
