@@ -38,7 +38,7 @@ namespace Student_Note
                 FillSchedule(
                     MondayTLP, TuesdayTLP, WednesdayTLP,
                     ThursdayTLP, FridayTLP, SaturdayTLP,
-                    groupSchedule);
+                    groupSchedule, isNumerator);
             }
             else
             {
@@ -100,7 +100,7 @@ namespace Student_Note
             FillDaySchedule(saturdayTLP, groupSchedule.Saturday, isNumerator);
         }
 
-        private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule)
+        private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule, bool isNumerator)
         {
             tableLayoutPanel.Controls.Clear();
             tableLayoutPanel.RowCount = 0;
