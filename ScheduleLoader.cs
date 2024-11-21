@@ -29,7 +29,6 @@ namespace Student_Note
                 {
                     foreach (var group in CurrentSchedule.Groups)
                     {
-                        MessageBox.Show($"\nГруппа: {group.Key}");
                         foreach (var day in new Dictionary<string, DaySchedule>
                             {
                                 {"Понедельник", group.Value.Monday},
@@ -40,7 +39,6 @@ namespace Student_Note
                                 {"Суббота", group.Value.Saturday}
                             })
                         {
-                            MessageBox.Show($"  {day.Key}:");
                             if (day.Value == null) continue;
 
                             foreach (var period in new Dictionary<string, List<Lesson>>
@@ -56,11 +54,9 @@ namespace Student_Note
                             {
                                 if (period.Value == null || period.Value.Count == 0) continue;
 
-                                MessageBox.Show($"    {period.Key}:");
                                 foreach (var lesson in period.Value)
                                 {
                                     if (string.IsNullOrWhiteSpace(lesson.Name)) continue;
-                                    MessageBox.Show($"      Предмет: {lesson.Name}, Аудитория: {lesson.Auditorium}, Преподаватель: {lesson.Professor}");
                                 }
                             }
                         }
@@ -82,7 +78,7 @@ namespace Student_Note
 
         static public async Task GetJson()
         {
-            string url = "https://nti.urfu.ru/schedule/schedule_students.json";
+            string url = "https://nti.urfu.ru/api/schedule/schedule_nti_1";
             HttpClient client = new HttpClient();
 
             try
