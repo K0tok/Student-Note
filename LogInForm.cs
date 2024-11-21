@@ -21,46 +21,52 @@ namespace Student_Note
             InitializeComponent();
         }
 
+        private void labels_invisible()
+        {
+            WrongPasswordLabel.Visible = false;
+            WrongDataLabel.Visible = false;
+            WrongLoginLabel.Visible = false;
+        }
+
         private void LogInForm_Load(object sender, EventArgs e)
         {
             if (Program.isLog)
             {
                 Program.ReplaceForm(Program.MainForm, this);
-                WrongDataLabel.Visible = false;
+                labels_invisible();
             }
         }
 
-        static bool AuthenticateUser(string username, string password)
+        static bool AuthenticateUser(string emailOrPhoneNumber, string password)
         {
             // Путь к базе данных
-            string connectionString = "Data Source=your_database_path.db";
-
-            // SQL-запрос для проверки пользователя
-            string query = "SELECT COUNT(1) FROM Users WHERE username = @Username AND password = @Password";
+            string connectionString = $"Data Source={Program.fullPath}";
 
             try
             {
-                using (SqliteConnection connection = new SqliteConnection(connectionString))
-                {
-                    connection.Open();
+                using SqliteConnection connection = new SqliteConnection(connectionString);
+                connection.Open();
 
-                    using (SqliteCommand command = new SqliteCommand(query, connection))
-                    {
-                        // Добавление параметров для защиты от SQL-инъекций
-                        command.Parameters.AddWithValue("@Username", username);
-                        command.Parameters.AddWithValue("@Password", password); // Если пароль хэширован, передайте хэш
+                using SqliteCommand cmd = new SqliteCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
 
-                        // Выполнение запроса
-                        int userExists = Convert.ToInt32(command.ExecuteScalar());
+                // Добавление параметров для защиты от SQL-инъекций
+                cmd.Parameters.AddWithValue("@EmailOrPhoneNumber", emailOrPhoneNumber);
+                cmd.Parameters.AddWithValue("@Password", password);
 
-                        // Если пользователь найден (COUNT > 0), вернуть true
-                        return userExists > 0;
-                    }
-                }
+                // Проверка на наличие пользователя
+                cmd.CommandText = "SELECT COUNT(1) FROM Users WHERE (email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber) AND password = @Password";
+
+                // Выполнение запроса
+                int userExists = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Если пользователь найден (COUNT > 0), вернуть true
+                return userExists > 0;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Ошибка подключения к базе данных: {ex.Message}");
+                MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}");
                 return false;
             }
         }
@@ -70,34 +76,39 @@ namespace Student_Note
             string emailOrPhoneNumber = LoginTextBox.Text;
             string password = PasswordTextBox.Text;
 
-            // Проверка в базе данных
-            bool isAuthenticated = AuthenticateUser(emailOrPhoneNumber, password);
 
-            if (isAuthenticated)
+            labels_invisible();
+
+            bool hasErrors = false;
+
+            if (!Regex.IsMatch(emailOrPhoneNumber, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") && !Regex.IsMatch(emailOrPhoneNumber, @"^\+?[0-9]\d{9,14}$"))
+            {
+                WrongLoginLabel.Visible = true;
+                hasErrors = true;
+            }
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!_ %*?&])[A-Za-z\d@$!%_ *?&]{8,}$")) {
+                WrongPasswordLabel.Visible = true;
+                hasErrors = true;
+            }
+
+            // Если есть ошибки, прекратить выполнение дальнейшей логики
+            if (hasErrors)
+            {
+                return;
+            }
+
+            // Проверка в базе данных
+            Program.isLog = AuthenticateUser(emailOrPhoneNumber, password);
+
+            if (Program.isLog)
             {
                 MessageBox.Show("Вход выполнен успешно!");
+                Program.ReplaceForm(new MainForm(), this);
             }
             else
             {
                 WrongDataLabel.Visible = true;
-            }
-
-            if (!Regex.IsMatch(emailOrPhoneNumber, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$") && !Regex.IsMatch(emailOrPhoneNumber, @"^\+?[0-9]\d{9,14}$"))
-            {
-                MessageBox.Show("Неправильный формат номера телефона или почта");
-                //return;
-            }
-            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!_ %*?&])[A-Za-z\d@$!%_ *?&]{8,}$")) {
-                MessageBox.Show("Неверный формат пароля");
-                //return;
-            }
-           
-            //...
-            Server.Entry(password, emailOrPhoneNumber);
-            //..
-
-            if (Program.isLog) 
-                Program.ReplaceForm(new MainForm(), this);
+            }  
         }
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
