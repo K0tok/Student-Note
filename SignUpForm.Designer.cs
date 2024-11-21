@@ -35,7 +35,7 @@
             WrongMailLabel = new Label();
             label2 = new Label();
             EmailText = new TextBox();
-            WrongNameLable = new Label();
+            WrongNameLabel = new Label();
             label4 = new Label();
             NameText = new TextBox();
             WrongPhoneLabel = new Label();
@@ -54,7 +54,7 @@
             label1 = new Label();
             LogUpLinkLabel = new LinkLabel();
             PasswordText = new TextBox();
-            label3 = new Label();
+            WrongBirthdateLabel = new Label();
             label5 = new Label();
             BirthdateText = new TextBox();
             label11 = new Label();
@@ -147,18 +147,18 @@
             EmailText.Size = new Size(289, 28);
             EmailText.TabIndex = 9;
             // 
-            // WrongNameLable
+            // WrongNameLabel
             // 
-            WrongNameLable.AutoSize = true;
-            WrongNameLable.BackColor = Color.Transparent;
-            WrongNameLable.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            WrongNameLable.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongNameLable.Location = new Point(183, 218);
-            WrongNameLable.Name = "WrongNameLable";
-            WrongNameLable.Size = new Size(118, 15);
-            WrongNameLable.TabIndex = 14;
-            WrongNameLable.Text = "*Неверный формат";
-            WrongNameLable.Visible = false;
+            WrongNameLabel.AutoSize = true;
+            WrongNameLabel.BackColor = Color.Transparent;
+            WrongNameLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            WrongNameLabel.ForeColor = Color.FromArgb(255, 59, 48);
+            WrongNameLabel.Location = new Point(183, 218);
+            WrongNameLabel.Name = "WrongNameLabel";
+            WrongNameLabel.Size = new Size(118, 15);
+            WrongNameLabel.TabIndex = 14;
+            WrongNameLabel.Text = "*Неверный формат";
+            WrongNameLabel.Visible = false;
             // 
             // label4
             // 
@@ -371,18 +371,18 @@
             PasswordText.Size = new Size(289, 28);
             PasswordText.TabIndex = 35;
             // 
-            // label3
+            // WrongBirthdateLabel
             // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.ForeColor = Color.FromArgb(255, 59, 48);
-            label3.Location = new Point(183, 478);
-            label3.Name = "label3";
-            label3.Size = new Size(118, 15);
-            label3.TabIndex = 37;
-            label3.Text = "*Неверный формат";
-            label3.Visible = false;
+            WrongBirthdateLabel.AutoSize = true;
+            WrongBirthdateLabel.BackColor = Color.Transparent;
+            WrongBirthdateLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            WrongBirthdateLabel.ForeColor = Color.FromArgb(255, 59, 48);
+            WrongBirthdateLabel.Location = new Point(183, 478);
+            WrongBirthdateLabel.Name = "WrongBirthdateLabel";
+            WrongBirthdateLabel.Size = new Size(118, 15);
+            WrongBirthdateLabel.TabIndex = 37;
+            WrongBirthdateLabel.Text = "*Неверный формат";
+            WrongBirthdateLabel.Visible = false;
             // 
             // label5
             // 
@@ -452,7 +452,7 @@
             Controls.Add(label15);
             Controls.Add(label13);
             Controls.Add(label11);
-            Controls.Add(label3);
+            Controls.Add(WrongBirthdateLabel);
             Controls.Add(label5);
             Controls.Add(BirthdateText);
             Controls.Add(label1);
@@ -471,7 +471,7 @@
             Controls.Add(WrongPhoneLabel);
             Controls.Add(label6);
             Controls.Add(PhoneNumberText);
-            Controls.Add(WrongNameLable);
+            Controls.Add(WrongNameLabel);
             Controls.Add(label4);
             Controls.Add(NameText);
             Controls.Add(WrongMailLabel);
@@ -500,7 +500,7 @@
         private Label WrongMailLabel;
         private Label label2;
         private TextBox EmailText;
-        private Label WrongNameLable;
+        private Label WrongNameLabel;
         private Label label4;
         private TextBox NameText;
         private Label WrongPhoneLabel;
@@ -521,7 +521,7 @@
         private Button LogInButton;
         private Label label1;
         private LinkLabel LogUpLinkLabel;
-        private Label label3;
+        private Label WrongBirthdateLabel;
         private Label label5;
         private TextBox BirthdateText;
         private Label label11;

@@ -20,9 +20,20 @@ namespace Student_Note
             InitializeComponent();
         }
 
+        private void labels_invisible()
+        {
+            WrongPasswordLabel.Visible = false;
+            WrongMailLabel.Visible = false;
+            WrongPhoneLabel.Visible = false;
+            WrongSurnameLabel.Visible = false;
+            WrongNameLabel.Visible = false;
+            WrongMiddlenameLabel.Visible = false;
+            WrongBirthdateLabel.Visible = false;
+        }
+
         private void SignUpForm_Load(object sender, EventArgs e)
         {
-            
+            labels_invisible();
         }
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -55,39 +66,56 @@ namespace Student_Note
             }
             string password = PasswordText.Text;
 
-            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_ *?&])[A-Za-z\d@$!_ %*?&]{8,}$"))
+            labels_invisible();
+
+            bool hasErrors = false;
+            
+            // Проверки
+            if (!Regex.IsMatch(password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%_*?&])[A-Za-z\d@$!_%*?&]{8,}$"))
             {
-                MessageBox.Show("Неверный формат пароля");
-                return;
+                WrongPasswordLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
-                MessageBox.Show("Неправильный формат почты");
-                return;
+                WrongMailLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(phoneNumber, @"^\+?[1-9]\d{9,14}$"))
             {
-                MessageBox.Show("Неправильный формат номера телефона");
-                return;
+                WrongPhoneLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(surname, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
             {
-                MessageBox.Show("Неправильный формат фамилии");
-                return;
+                WrongSurnameLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(name, @"^[A-Za-zА-Яа-яЁё]{2,50}$"))
             {
-                MessageBox.Show("Неправильный формат имени");
-                return;
+                WrongNameLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(middleName, @"^([A-Za-zА-Яа-яЁё]{2,50})?$"))
             {
-                MessageBox.Show("Неправильный формат отчества");
-                return;
+                WrongMiddlenameLabel.Visible = true;
+                hasErrors = true;
             }
+
             if (!Regex.IsMatch(birthdate, @"^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$"))
             {
-                MessageBox.Show("Неправильный формат даты рождения");
+                WrongBirthdateLabel.Visible = true;
+                hasErrors = true;
+            }
+
+            // Если есть ошибки, прекратить выполнение дальнейшей логики
+            if (hasErrors)
+            {
                 return;
             }
 
