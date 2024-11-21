@@ -44,7 +44,7 @@ namespace Student_Note
             {
                 MessageBox.Show("Расписание не найдено.");
             }
-
+            
             // Получение списка недель 
             DateTime startDate = new DateTime(DateTime.Now.Year, 9, 2);
             DateTime endDate = new DateTime(DateTime.Now.Year + 1, 5, 31);

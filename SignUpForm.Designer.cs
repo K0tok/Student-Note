@@ -35,7 +35,7 @@
             WrongMailLabel = new Label();
             label2 = new Label();
             EmailText = new TextBox();
-            WrongNameLable = new Label();
+            WrongNameLabel = new Label();
             label4 = new Label();
             NameText = new TextBox();
             WrongPhoneLabel = new Label();
@@ -54,6 +54,12 @@
             label1 = new Label();
             LogUpLinkLabel = new LinkLabel();
             PasswordText = new TextBox();
+            WrongBirthdateLabel = new Label();
+            label5 = new Label();
+            BirthdateText = new TextBox();
+            label11 = new Label();
+            label13 = new Label();
+            label15 = new Label();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -141,18 +147,18 @@
             EmailText.Size = new Size(289, 28);
             EmailText.TabIndex = 9;
             // 
-            // WrongNameLable
+            // WrongNameLabel
             // 
-            WrongNameLable.AutoSize = true;
-            WrongNameLable.BackColor = Color.Transparent;
-            WrongNameLable.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            WrongNameLable.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongNameLable.Location = new Point(183, 218);
-            WrongNameLable.Name = "WrongNameLable";
-            WrongNameLable.Size = new Size(118, 15);
-            WrongNameLable.TabIndex = 14;
-            WrongNameLable.Text = "*Неверный формат";
-            WrongNameLable.Visible = false;
+            WrongNameLabel.AutoSize = true;
+            WrongNameLabel.BackColor = Color.Transparent;
+            WrongNameLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            WrongNameLabel.ForeColor = Color.FromArgb(255, 59, 48);
+            WrongNameLabel.Location = new Point(183, 218);
+            WrongNameLabel.Name = "WrongNameLabel";
+            WrongNameLabel.Size = new Size(118, 15);
+            WrongNameLabel.TabIndex = 14;
+            WrongNameLabel.Text = "*Неверный формат";
+            WrongNameLabel.Visible = false;
             // 
             // label4
             // 
@@ -322,7 +328,7 @@
             // 
             LogInButton.BackColor = Color.FromArgb(52, 199, 89);
             LogInButton.Font = new Font("Arial", 18F);
-            LogInButton.Location = new Point(183, 408);
+            LogInButton.Location = new Point(347, 426);
             LogInButton.Name = "LogInButton";
             LogInButton.Size = new Size(251, 49);
             LogInButton.TabIndex = 32;
@@ -334,7 +340,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(229, 460);
+            label1.Location = new Point(411, 478);
             label1.Name = "label1";
             label1.Size = new Size(80, 15);
             label1.TabIndex = 33;
@@ -344,7 +350,7 @@
             // 
             LogUpLinkLabel.AutoSize = true;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(323, 460);
+            LogUpLinkLabel.Location = new Point(497, 478);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(43, 15);
             LogUpLinkLabel.TabIndex = 34;
@@ -365,12 +371,90 @@
             PasswordText.Size = new Size(289, 28);
             PasswordText.TabIndex = 35;
             // 
+            // WrongBirthdateLabel
+            // 
+            WrongBirthdateLabel.AutoSize = true;
+            WrongBirthdateLabel.BackColor = Color.Transparent;
+            WrongBirthdateLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            WrongBirthdateLabel.ForeColor = Color.FromArgb(255, 59, 48);
+            WrongBirthdateLabel.Location = new Point(183, 478);
+            WrongBirthdateLabel.Name = "WrongBirthdateLabel";
+            WrongBirthdateLabel.Size = new Size(118, 15);
+            WrongBirthdateLabel.TabIndex = 37;
+            WrongBirthdateLabel.Text = "*Неверный формат";
+            WrongBirthdateLabel.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Arial", 18F);
+            label5.Location = new Point(12, 413);
+            label5.Name = "label5";
+            label5.Size = new Size(180, 27);
+            label5.TabIndex = 36;
+            label5.Text = "Дата рождения";
+            // 
+            // BirthdateText
+            // 
+            BirthdateText.Anchor = AnchorStyles.Top;
+            BirthdateText.BackColor = Color.FromArgb(224, 224, 224);
+            BirthdateText.BorderStyle = BorderStyle.None;
+            BirthdateText.Font = new Font("Arial", 18F);
+            BirthdateText.Location = new Point(12, 447);
+            BirthdateText.Margin = new Padding(3, 4, 3, 4);
+            BirthdateText.Name = "BirthdateText";
+            BirthdateText.Size = new Size(289, 28);
+            BirthdateText.TabIndex = 38;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = Color.Transparent;
+            label11.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label11.ForeColor = Color.Black;
+            label11.Location = new Point(12, 389);
+            label11.Name = "label11";
+            label11.Size = new Size(186, 15);
+            label11.TabIndex = 39;
+            label11.Text = "Выберите из списка и нажмите";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label13.ForeColor = Color.Black;
+            label13.Location = new Point(12, 304);
+            label13.Name = "label13";
+            label13.Size = new Size(91, 15);
+            label13.TabIndex = 40;
+            label13.Text = "*Если имеется";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = Color.Transparent;
+            label15.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label15.ForeColor = Color.Black;
+            label15.Location = new Point(333, 304);
+            label15.Name = "label15";
+            label15.Size = new Size(186, 15);
+            label15.TabIndex = 41;
+            label15.Text = "Выберите из списка и нажмите";
+            // 
             // SignUpForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
-            ClientSize = new Size(634, 479);
+            ClientSize = new Size(634, 506);
+            Controls.Add(label15);
+            Controls.Add(label13);
+            Controls.Add(label11);
+            Controls.Add(WrongBirthdateLabel);
+            Controls.Add(label5);
+            Controls.Add(BirthdateText);
             Controls.Add(label1);
             Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
@@ -387,7 +471,7 @@
             Controls.Add(WrongPhoneLabel);
             Controls.Add(label6);
             Controls.Add(PhoneNumberText);
-            Controls.Add(WrongNameLable);
+            Controls.Add(WrongNameLabel);
             Controls.Add(label4);
             Controls.Add(NameText);
             Controls.Add(WrongMailLabel);
@@ -398,6 +482,7 @@
             Controls.Add(SurnameText);
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";
@@ -415,7 +500,7 @@
         private Label WrongMailLabel;
         private Label label2;
         private TextBox EmailText;
-        private Label WrongNameLable;
+        private Label WrongNameLabel;
         private Label label4;
         private TextBox NameText;
         private Label WrongPhoneLabel;
@@ -436,5 +521,11 @@
         private Button LogInButton;
         private Label label1;
         private LinkLabel LogUpLinkLabel;
+        private Label WrongBirthdateLabel;
+        private Label label5;
+        private TextBox BirthdateText;
+        private Label label11;
+        private Label label13;
+        private Label label15;
     }
 }
