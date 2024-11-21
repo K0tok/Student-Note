@@ -50,6 +50,8 @@ namespace Student_Note
             DateTime endDate = new DateTime(DateTime.Now.Year + 1, 5, 31);
             List<Week> weeks = new List<Week>();
             int id = 0;
+            bool isNumerator = true; // Начинаем с числителя
+
             for (DateTime date = startDate; date <= endDate; date = date.AddDays(7))
             {
                 Week week = new Week
@@ -57,10 +59,12 @@ namespace Student_Note
                     Id = id,
                     WeekNumber = id+1,
                     StartDate = date,
-                    EndDate = date.AddDays(6)
+                    EndDate = date.AddDays(6),
+                    IsNumerator = isNumerator
                 };
                 weeks.Add(week);
                 id++;
+                isNumerator = !isNumerator;
             }
 
             foreach (var week in weeks)
@@ -76,24 +80,24 @@ namespace Student_Note
                 if (currentDate >= week.StartDate && currentDate <= week.EndDate)
                 {
                     currentWeekId = week.Id;
+                    WeekComboBox.SelectedIndex = currentWeekId;  // Устанавливаем индекс выбранной недели
                     break;
                 }
             }
-            WeekComboBox.SelectedIndex = currentWeekId;
         }
 
         public void FillSchedule(TableLayoutPanel mondayTLP, TableLayoutPanel tuesdayTLP,
                          TableLayoutPanel wednesdayTLP, TableLayoutPanel thursdayTLP,
                          TableLayoutPanel fridayTLP, TableLayoutPanel saturdayTLP,
-                         GroupSchedule groupSchedule)
+                         GroupSchedule groupSchedule, bool isNumerator)
         {
-            // Заполняем данные для каждого дня недели
-            FillDaySchedule(mondayTLP, groupSchedule.Monday);
-            FillDaySchedule(tuesdayTLP, groupSchedule.Tuesday);
-            FillDaySchedule(wednesdayTLP, groupSchedule.Wednesday);
-            FillDaySchedule(thursdayTLP, groupSchedule.Thursday);
-            FillDaySchedule(fridayTLP, groupSchedule.Friday);
-            FillDaySchedule(saturdayTLP, groupSchedule.Saturday);
+            // Заполняем данные для каждого дня недели с учетом числителя/знаменателя
+            FillDaySchedule(mondayTLP, groupSchedule.Monday, isNumerator);
+            FillDaySchedule(tuesdayTLP, groupSchedule.Tuesday, isNumerator);
+            FillDaySchedule(wednesdayTLP, groupSchedule.Wednesday, isNumerator);
+            FillDaySchedule(thursdayTLP, groupSchedule.Thursday, isNumerator);
+            FillDaySchedule(fridayTLP, groupSchedule.Friday, isNumerator);
+            FillDaySchedule(saturdayTLP, groupSchedule.Saturday, isNumerator);
         }
 
         private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule)
@@ -101,9 +105,6 @@ namespace Student_Note
             tableLayoutPanel.Controls.Clear();
             tableLayoutPanel.RowCount = 0;
             tableLayoutPanel.RowStyles.Clear();
-
-            // Добавляем заголовки, если нужно (опционально)
-            AddRowToTable(tableLayoutPanel, "№", "Предмет", "Домашнее задание", true);
 
             // Получаем данные для каждого номера пары
             var lessons = new Dictionary<string, List<Lesson>>
