@@ -11,7 +11,7 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(AddGroupForm);
+            Application.Run(LogInForm);
         }
 
         static public Form MainForm = new MainForm();
@@ -19,7 +19,6 @@ namespace Student_Note
         static public Form SignUpForm = new SignUpForm();
         static public Form MakeHomework = new MakeHomework();
         static public Form AddGroupForm = new AddGroupForm();
-
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
             newForm.FormClosed += (s, args) => oldForm.Close();
