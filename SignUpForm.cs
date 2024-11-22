@@ -166,7 +166,10 @@ namespace Student_Note
             //..
 
             if (Program.isLog)
-                Program.ReplaceForm(new MainForm(), this);
+                if (status_int == 0) Program.ReplaceForm(Program.MainForm, this);
+                else Program.ReplaceForm(Program.AddGroupForm, this);
+                    
+
         }
     }
 }

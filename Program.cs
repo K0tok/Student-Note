@@ -11,13 +11,14 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(MakeHomework);
+            Application.Run(LogInForm);
         }
 
         static public Form MainForm = new MainForm();
         static public Form LogInForm = new LogInForm();
         static public Form SignUpForm = new SignUpForm();
         static public Form MakeHomework = new MakeHomework();
+        static public Form AddGroupForm = new AddGroupForm();
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
             newForm.FormClosed += (s, args) => oldForm.Close();

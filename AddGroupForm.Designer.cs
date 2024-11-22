@@ -31,6 +31,8 @@
             HeaderLabel = new Label();
             NameGroup = new Label();
             selectGroups = new ComboBox();
+            CreateGroup = new Button();
+            CenselCreateGroup = new Button();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -43,7 +45,7 @@
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
             HeaderLabel.Padding = new Padding(57, 0, 0, 0);
-            HeaderLabel.Size = new Size(562, 67);
+            HeaderLabel.Size = new Size(548, 67);
             HeaderLabel.TabIndex = 2;
             HeaderLabel.Text = "Создание группы";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -63,14 +65,34 @@
             selectGroups.FormattingEnabled = true;
             selectGroups.Location = new Point(12, 105);
             selectGroups.Name = "selectGroups";
-            selectGroups.Size = new Size(151, 28);
+            selectGroups.Size = new Size(194, 28);
             selectGroups.TabIndex = 4;
+            // 
+            // CreateGroup
+            // 
+            CreateGroup.Location = new Point(112, 139);
+            CreateGroup.Name = "CreateGroup";
+            CreateGroup.Size = new Size(94, 29);
+            CreateGroup.TabIndex = 5;
+            CreateGroup.Text = "Создать";
+            CreateGroup.UseVisualStyleBackColor = true;
+            // 
+            // CenselCreateGroup
+            // 
+            CenselCreateGroup.Location = new Point(12, 139);
+            CenselCreateGroup.Name = "CenselCreateGroup";
+            CenselCreateGroup.Size = new Size(94, 29);
+            CenselCreateGroup.TabIndex = 6;
+            CenselCreateGroup.Text = "Отменить";
+            CenselCreateGroup.UseVisualStyleBackColor = true;
             // 
             // AddGroupForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(562, 364);
+            ClientSize = new Size(548, 303);
+            Controls.Add(CenselCreateGroup);
+            Controls.Add(CreateGroup);
             Controls.Add(selectGroups);
             Controls.Add(NameGroup);
             Controls.Add(HeaderLabel);
@@ -85,5 +107,7 @@
         private Label HeaderLabel;
         private Label NameGroup;
         private ComboBox selectGroups;
+        private Button CreateGroup;
+        private Button CenselCreateGroup;
     }
 }
