@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Student_Note;
 using Microsoft.Data.Sqlite;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Collections;
 
 namespace Student_Note
 {
@@ -55,14 +56,39 @@ namespace Student_Note
                 cmd.Parameters.AddWithValue("@EmailOrPhoneNumber", emailOrPhoneNumber);
                 cmd.Parameters.AddWithValue("@Password", password);
 
-                // Проверка на наличие пользователя
-                cmd.CommandText = "SELECT COUNT(1) FROM Users WHERE (email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber) AND password = @Password";
+                // Проверка на наличие пользователя и получение его данных
+                cmd.CommandText = @"SELECT id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type 
+                    FROM Users WHERE (email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber) AND password = @Password";
+
 
                 // Выполнение запроса
-                int userExists = Convert.ToInt32(cmd.ExecuteScalar());
+                using (SqliteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Program.isLog = true;
 
-                // Если пользователь найден (COUNT > 0), вернуть true
-                return userExists > 0;
+                        Program.userData = new UserData(
+                            reader["id"].ToString(), 
+                            reader["last_name"].ToString(), 
+                            reader["first_name"].ToString(), 
+                            reader["second_name"].ToString(),
+                            reader["sex"].ToString(), 
+                            reader["birthdate"].ToString(),
+                            reader["reg_date"].ToString(), 
+                            reader["email"].ToString(),
+                            reader["phone_number"].ToString(), 
+                            reader["member_type"].ToString()
+                            );
+                        Program.userData.printString();
+                    }
+                }
+                if (Program.isLog)
+                {
+                    return true;
+                }
+                else { return false; }
+
             }
             catch (Exception ex)
             {
@@ -102,8 +128,7 @@ namespace Student_Note
 
             if (Program.isLog)
             {
-                MessageBox.Show("Вход выполнен успешно!");
-                Program.ReplaceForm(new MainForm(), this);
+                Program.ReplaceForm(Program.MainForm, this);
             }
             else
             {

@@ -149,10 +149,13 @@ namespace Student_Note
                 // SQL-запрос
                 cmd.CommandText = "INSERT INTO Users (last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password) " +
                     "VALUES (@Last_name, @First_name, @Second_name, @Sex, @Birthdate, @Reg_date, @Email, @Phone_number, @Member_type, @Password)";
-                cmd.ExecuteNonQuery();
+                int countRows = cmd.ExecuteNonQuery();
 
-                // Уведомление об успешной операции
-                Program.isLog = true;
+                // Проверка на ответ 
+                if (countRows == 1)
+                {
+                    Program.isLog = true;
+                }
 
             }
             catch (Exception ex)
