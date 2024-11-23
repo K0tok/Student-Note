@@ -17,6 +17,9 @@ public class Lesson
 
     [JsonProperty("p")]
     public string Professor { get; set; }
+
+    //[JsonProperty("HomeWork")]
+    //public string? HomeWork { get; set; }
 }
 
 

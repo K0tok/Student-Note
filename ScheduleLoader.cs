@@ -84,7 +84,6 @@ namespace Student_Note
             try
             {
                 json = await client.GetStringAsync(url);
-                MessageBox.Show("Полученный JSON загружен успешно.");
             }
             catch (Exception ex)
             {

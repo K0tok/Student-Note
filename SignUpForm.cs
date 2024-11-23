@@ -38,7 +38,7 @@ namespace Student_Note
 
         private void LogUpLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Program.ReplaceForm(new LogInForm(), this);
+            Program.ReplaceForm(Program.LogInForm, this);
         }
 
         private void LogInButton_Click(object sender, EventArgs e)
@@ -152,7 +152,8 @@ namespace Student_Note
                 cmd.ExecuteNonQuery();
 
                 // Уведомление об успешной операции
-                MessageBox.Show("Регистрация прошла успешно!");
+                Program.isLog = true;
+
             }
             catch (Exception ex)
             {
@@ -160,10 +161,6 @@ namespace Student_Note
                 MessageBox.Show("Регистрация не удалась. Возникла ошибка: " + ex.Message);
             }
 
-            //...
-            // Проверка от сервера
-            Program.isLog = true;
-            //..
 
             if (Program.isLog)
                 if (status_int == 0) Program.ReplaceForm(Program.MainForm, this);
