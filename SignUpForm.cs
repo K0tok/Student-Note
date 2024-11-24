@@ -152,9 +152,36 @@ namespace Student_Note
                 int countRows = cmd.ExecuteNonQuery();
 
                 // Проверка на ответ 
-                if (countRows == 1)
+                if (countRows != 1)
                 {
-                    Program.isLog = true;
+                    return;
+                }
+
+                // Проверка на наличие пользователя и получение его данных
+                cmd.CommandText = @"SELECT id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type 
+                    FROM Users WHERE phone_number = @Phone_number AND password = @Password";
+
+
+                // Выполнение запроса
+                using (SqliteDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Program.isLog = true;
+
+                        Program.userData = new UserData(
+                            reader["id"].ToString(),
+                            reader["last_name"].ToString(),
+                            reader["first_name"].ToString(),
+                            reader["second_name"].ToString(),
+                            reader["sex"].ToString(),
+                            reader["birthdate"].ToString(),
+                            reader["reg_date"].ToString(),
+                            reader["email"].ToString(),
+                            reader["phone_number"].ToString(),
+                            reader["member_type"].ToString()
+                            );
+                    }
                 }
 
             }

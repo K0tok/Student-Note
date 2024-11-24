@@ -46,19 +46,19 @@ namespace Student_Note
                 this.last_name      = last_name;
                 this.first_name     = first_name;
                 this.second_name    = second_name;
-                this.gender         = gender == "0" ? false : true; 
+                this.gender         = gender == "1"; 
                 this.birthdate      = birthdate;
                 this.reg_date       = reg_date;
                 this.email          = email;
                 this.phone_number   = phone_number;
-                this.member_type    = member_type == "1" ? true : false;
+                this.member_type    = member_type == "1";
             } 
             catch 
             { MessageBox.Show("Ошибка в получении данных пользователя"); }
             
         }
 
-        public string printString()
+        public string NewToString()
         {
             return $"{id}, {last_name}, {first_name}, {second_name}, {gender}, {birthdate}, {reg_date}, {email}, {phone_number}, {member_type}";
         } 

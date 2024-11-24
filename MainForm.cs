@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Student_Note
@@ -17,6 +18,31 @@ namespace Student_Note
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            // Если при загрузки Main Form нет данных пользователя, то мы возращаем в Login Form
+            if (Program.userData == null) Program.ReplaceForm(Program.LogInForm, this);
+            else
+            {
+                // Отрисовка имени пользователя в кнопке
+                if (Program.userData.second_name != "")
+                    buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
+                else
+                    buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
+
+                // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
+                contextMenuStrip1 = new ContextMenuStrip();
+                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => MessageBox.Show("Открыт профиль"));
+                contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
+                if (Program.userData.member_type) // Дополнительные менюшки для старосты
+                {
+                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));
+                    contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));
+                }
+                contextMenuStrip1.Items.Add("Настройки", null, (s, e) => MessageBox.Show("Открыты настройки"));
+                contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());
+                
+                
+            }
+
             // Загружаем расписание
             await _scheduleLoader.GetScheduleAsync();
 
@@ -77,8 +103,10 @@ namespace Student_Note
                 }
             }
         }
-
-        // Определяем тип недели (числитель или знаменатель)
+        /// <summary>
+        /// Определяем тип недели (числитель или знаменатель)
+        /// </summary>
+        /// <returns></returns>
         private bool GetCurrentWeekType()
         {
             var startDate = new DateTime(DateTime.Now.Year, 9, 2);
@@ -89,7 +117,11 @@ namespace Student_Note
             return weekNumber % 2 == 0;
         }
 
-        // Обработка выбора недели в ComboBox
+        /// <summary>
+        /// Обработка выбора недели в ComboBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void WeekComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (WeekComboBox.SelectedIndex != -1)
@@ -112,7 +144,17 @@ namespace Student_Note
             }
         }
 
-        // Заполнение расписания в таблицах
+        /// <summary>
+        /// Заполнение расписания в таблицах
+        /// </summary>
+        /// <param name="mondayTLP"></param>
+        /// <param name="tuesdayTLP"></param>
+        /// <param name="wednesdayTLP"></param>
+        /// <param name="thursdayTLP"></param>
+        /// <param name="fridayTLP"></param>
+        /// <param name="saturdayTLP"></param>
+        /// <param name="groupSchedule"></param>
+        /// <param name="isNumerator"></param>
         public void FillSchedule(TableLayoutPanel mondayTLP, TableLayoutPanel tuesdayTLP,
                          TableLayoutPanel wednesdayTLP, TableLayoutPanel thursdayTLP,
                          TableLayoutPanel fridayTLP, TableLayoutPanel saturdayTLP,
@@ -127,7 +169,9 @@ namespace Student_Note
             FillDaySchedule(saturdayTLP, groupSchedule.Saturday, isNumerator);
         }
 
-        // Очистка таблиц перед добавлением новых данных
+        /// <summary>
+        /// Очистка таблиц перед добавлением новых данных
+        /// </summary>
         private void ClearTables()
         {
             ClearTable(MondayTLP);
@@ -138,13 +182,22 @@ namespace Student_Note
             ClearTable(SaturdayTLP);
         }
 
-        // Очистка конкретной таблицы
+        /// <summary>
+        /// Очистка конкретной таблицы
+        /// </summary>
+        /// <param name="tableLayoutPanel"></param>
         private void ClearTable(TableLayoutPanel tableLayoutPanel)
         {
             tableLayoutPanel.Controls.Clear();
             tableLayoutPanel.RowCount = 0;
             tableLayoutPanel.RowStyles.Clear();
         }
+        /// <summary>
+        /// Заполняем расписание
+        /// </summary>
+        /// <param name="tableLayoutPanel"></param>
+        /// <param name="daySchedule"></param>
+        /// <param name="isNumerator"></param>
         private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule, bool isNumerator)
         {
             tableLayoutPanel.Controls.Clear();
@@ -177,8 +230,13 @@ namespace Student_Note
             }
         }
 
-        // Для числителя берем первый элемент, для знаменателя второй
-        // Метод для получения уроков для числителя или знаменателя
+
+        /// <summary>
+        /// Для числителя берем первый элемент, для знаменателя второй
+        /// Метод для получения уроков для числителя или знаменателя
+        /// </summary>
+        /// <param name="periodLessons"></param>
+        /// <param name="isNumerator"></param>
         private List<Lesson>? GetLessonsForPeriod(List<Lesson> periodLessons, bool isNumerator)
         {
             // Если список пуст или null, возвращаем null
@@ -191,7 +249,13 @@ namespace Student_Note
             return new List<Lesson> { periodLessons[isNumerator ? 0 : 1] };
         }
 
-
+        /// <summary>
+        /// Добавление строк в таблицу
+        /// </summary>
+        /// <param name="tableLayoutPanel"></param>
+        /// <param name="lessonNumber"></param>
+        /// <param name="subject"></param>
+        /// <param name="homework"></param>
         private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, string homework)
         {
             // Создаем текстовые метки для строки
@@ -207,6 +271,17 @@ namespace Student_Note
             // Увеличиваем количество строк
             tableLayoutPanel.RowCount++;
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
+            // Показать меню рядом с кнопкой
+            contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }
