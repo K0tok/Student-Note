@@ -30,9 +30,11 @@
         {
             HeaderLabel = new Label();
             NameGroup = new Label();
-            selectGroups = new ComboBox();
             CreateGroup = new Button();
             CenselCreateGroup = new Button();
+            TextBoxNameGroup = new TextBox();
+            GroupSpeNames = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -58,42 +60,61 @@
             NameGroup.Size = new Size(132, 20);
             NameGroup.TabIndex = 3;
             NameGroup.Text = "Название группы";
-            NameGroup.Click += label1_Click;
-            // 
-            // selectGroups
-            // 
-            selectGroups.FormattingEnabled = true;
-            selectGroups.Location = new Point(12, 105);
-            selectGroups.Name = "selectGroups";
-            selectGroups.Size = new Size(194, 28);
-            selectGroups.TabIndex = 4;
             // 
             // CreateGroup
             // 
-            CreateGroup.Location = new Point(112, 139);
+            CreateGroup.Location = new Point(212, 139);
             CreateGroup.Name = "CreateGroup";
-            CreateGroup.Size = new Size(94, 29);
+            CreateGroup.Size = new Size(151, 29);
             CreateGroup.TabIndex = 5;
             CreateGroup.Text = "Создать";
             CreateGroup.UseVisualStyleBackColor = true;
+            CreateGroup.Click += CreateGroup_Click;
             // 
             // CenselCreateGroup
             // 
             CenselCreateGroup.Location = new Point(12, 139);
             CenselCreateGroup.Name = "CenselCreateGroup";
-            CenselCreateGroup.Size = new Size(94, 29);
+            CenselCreateGroup.Size = new Size(194, 29);
             CenselCreateGroup.TabIndex = 6;
             CenselCreateGroup.Text = "Отменить";
             CenselCreateGroup.UseVisualStyleBackColor = true;
+            CenselCreateGroup.Click += CenselCreateGroup_Click;
+            // 
+            // TextBoxNameGroup
+            // 
+            TextBoxNameGroup.Location = new Point(12, 106);
+            TextBoxNameGroup.Name = "TextBoxNameGroup";
+            TextBoxNameGroup.Size = new Size(194, 27);
+            TextBoxNameGroup.TabIndex = 7;
+            // 
+            // GroupSpeNames
+            // 
+            GroupSpeNames.FormattingEnabled = true;
+            GroupSpeNames.Location = new Point(212, 105);
+            GroupSpeNames.Name = "GroupSpeNames";
+            GroupSpeNames.Size = new Size(151, 28);
+            GroupSpeNames.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(212, 82);
+            label1.Name = "label1";
+            label1.Size = new Size(119, 20);
+            label1.TabIndex = 9;
+            label1.Text = "Специализация";
             // 
             // AddGroupForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(548, 303);
+            Controls.Add(label1);
+            Controls.Add(GroupSpeNames);
+            Controls.Add(TextBoxNameGroup);
             Controls.Add(CenselCreateGroup);
             Controls.Add(CreateGroup);
-            Controls.Add(selectGroups);
             Controls.Add(NameGroup);
             Controls.Add(HeaderLabel);
             Name = "AddGroupForm";
@@ -106,8 +127,10 @@
 
         private Label HeaderLabel;
         private Label NameGroup;
-        private ComboBox selectGroups;
         private Button CreateGroup;
         private Button CenselCreateGroup;
+        private TextBox TextBoxNameGroup;
+        private ComboBox GroupSpeNames;
+        private Label label1;
     }
 }
