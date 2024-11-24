@@ -103,7 +103,7 @@
             panel1.Location = new Point(0, 128);
             panel1.MinimumSize = new Size(991, 1110);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1066, 1110);
+            panel1.Size = new Size(991, 1110);
             panel1.TabIndex = 8;
             // 
             // splitContainer1
@@ -138,8 +138,8 @@
             splitContainer1.Panel2.Controls.Add(Tuesday);
             splitContainer1.Panel2.Controls.Add(TuesdayTLP);
             splitContainer1.Panel2MinSize = 325;
-            splitContainer1.Size = new Size(1042, 1094);
-            splitContainer1.SplitterDistance = 496;
+            splitContainer1.Size = new Size(967, 1094);
+            splitContainer1.SplitterDistance = 460;
             splitContainer1.SplitterWidth = 30;
             splitContainer1.TabIndex = 8;
             // 
@@ -148,7 +148,7 @@
             FridayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             FridayDateLabel.AutoSize = true;
             FridayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            FridayDateLabel.Location = new Point(401, 715);
+            FridayDateLabel.Location = new Point(365, 715);
             FridayDateLabel.Name = "FridayDateLabel";
             FridayDateLabel.Size = new Size(119, 46);
             FridayDateLabel.TabIndex = 45;
@@ -178,7 +178,7 @@
             FridayTLP.RowStyles.Add(new RowStyle());
             FridayTLP.RowStyles.Add(new RowStyle());
             FridayTLP.RowStyles.Add(new RowStyle());
-            FridayTLP.Size = new Size(496, 265);
+            FridayTLP.Size = new Size(460, 265);
             FridayTLP.TabIndex = 40;
             // 
             // WednesdayDateLabel
@@ -186,7 +186,7 @@
             WednesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             WednesdayDateLabel.AutoSize = true;
             WednesdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            WednesdayDateLabel.Location = new Point(397, 372);
+            WednesdayDateLabel.Location = new Point(361, 372);
             WednesdayDateLabel.Name = "WednesdayDateLabel";
             WednesdayDateLabel.Size = new Size(119, 46);
             WednesdayDateLabel.TabIndex = 42;
@@ -217,7 +217,7 @@
             WednesdayTLP.RowStyles.Add(new RowStyle());
             WednesdayTLP.RowStyles.Add(new RowStyle());
             WednesdayTLP.RowStyles.Add(new RowStyle());
-            WednesdayTLP.Size = new Size(496, 265);
+            WednesdayTLP.Size = new Size(460, 265);
             WednesdayTLP.TabIndex = 40;
             // 
             // MondayDateLabel
@@ -225,7 +225,7 @@
             MondayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             MondayDateLabel.AutoSize = true;
             MondayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            MondayDateLabel.Location = new Point(397, 16);
+            MondayDateLabel.Location = new Point(361, 16);
             MondayDateLabel.Name = "MondayDateLabel";
             MondayDateLabel.Size = new Size(119, 46);
             MondayDateLabel.TabIndex = 39;
@@ -257,7 +257,7 @@
             MondayTLP.RowStyles.Add(new RowStyle());
             MondayTLP.RowStyles.Add(new RowStyle());
             MondayTLP.RowStyles.Add(new RowStyle());
-            MondayTLP.Size = new Size(496, 265);
+            MondayTLP.Size = new Size(460, 265);
             MondayTLP.TabIndex = 37;
             // 
             // SaturdayDateLabel
@@ -265,7 +265,7 @@
             SaturdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             SaturdayDateLabel.AutoSize = true;
             SaturdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            SaturdayDateLabel.Location = new Point(-205, 714);
+            SaturdayDateLabel.Location = new Point(-1310, 714);
             SaturdayDateLabel.Name = "SaturdayDateLabel";
             SaturdayDateLabel.Size = new Size(119, 46);
             SaturdayDateLabel.TabIndex = 48;
@@ -303,7 +303,7 @@
             ThursdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             ThursdayDateLabel.AutoSize = true;
             ThursdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            ThursdayDateLabel.Location = new Point(-205, 371);
+            ThursdayDateLabel.Location = new Point(-1310, 371);
             ThursdayDateLabel.Name = "ThursdayDateLabel";
             ThursdayDateLabel.Size = new Size(119, 46);
             ThursdayDateLabel.TabIndex = 42;
@@ -347,7 +347,7 @@
             TuesdayDateLabel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             TuesdayDateLabel.AutoSize = true;
             TuesdayDateLabel.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            TuesdayDateLabel.Location = new Point(-207, 16);
+            TuesdayDateLabel.Location = new Point(-1312, 16);
             TuesdayDateLabel.Name = "TuesdayDateLabel";
             TuesdayDateLabel.Size = new Size(119, 46);
             TuesdayDateLabel.TabIndex = 36;
@@ -396,7 +396,7 @@
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(211, 32);
+            contextMenuStrip1.Size = new Size(61, 4);
             contextMenuStrip1.Opening += contextMenuStrip1_Opening;
             // 
             // MainForm
