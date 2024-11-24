@@ -21,7 +21,9 @@ namespace Student_Note
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Скрытие всех wrong labels
+        /// </summary>
         private void labels_invisible()
         {
             WrongPasswordLabel.Visible = false;
@@ -37,7 +39,12 @@ namespace Student_Note
                 Program.ReplaceForm(Program.MainForm, this);
             }
         }
-
+        /// <summary>
+        /// Проверяет существование пользователя и получает его данные
+        /// </summary>
+        /// <param name="emailOrPhoneNumber">Почта или номер телефона</param>
+        /// <param name="password">Пароль</param>
+        /// <returns>true or false</returns>
         static bool AuthenticateUser(string emailOrPhoneNumber, string password)
         {
             // Путь к базе данных
@@ -80,7 +87,6 @@ namespace Student_Note
                             reader["phone_number"].ToString(), 
                             reader["member_type"].ToString()
                             );
-                        Program.userData.printString();
                     }
                 }
                 if (Program.isLog)
