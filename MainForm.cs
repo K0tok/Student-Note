@@ -7,13 +7,12 @@ namespace Student_Note
 {
     public partial class MainForm : Form
     {
-        private ScheduleLoader _scheduleLoader;
+        public static ScheduleLoader _scheduleLoader = new ScheduleLoader();
         private List<Week> _weeks;
 
         public MainForm()
         {
             InitializeComponent();
-            _scheduleLoader = new ScheduleLoader();
         }
 
         private async void MainForm_Load(object sender, EventArgs e)
@@ -39,27 +38,32 @@ namespace Student_Note
                 }
                 contextMenuStrip1.Items.Add("Настройки", null, (s, e) => MessageBox.Show("Открыты настройки"));
                 contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());
-                
-                
             }
 
             // Загружаем расписание
             await _scheduleLoader.GetScheduleAsync();
-
-            // Проверяем, загружено ли расписание
-            if (_scheduleLoader.CurrentSchedule != null &&
-                _scheduleLoader.CurrentSchedule.Groups.TryGetValue("Т-233901-ИСТ", out var groupSchedule))
+            try
             {
-                // Заполняем таблицы для текущей недели (по умолчанию)
-                FillSchedule(
-                    MondayTLP, TuesdayTLP, WednesdayTLP,
-                    ThursdayTLP, FridayTLP, SaturdayTLP,
-                    groupSchedule, GetCurrentWeekType());
+                // Проверяем, загружено ли расписание
+                if (_scheduleLoader.CurrentSchedule != null &&
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
+                {
+                    // Заполняем таблицы для текущей недели (по умолчанию)
+                    FillSchedule(
+                        MondayTLP, TuesdayTLP, WednesdayTLP,
+                        ThursdayTLP, FridayTLP, SaturdayTLP,
+                        groupSchedule, GetCurrentWeekType());
+                }
+                else
+                {
+                    MessageBox.Show("Расписание не найдено.");
+                }
             }
-            else
+            catch 
             {
-                MessageBox.Show("Расписание не найдено.");
+                Program.ReplaceForm(Program.LogInForm, this);
             }
+            
 
             // Получение списка недель
             DateTime startDate = new DateTime(DateTime.Now.Year, 9, 2);
@@ -134,7 +138,7 @@ namespace Student_Note
 
                 // Получаем расписание для выбранной недели
                 if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue("Т-233901-ИСТ", out var groupSchedule))
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
                 {
                     FillSchedule(
                         MondayTLP, TuesdayTLP, WednesdayTLP,

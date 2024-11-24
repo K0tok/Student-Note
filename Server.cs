@@ -10,7 +10,24 @@ namespace Student_Note
 {
     public class Server
     {
-        
+        static string GetRandomLetters(int count)
+        {
+            Random random = new Random();
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            StringBuilder result = new StringBuilder();
+
+            for (int i = 0; i < count; i++)
+            {
+                result.Append(chars[random.Next(chars.Length)]);
+            }
+
+            return result.ToString();
+        }
+        public static string GenerateRandomCode()
+        {
+            Random random = new Random();
+            return $"{random.Next(1000, 9999)}-{GetRandomLetters(4)}-{random.Next(1000, 9999)}-{GetRandomLetters(4)}";
+        }
         // Метод для загрузки и вывода расписания
         public async Task GetScheduleAsync()
         {

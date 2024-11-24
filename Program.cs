@@ -11,18 +11,18 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(LogInForm);
+            Application.Run(AddGroupForm);
         }
         /// <summary>
         /// Данные пользователя
         /// </summary>
         static public UserData? userData;
 
-        static public Form MainForm = new MainForm();
-        static public Form LogInForm = new LogInForm();
-        static public Form SignUpForm = new SignUpForm();
+        static public Form MainForm         = new MainForm();
+        static public Form LogInForm        = new LogInForm();
+        static public Form SignUpForm       = new SignUpForm();
         static public Form MakeHomeworkForm = new MakeHomework();
-        static public Form AddGroupForm = new AddGroupForm();
+        static public Form AddGroupForm     = new AddGroupForm();
         /// <summary>
         /// Список посещений форм
         /// </summary>
