@@ -105,8 +105,8 @@ namespace Student_Note
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
-            string emailOrPhoneNumber = LoginTextBox.Text;
-            string password = PasswordTextBox.Text;
+            string emailOrPhoneNumber = /*LoginTextBox.Text*/"+70000000000";
+            string password = /*PasswordTextBox.Text*/"anononly_00_Test";
 
 
             labels_invisible();

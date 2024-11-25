@@ -18,18 +18,18 @@ namespace Student_Note
         private async void MainForm_Load(object sender, EventArgs e)
         {
             // Если при загрузки Main Form нет данных пользователя, то мы возращаем в Login Form
-            if (Program.userData == null) Program.ReplaceForm(Program.LogInForm, this);
+            if (Program.userData == null) { Program.ReplaceForm(Program.LogInForm, this); return; }
             else
             {
                 // Отрисовка имени пользователя в кнопке
-                if (Program.userData.second_name != "")
+                if (Program.userData.second_name != "" && Program.userData.second_name!=null)
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
 
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
-                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => MessageBox.Show("Открыт профиль"));
+                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
                 if (Program.userData.member_type) // Дополнительные менюшки для старосты
                 {
@@ -39,6 +39,9 @@ namespace Student_Note
                 contextMenuStrip1.Items.Add("Настройки", null, (s, e) => MessageBox.Show("Открыты настройки"));
                 contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());
             }
+
+            // Проверка на наличие групп у пользователя 
+            if (Program.userData.selectGroup==null) { MessageBox.Show("У вас нет групп, пожалуйста присоеденитесь"); return; }
 
             // Загружаем расписание
             await _scheduleLoader.GetScheduleAsync();

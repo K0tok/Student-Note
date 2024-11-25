@@ -11,7 +11,7 @@ namespace Student_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(AddGroupForm);
+            Application.Run(LogInForm);
         }
         /// <summary>
         /// Данные пользователя
@@ -23,6 +23,8 @@ namespace Student_Note
         static public Form SignUpForm       = new SignUpForm();
         static public Form MakeHomeworkForm = new MakeHomework();
         static public Form AddGroupForm     = new AddGroupForm();
+        /// MENU
+        static public Form ProfileForm      = new ProfileForm();
         /// <summary>
         /// Список посещений форм
         /// </summary>

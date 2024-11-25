@@ -193,9 +193,9 @@ namespace Student_Note
 
 
             if (Program.isLog)
-                if (status_int == 0) Program.ReplaceForm(Program.MainForm, this);
-                else Program.ReplaceForm(Program.AddGroupForm, this);
-                    
+                if (status_int == 0)    Program.ReplaceForm(Program.MainForm, this);    // Переход, если пользователь регистрируется как не староста 
+                else                    Program.ReplaceForm(Program.AddGroupForm, this);// Переход, если пользователь регистрируется как староста 
+
 
         }
     }
