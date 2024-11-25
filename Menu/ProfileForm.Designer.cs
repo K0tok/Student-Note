@@ -54,7 +54,7 @@
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
-            label12 = new Label();
+            comboBoxGroups = new ComboBox();
             SuspendLayout();
             // 
             // buttonUser
@@ -78,7 +78,7 @@
             // 
             button1.ContextMenuStrip = contextMenuStrip1;
             button1.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(481, 12);
+            button1.Location = new Point(419, 12);
             button1.Name = "button1";
             button1.Size = new Size(315, 54);
             button1.TabIndex = 4;
@@ -291,21 +291,21 @@
             label11.TabIndex = 26;
             label11.Text = "label11";
             // 
-            // label12
+            // comboBoxGroups
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(169, 296);
-            label12.Name = "label12";
-            label12.Size = new Size(58, 20);
-            label12.TabIndex = 27;
-            label12.Text = "label12";
+            comboBoxGroups.FormattingEnabled = true;
+            comboBoxGroups.Location = new Point(169, 296);
+            comboBoxGroups.Name = "comboBoxGroups";
+            comboBoxGroups.Size = new Size(151, 28);
+            comboBoxGroups.TabIndex = 28;
+            comboBoxGroups.SelectedIndexChanged += comboBoxGroups_SelectedIndexChanged;
             // 
             // ProfileForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 656);
-            Controls.Add(label12);
+            Controls.Add(comboBoxGroups);
             Controls.Add(label11);
             Controls.Add(label10);
             Controls.Add(label9);
@@ -363,6 +363,6 @@
         private Label label9;
         private Label label10;
         private Label label11;
-        private Label label12;
+        private ComboBox comboBoxGroups;
     }
 }

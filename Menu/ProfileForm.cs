@@ -19,6 +19,7 @@ namespace Student_Note
         }
         private void ProfileForm_Load(object sender, EventArgs e)
         {
+
             UserData _userData = Program.userData;
             // Если при загрузки формы нет данных пользователя, то мы возращаем в Login Form
             if (_userData == null) { Program.ReplaceForm(Program.LogInForm, this); return; }
@@ -31,7 +32,7 @@ namespace Student_Note
                     button1.Text = _userData.last_name + " " + _userData.first_name;
 
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
-                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => MessageBox.Show("Открыт профиль"));
+                contextMenuStrip1.Items.Add("Открыть расписание", null, (s, e) => { Program.MainForm = new MainForm(); Program.ReplaceForm(Program.MainForm, this); });
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
                 if (_userData.member_type) // Дополнительные менюшки для старосты
                 {
@@ -53,7 +54,8 @@ namespace Student_Note
             label9.Text = _userData.phone_number;
             label10.Text = _userData.member_type ? "Староста" : "Студент";
             label11.Text = string.Join(", ", _userData.Group) ?? "Нет групп";
-            label12.Text = _userData.selectGroup ?? "Нет групп";
+            comboBoxGroups.DataSource = _userData.Group;
+            comboBoxGroups.Text = _userData.selectGroup ?? "Нет групп";
 
 
         }
@@ -67,6 +69,12 @@ namespace Student_Note
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Program.userData == null) return;
+            Program.userData.selectGroup = comboBoxGroups.Text;
         }
     }
 }

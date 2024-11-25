@@ -25,31 +25,34 @@ namespace Student_Note
         static public Form AddGroupForm     = new AddGroupForm();
         /// MENU
         static public Form ProfileForm      = new ProfileForm();
-        /// <summary>
-        /// Список посещений форм
-        /// </summary>
-        static public List<Form> formsHistory = new List<Form>();
 
         /// <summary>
         /// Меняет форму на newForm из oldForm
         /// </summary>
         static public void ReplaceForm(Form newForm, Form oldForm)
         {
-            // Обработка истории переключения форм 
-            if (formsHistory.Contains(newForm)) 
-            { 
-                formsHistory.RemoveAt(formsHistory.IndexOf(newForm));
-                formsHistory.Add(newForm);
-            }
-            else
+            bool isClosingOldForm = false;
+
+            try
             {
-                formsHistory.Add(newForm);
+                newForm.FormClosed += (s, args) =>
+                {
+                    if (!isClosingOldForm)
+                    {
+                        isClosingOldForm = true;
+                        oldForm.Close();
+                    }
+                };
+
+                newForm.Show();
+                oldForm.Hide();
             }
-            
-            newForm.FormClosed += (s, args) => oldForm.Close();
-            newForm.Show();
-            oldForm.Hide();
+            catch
+            {
+                Application.Exit();
+            }
         }
+
 
         static public bool isLog = false;
 

@@ -55,7 +55,7 @@ namespace Student_Note
         }
         private void CenselCreateGroup_Click(object sender, EventArgs e)
         {
-            Program.ReplaceForm(Program.formsHistory.Last(), this);
+            Program.ReplaceForm(Program.MainForm, this);
         }
 
         /// <summary>
