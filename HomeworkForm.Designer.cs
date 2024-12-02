@@ -140,7 +140,7 @@
             // 
             // LoginTextBox
             // 
-            LoginTextBox.Anchor = AnchorStyles.Top;
+            LoginTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             LoginTextBox.BackColor = Color.FromArgb(224, 224, 224);
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Font = new Font("Arial", 18F);
@@ -153,6 +153,7 @@
             // 
             // label5
             // 
+            label5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label5.AutoSize = true;
             label5.Font = new Font("Arial", 18F);
             label5.Location = new Point(21, 290);
@@ -176,6 +177,7 @@
             // 
             // LogUpLinkLabel
             // 
+            LogUpLinkLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             LogUpLinkLabel.BackColor = Color.FromArgb(224, 224, 224);
             LogUpLinkLabel.Location = new Point(235, 290);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
@@ -187,6 +189,7 @@
             // 
             // LogInButton
             // 
+            LogInButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             LogInButton.BackColor = Color.FromArgb(203, 66, 66);
             LogInButton.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             LogInButton.Location = new Point(386, 320);
@@ -198,6 +201,7 @@
             // 
             // button1
             // 
+            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button1.BackColor = Color.FromArgb(52, 199, 89);
             button1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             button1.Location = new Point(488, 320);
@@ -215,8 +219,6 @@
             ClientSize = new Size(596, 351);
             Controls.Add(button1);
             Controls.Add(LogInButton);
-            Controls.Add(LogUpLinkLabel);
-            Controls.Add(textBox1);
             Controls.Add(label5);
             Controls.Add(LoginTextBox);
             Controls.Add(label4);
@@ -227,7 +229,10 @@
             Controls.Add(listBox2);
             Controls.Add(listBox1);
             Controls.Add(HeaderLabel);
+            Controls.Add(LogUpLinkLabel);
+            Controls.Add(textBox1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MinimumSize = new Size(612, 390);
             Name = "HomeworkForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "HomeworkForm";

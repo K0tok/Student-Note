@@ -39,6 +39,8 @@
             label6 = new Label();
             LogUpLinkLabel = new LinkLabel();
             WrongDataLabel = new Label();
+            panel1 = new Panel();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -58,7 +60,7 @@
             // 
             // LoginTextBox
             // 
-            LoginTextBox.Anchor = AnchorStyles.Top;
+            LoginTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LoginTextBox.BackColor = Color.FromArgb(224, 224, 224);
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Font = new Font("Arial", 18F);
@@ -69,7 +71,7 @@
             // 
             // LoginLabel
             // 
-            LoginLabel.AutoSize = true;
+            LoginLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LoginLabel.BackColor = Color.Transparent;
             LoginLabel.Font = new Font("Arial", 18F);
             LoginLabel.Location = new Point(173, 74);
@@ -80,6 +82,7 @@
             // 
             // PasswordLabel
             // 
+            PasswordLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PasswordLabel.AutoSize = true;
             PasswordLabel.BackColor = Color.Transparent;
             PasswordLabel.Font = new Font("Arial", 18F);
@@ -91,7 +94,7 @@
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Anchor = AnchorStyles.Top;
+            PasswordTextBox.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             PasswordTextBox.BackColor = Color.FromArgb(224, 224, 224);
             PasswordTextBox.BorderStyle = BorderStyle.None;
             PasswordTextBox.Font = new Font("Arial", 18F);
@@ -103,6 +106,7 @@
             // 
             // WrongLoginLabel
             // 
+            WrongLoginLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             WrongLoginLabel.AutoSize = true;
             WrongLoginLabel.BackColor = Color.Transparent;
             WrongLoginLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -116,7 +120,7 @@
             // 
             // WrongPasswordLabel
             // 
-            WrongPasswordLabel.AutoSize = true;
+            WrongPasswordLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             WrongPasswordLabel.BackColor = Color.Transparent;
             WrongPasswordLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongPasswordLabel.ForeColor = Color.FromArgb(255, 59, 48);
@@ -129,6 +133,7 @@
             // 
             // LogInButton
             // 
+            LogInButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LogInButton.BackColor = Color.FromArgb(52, 199, 89);
             LogInButton.Font = new Font("Arial", 18F);
             LogInButton.Location = new Point(197, 250);
@@ -141,9 +146,9 @@
             // 
             // label6
             // 
-            label6.AutoSize = true;
+            label6.Anchor = AnchorStyles.Left;
             label6.BackColor = Color.Transparent;
-            label6.Location = new Point(216, 300);
+            label6.Location = new Point(5, 0);
             label6.Name = "label6";
             label6.Size = new Size(83, 15);
             label6.TabIndex = 8;
@@ -151,9 +156,9 @@
             // 
             // LogUpLinkLabel
             // 
-            LogUpLinkLabel.AutoSize = true;
+            LogUpLinkLabel.Anchor = AnchorStyles.Right;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(297, 300);
+            LogUpLinkLabel.Location = new Point(85, 0);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(122, 15);
             LogUpLinkLabel.TabIndex = 9;
@@ -163,7 +168,7 @@
             // 
             // WrongDataLabel
             // 
-            WrongDataLabel.AutoSize = true;
+            WrongDataLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             WrongDataLabel.BackColor = Color.Transparent;
             WrongDataLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongDataLabel.ForeColor = Color.FromArgb(255, 59, 48);
@@ -172,6 +177,17 @@
             WrongDataLabel.Size = new Size(175, 15);
             WrongDataLabel.TabIndex = 10;
             WrongDataLabel.Text = "*Неверный логин или пароль";
+            WrongDataLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(LogUpLinkLabel);
+            panel1.Location = new Point(213, 300);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(209, 18);
+            panel1.TabIndex = 11;
             // 
             // LogInForm
             // 
@@ -179,9 +195,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
             ClientSize = new Size(634, 361);
+            Controls.Add(panel1);
             Controls.Add(WrongDataLabel);
-            Controls.Add(label6);
-            Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
             Controls.Add(WrongPasswordLabel);
             Controls.Add(WrongLoginLabel);
@@ -192,11 +207,13 @@
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
+            MinimumSize = new Size(650, 400);
             Name = "LogInForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LogInForm";
             Load += LogInForm_Load;
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -214,5 +231,6 @@
         private Label label6;
         private LinkLabel LogUpLinkLabel;
         private Label WrongDataLabel;
+        private Panel panel1;
     }
 }

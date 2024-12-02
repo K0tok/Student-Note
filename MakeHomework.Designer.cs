@@ -51,18 +51,20 @@
             HeaderLabel.Location = new Point(0, 0);
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new Padding(57, 0, 0, 0);
-            HeaderLabel.Size = new Size(560, 67);
+            HeaderLabel.Padding = new Padding(50, 0, 0, 0);
+            HeaderLabel.Size = new Size(490, 50);
             HeaderLabel.TabIndex = 1;
             HeaderLabel.Text = "Добавить домашнее задание";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // TextHomework
             // 
-            TextHomework.Location = new Point(12, 131);
+            TextHomework.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            TextHomework.Location = new Point(10, 98);
+            TextHomework.Margin = new Padding(3, 2, 3, 2);
             TextHomework.Multiline = true;
             TextHomework.Name = "TextHomework";
-            TextHomework.Size = new Size(535, 215);
+            TextHomework.Size = new Size(469, 162);
             TextHomework.TabIndex = 4;
             // 
             // SelectLesson
@@ -71,25 +73,27 @@
             SelectLesson.FlatStyle = FlatStyle.Flat;
             SelectLesson.FormattingEnabled = true;
             SelectLesson.Items.AddRange(new object[] { "Математика", "Философия" });
-            SelectLesson.Location = new Point(12, 97);
+            SelectLesson.Location = new Point(10, 73);
+            SelectLesson.Margin = new Padding(3, 2, 3, 2);
             SelectLesson.Name = "SelectLesson";
-            SelectLesson.Size = new Size(151, 28);
+            SelectLesson.Size = new Size(133, 23);
             SelectLesson.TabIndex = 1;
             // 
             // LabelSubject
             // 
             LabelSubject.AutoSize = true;
-            LabelSubject.Location = new Point(12, 74);
+            LabelSubject.Location = new Point(10, 56);
             LabelSubject.Name = "LabelSubject";
-            LabelSubject.Size = new Size(70, 20);
+            LabelSubject.Size = new Size(55, 15);
             LabelSubject.TabIndex = 4;
             LabelSubject.Text = "Предмет";
             // 
             // SelectDate
             // 
-            SelectDate.Location = new Point(169, 98);
+            SelectDate.Location = new Point(148, 74);
+            SelectDate.Margin = new Padding(3, 2, 3, 2);
             SelectDate.Name = "SelectDate";
-            SelectDate.Size = new Size(250, 27);
+            SelectDate.Size = new Size(219, 23);
             SelectDate.TabIndex = 2;
             // 
             // SelectNumberLesson
@@ -98,62 +102,69 @@
             SelectNumberLesson.FlatStyle = FlatStyle.Flat;
             SelectNumberLesson.FormattingEnabled = true;
             SelectNumberLesson.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "1-В", "2-В" });
-            SelectNumberLesson.Location = new Point(426, 97);
+            SelectNumberLesson.Location = new Point(373, 73);
+            SelectNumberLesson.Margin = new Padding(3, 2, 3, 2);
             SelectNumberLesson.Name = "SelectNumberLesson";
-            SelectNumberLesson.Size = new Size(122, 28);
+            SelectNumberLesson.Size = new Size(107, 23);
             SelectNumberLesson.TabIndex = 3;
             // 
             // LabelDate
             // 
             LabelDate.AutoSize = true;
-            LabelDate.Location = new Point(169, 75);
+            LabelDate.Location = new Point(148, 56);
             LabelDate.Name = "LabelDate";
-            LabelDate.Size = new Size(52, 20);
+            LabelDate.Size = new Size(42, 15);
             LabelDate.TabIndex = 7;
             LabelDate.Text = "Число";
             // 
             // LabelNumberLesson
             // 
             LabelNumberLesson.AutoSize = true;
-            LabelNumberLesson.Location = new Point(425, 77);
+            LabelNumberLesson.Location = new Point(372, 58);
             LabelNumberLesson.Name = "LabelNumberLesson";
-            LabelNumberLesson.Size = new Size(98, 20);
+            LabelNumberLesson.Size = new Size(77, 15);
             LabelNumberLesson.TabIndex = 8;
             LabelNumberLesson.Text = "Номер пары";
             // 
             // LabelAddFile
             // 
+            LabelAddFile.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             LabelAddFile.AutoSize = true;
-            LabelAddFile.Location = new Point(12, 349);
+            LabelAddFile.Location = new Point(10, 262);
             LabelAddFile.Name = "LabelAddFile";
-            LabelAddFile.Size = new Size(126, 20);
+            LabelAddFile.Size = new Size(100, 15);
             LabelAddFile.TabIndex = 9;
             LabelAddFile.Text = "Добавить файлы";
             // 
             // AddFile
             // 
+            AddFile.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             AddFile.AutoSize = true;
-            AddFile.Location = new Point(144, 349);
+            AddFile.Location = new Point(126, 262);
             AddFile.Name = "AddFile";
-            AddFile.Size = new Size(76, 20);
+            AddFile.Size = new Size(59, 15);
             AddFile.TabIndex = 5;
             AddFile.TabStop = true;
             AddFile.Text = "Добавить";
             // 
             // CancelHomework
             // 
-            CancelHomework.Location = new Point(353, 349);
+            CancelHomework.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            CancelHomework.Location = new Point(309, 262);
+            CancelHomework.Margin = new Padding(3, 2, 3, 2);
             CancelHomework.Name = "CancelHomework";
-            CancelHomework.Size = new Size(94, 29);
+            CancelHomework.Size = new Size(82, 22);
             CancelHomework.TabIndex = 6;
             CancelHomework.Text = "Отменить";
             CancelHomework.UseVisualStyleBackColor = true;
             // 
             // SaveHomework
             // 
-            SaveHomework.Location = new Point(453, 349);
+            SaveHomework.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            SaveHomework.Location = new Point(396, 262);
+            SaveHomework.Margin = new Padding(3, 2, 3, 2);
             SaveHomework.Name = "SaveHomework";
-            SaveHomework.Size = new Size(94, 29);
+            SaveHomework.Size = new Size(82, 22);
             SaveHomework.TabIndex = 7;
             SaveHomework.Text = "Сохранить";
             SaveHomework.UseVisualStyleBackColor = true;
@@ -161,9 +172,9 @@
             // 
             // MakeHomework
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 390);
+            ClientSize = new Size(490, 292);
             Controls.Add(SaveHomework);
             Controls.Add(CancelHomework);
             Controls.Add(AddFile);
@@ -176,6 +187,8 @@
             Controls.Add(SelectLesson);
             Controls.Add(TextHomework);
             Controls.Add(HeaderLabel);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(506, 331);
             Name = "MakeHomework";
             Text = "MakeHomework";
             ResumeLayout(false);

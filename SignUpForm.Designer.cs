@@ -71,8 +71,8 @@
             HeaderLabel.Location = new Point(0, 0);
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new Padding(57, 0, 0, 0);
-            HeaderLabel.Size = new Size(725, 67);
+            HeaderLabel.Padding = new Padding(50, 0, 0, 0);
+            HeaderLabel.Size = new Size(634, 50);
             HeaderLabel.TabIndex = 1;
             HeaderLabel.Text = "Регистрация";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -83,9 +83,9 @@
             WrongSurnameLabel.BackColor = Color.Transparent;
             WrongSurnameLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongSurnameLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongSurnameLabel.Location = new Point(209, 176);
+            WrongSurnameLabel.Location = new Point(183, 132);
             WrongSurnameLabel.Name = "WrongSurnameLabel";
-            WrongSurnameLabel.Size = new Size(139, 17);
+            WrongSurnameLabel.Size = new Size(118, 15);
             WrongSurnameLabel.TabIndex = 8;
             WrongSurnameLabel.Text = "*Неверный формат";
             WrongSurnameLabel.Visible = false;
@@ -95,9 +95,9 @@
             LoginLabel.AutoSize = true;
             LoginLabel.BackColor = Color.Transparent;
             LoginLabel.Font = new Font("Arial", 18F);
-            LoginLabel.Location = new Point(14, 91);
+            LoginLabel.Location = new Point(12, 68);
             LoginLabel.Name = "LoginLabel";
-            LoginLabel.Size = new Size(143, 35);
+            LoginLabel.Size = new Size(113, 27);
             LoginLabel.TabIndex = 7;
             LoginLabel.Text = "Фамилия";
             // 
@@ -107,10 +107,9 @@
             SurnameText.BackColor = Color.FromArgb(224, 224, 224);
             SurnameText.BorderStyle = BorderStyle.None;
             SurnameText.Font = new Font("Arial", 18F);
-            SurnameText.Location = new Point(14, 135);
-            SurnameText.Margin = new Padding(3, 4, 3, 4);
+            SurnameText.Location = new Point(12, 101);
             SurnameText.Name = "SurnameText";
-            SurnameText.Size = new Size(330, 35);
+            SurnameText.Size = new Size(289, 28);
             SurnameText.TabIndex = 6;
             // 
             // WrongMailLabel
@@ -119,9 +118,9 @@
             WrongMailLabel.BackColor = Color.Transparent;
             WrongMailLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongMailLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongMailLabel.Location = new Point(576, 176);
+            WrongMailLabel.Location = new Point(504, 132);
             WrongMailLabel.Name = "WrongMailLabel";
-            WrongMailLabel.Size = new Size(139, 17);
+            WrongMailLabel.Size = new Size(118, 15);
             WrongMailLabel.TabIndex = 11;
             WrongMailLabel.Text = "*Неверный формат";
             WrongMailLabel.Visible = false;
@@ -131,9 +130,9 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Arial", 18F);
-            label2.Location = new Point(381, 91);
+            label2.Location = new Point(333, 68);
             label2.Name = "label2";
-            label2.Size = new Size(98, 35);
+            label2.Size = new Size(78, 27);
             label2.TabIndex = 10;
             label2.Text = "Почта";
             // 
@@ -143,10 +142,9 @@
             EmailText.BackColor = Color.FromArgb(224, 224, 224);
             EmailText.BorderStyle = BorderStyle.None;
             EmailText.Font = new Font("Arial", 18F);
-            EmailText.Location = new Point(381, 135);
-            EmailText.Margin = new Padding(3, 4, 3, 4);
+            EmailText.Location = new Point(333, 101);
             EmailText.Name = "EmailText";
-            EmailText.Size = new Size(330, 35);
+            EmailText.Size = new Size(289, 28);
             EmailText.TabIndex = 9;
             // 
             // WrongNameLabel
@@ -155,9 +153,9 @@
             WrongNameLabel.BackColor = Color.Transparent;
             WrongNameLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongNameLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongNameLabel.Location = new Point(209, 291);
+            WrongNameLabel.Location = new Point(183, 218);
             WrongNameLabel.Name = "WrongNameLabel";
-            WrongNameLabel.Size = new Size(139, 17);
+            WrongNameLabel.Size = new Size(118, 15);
             WrongNameLabel.TabIndex = 14;
             WrongNameLabel.Text = "*Неверный формат";
             WrongNameLabel.Visible = false;
@@ -167,9 +165,9 @@
             label4.AutoSize = true;
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Arial", 18F);
-            label4.Location = new Point(14, 205);
+            label4.Location = new Point(12, 154);
             label4.Name = "label4";
-            label4.Size = new Size(74, 35);
+            label4.Size = new Size(59, 27);
             label4.TabIndex = 13;
             label4.Text = "Имя";
             // 
@@ -179,10 +177,9 @@
             NameText.BackColor = Color.FromArgb(224, 224, 224);
             NameText.BorderStyle = BorderStyle.None;
             NameText.Font = new Font("Arial", 18F);
-            NameText.Location = new Point(14, 249);
-            NameText.Margin = new Padding(3, 4, 3, 4);
+            NameText.Location = new Point(12, 187);
             NameText.Name = "NameText";
-            NameText.Size = new Size(330, 35);
+            NameText.Size = new Size(289, 28);
             NameText.TabIndex = 12;
             // 
             // WrongPhoneLabel
@@ -191,9 +188,9 @@
             WrongPhoneLabel.BackColor = Color.Transparent;
             WrongPhoneLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongPhoneLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongPhoneLabel.Location = new Point(576, 291);
+            WrongPhoneLabel.Location = new Point(504, 218);
             WrongPhoneLabel.Name = "WrongPhoneLabel";
-            WrongPhoneLabel.Size = new Size(139, 17);
+            WrongPhoneLabel.Size = new Size(118, 15);
             WrongPhoneLabel.TabIndex = 17;
             WrongPhoneLabel.Text = "*Неверный формат";
             WrongPhoneLabel.Visible = false;
@@ -203,9 +200,9 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Arial", 18F);
-            label6.Location = new Point(381, 205);
+            label6.Location = new Point(333, 154);
             label6.Name = "label6";
-            label6.Size = new Size(251, 35);
+            label6.Size = new Size(202, 27);
             label6.TabIndex = 16;
             label6.Text = "Номер телефона";
             // 
@@ -215,10 +212,9 @@
             PhoneNumberText.BackColor = Color.FromArgb(224, 224, 224);
             PhoneNumberText.BorderStyle = BorderStyle.None;
             PhoneNumberText.Font = new Font("Arial", 18F);
-            PhoneNumberText.Location = new Point(381, 249);
-            PhoneNumberText.Margin = new Padding(3, 4, 3, 4);
+            PhoneNumberText.Location = new Point(333, 187);
             PhoneNumberText.Name = "PhoneNumberText";
-            PhoneNumberText.Size = new Size(330, 35);
+            PhoneNumberText.Size = new Size(289, 28);
             PhoneNumberText.TabIndex = 15;
             // 
             // label8
@@ -226,9 +222,9 @@
             label8.AutoSize = true;
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Arial", 18F);
-            label8.Location = new Point(381, 320);
+            label8.Location = new Point(333, 240);
             label8.Name = "label8";
-            label8.Size = new Size(226, 35);
+            label8.Size = new Size(181, 27);
             label8.TabIndex = 19;
             label8.Text = "Укажите статус";
             // 
@@ -237,9 +233,9 @@
             label10.AutoSize = true;
             label10.BackColor = Color.Transparent;
             label10.Font = new Font("Arial", 18F);
-            label10.Location = new Point(14, 433);
+            label10.Location = new Point(12, 325);
             label10.Name = "label10";
-            label10.Size = new Size(70, 35);
+            label10.Size = new Size(55, 27);
             label10.TabIndex = 25;
             label10.Text = "Пол";
             // 
@@ -249,9 +245,9 @@
             WrongMiddlenameLabel.BackColor = Color.Transparent;
             WrongMiddlenameLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongMiddlenameLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongMiddlenameLabel.Location = new Point(209, 405);
+            WrongMiddlenameLabel.Location = new Point(183, 304);
             WrongMiddlenameLabel.Name = "WrongMiddlenameLabel";
-            WrongMiddlenameLabel.Size = new Size(139, 17);
+            WrongMiddlenameLabel.Size = new Size(118, 15);
             WrongMiddlenameLabel.TabIndex = 23;
             WrongMiddlenameLabel.Text = "*Неверный формат";
             WrongMiddlenameLabel.Visible = false;
@@ -261,9 +257,9 @@
             label12.AutoSize = true;
             label12.BackColor = Color.Transparent;
             label12.Font = new Font("Arial", 18F);
-            label12.Location = new Point(14, 320);
+            label12.Location = new Point(12, 240);
             label12.Name = "label12";
-            label12.Size = new Size(156, 35);
+            label12.Size = new Size(126, 27);
             label12.TabIndex = 22;
             label12.Text = "Отчество*";
             // 
@@ -273,10 +269,9 @@
             MiddleName.BackColor = Color.FromArgb(224, 224, 224);
             MiddleName.BorderStyle = BorderStyle.None;
             MiddleName.Font = new Font("Arial", 18F);
-            MiddleName.Location = new Point(14, 364);
-            MiddleName.Margin = new Padding(3, 4, 3, 4);
+            MiddleName.Location = new Point(12, 273);
             MiddleName.Name = "MiddleName";
-            MiddleName.Size = new Size(330, 35);
+            MiddleName.Size = new Size(289, 28);
             MiddleName.TabIndex = 21;
             // 
             // WrongPasswordLabel
@@ -285,9 +280,9 @@
             WrongPasswordLabel.BackColor = Color.Transparent;
             WrongPasswordLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongPasswordLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongPasswordLabel.Location = new Point(576, 520);
+            WrongPasswordLabel.Location = new Point(504, 390);
             WrongPasswordLabel.Name = "WrongPasswordLabel";
-            WrongPasswordLabel.Size = new Size(139, 17);
+            WrongPasswordLabel.Size = new Size(118, 15);
             WrongPasswordLabel.TabIndex = 29;
             WrongPasswordLabel.Text = "*Неверный формат";
             WrongPasswordLabel.Visible = false;
@@ -297,9 +292,9 @@
             label14.AutoSize = true;
             label14.BackColor = Color.Transparent;
             label14.Font = new Font("Arial", 18F);
-            label14.Location = new Point(381, 433);
+            label14.Location = new Point(333, 325);
             label14.Name = "label14";
-            label14.Size = new Size(119, 35);
+            label14.Size = new Size(95, 27);
             label14.TabIndex = 28;
             label14.Text = "Пароль";
             // 
@@ -309,12 +304,11 @@
             listBox1.BorderStyle = BorderStyle.None;
             listBox1.Font = new Font("Arial", 18F);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 35;
+            listBox1.ItemHeight = 27;
             listBox1.Items.AddRange(new object[] { "Мужской", "Женский" });
-            listBox1.Location = new Point(14, 479);
-            listBox1.Margin = new Padding(3, 4, 3, 4);
+            listBox1.Location = new Point(12, 359);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(330, 35);
+            listBox1.Size = new Size(289, 0);
             listBox1.TabIndex = 30;
             // 
             // listBox2
@@ -323,22 +317,20 @@
             listBox2.BorderStyle = BorderStyle.None;
             listBox2.Font = new Font("Arial", 18F);
             listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 35;
+            listBox2.ItemHeight = 27;
             listBox2.Items.AddRange(new object[] { "Студент", "Староста" });
-            listBox2.Location = new Point(381, 365);
-            listBox2.Margin = new Padding(3, 4, 3, 4);
+            listBox2.Location = new Point(333, 274);
             listBox2.Name = "listBox2";
-            listBox2.Size = new Size(330, 35);
+            listBox2.Size = new Size(289, 0);
             listBox2.TabIndex = 31;
             // 
             // LogInButton
             // 
             LogInButton.BackColor = Color.FromArgb(52, 199, 89);
             LogInButton.Font = new Font("Arial", 18F);
-            LogInButton.Location = new Point(397, 568);
-            LogInButton.Margin = new Padding(3, 4, 3, 4);
+            LogInButton.Location = new Point(347, 426);
             LogInButton.Name = "LogInButton";
-            LogInButton.Size = new Size(287, 65);
+            LogInButton.Size = new Size(251, 49);
             LogInButton.TabIndex = 32;
             LogInButton.Text = "Зарегистрироваться";
             LogInButton.UseVisualStyleBackColor = false;
@@ -348,9 +340,9 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(470, 637);
+            label1.Location = new Point(411, 478);
             label1.Name = "label1";
-            label1.Size = new Size(101, 20);
+            label1.Size = new Size(80, 15);
             label1.TabIndex = 33;
             label1.Text = "Есть аккаунт?";
             // 
@@ -358,9 +350,9 @@
             // 
             LogUpLinkLabel.AutoSize = true;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(568, 637);
+            LogUpLinkLabel.Location = new Point(497, 478);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
-            LogUpLinkLabel.Size = new Size(55, 20);
+            LogUpLinkLabel.Size = new Size(43, 15);
             LogUpLinkLabel.TabIndex = 34;
             LogUpLinkLabel.TabStop = true;
             LogUpLinkLabel.Text = "Войти!";
@@ -372,11 +364,11 @@
             PasswordText.BackColor = Color.FromArgb(224, 224, 224);
             PasswordText.BorderStyle = BorderStyle.None;
             PasswordText.Font = new Font("Arial", 18F);
-            PasswordText.Location = new Point(381, 479);
-            PasswordText.Margin = new Padding(3, 5, 3, 5);
+            PasswordText.Location = new Point(333, 359);
+            PasswordText.Margin = new Padding(3, 4, 3, 4);
             PasswordText.Name = "PasswordText";
             PasswordText.PasswordChar = '*';
-            PasswordText.Size = new Size(330, 35);
+            PasswordText.Size = new Size(289, 28);
             PasswordText.TabIndex = 35;
             // 
             // WrongBirthdateLabel
@@ -385,9 +377,9 @@
             WrongBirthdateLabel.BackColor = Color.Transparent;
             WrongBirthdateLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongBirthdateLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongBirthdateLabel.Location = new Point(209, 637);
+            WrongBirthdateLabel.Location = new Point(183, 478);
             WrongBirthdateLabel.Name = "WrongBirthdateLabel";
-            WrongBirthdateLabel.Size = new Size(139, 17);
+            WrongBirthdateLabel.Size = new Size(118, 15);
             WrongBirthdateLabel.TabIndex = 37;
             WrongBirthdateLabel.Text = "*Неверный формат";
             WrongBirthdateLabel.Visible = false;
@@ -397,9 +389,9 @@
             label5.AutoSize = true;
             label5.BackColor = Color.Transparent;
             label5.Font = new Font("Arial", 18F);
-            label5.Location = new Point(14, 551);
+            label5.Location = new Point(12, 413);
             label5.Name = "label5";
-            label5.Size = new Size(225, 35);
+            label5.Size = new Size(180, 27);
             label5.TabIndex = 36;
             label5.Text = "Дата рождения";
             // 
@@ -409,10 +401,10 @@
             BirthdateText.BackColor = Color.FromArgb(224, 224, 224);
             BirthdateText.BorderStyle = BorderStyle.None;
             BirthdateText.Font = new Font("Arial", 18F);
-            BirthdateText.Location = new Point(14, 596);
-            BirthdateText.Margin = new Padding(3, 5, 3, 5);
+            BirthdateText.Location = new Point(12, 447);
+            BirthdateText.Margin = new Padding(3, 4, 3, 4);
             BirthdateText.Name = "BirthdateText";
-            BirthdateText.Size = new Size(330, 35);
+            BirthdateText.Size = new Size(289, 28);
             BirthdateText.TabIndex = 38;
             // 
             // label11
@@ -421,9 +413,9 @@
             label11.BackColor = Color.Transparent;
             label11.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label11.ForeColor = Color.Black;
-            label11.Location = new Point(14, 519);
+            label11.Location = new Point(12, 389);
             label11.Name = "label11";
-            label11.Size = new Size(221, 17);
+            label11.Size = new Size(186, 15);
             label11.TabIndex = 39;
             label11.Text = "Выберите из списка и нажмите";
             // 
@@ -433,9 +425,9 @@
             label13.BackColor = Color.Transparent;
             label13.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label13.ForeColor = Color.Black;
-            label13.Location = new Point(14, 405);
+            label13.Location = new Point(12, 304);
             label13.Name = "label13";
-            label13.Size = new Size(109, 17);
+            label13.Size = new Size(91, 15);
             label13.TabIndex = 40;
             label13.Text = "*Если имеется";
             // 
@@ -445,18 +437,18 @@
             label15.BackColor = Color.Transparent;
             label15.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             label15.ForeColor = Color.Black;
-            label15.Location = new Point(381, 405);
+            label15.Location = new Point(333, 304);
             label15.Name = "label15";
-            label15.Size = new Size(221, 17);
+            label15.Size = new Size(186, 15);
             label15.TabIndex = 41;
             label15.Text = "Выберите из списка и нажмите";
             // 
             // SignUpForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(209, 209, 214);
-            ClientSize = new Size(725, 675);
+            ClientSize = new Size(634, 506);
             Controls.Add(label15);
             Controls.Add(label13);
             Controls.Add(label11);
@@ -490,8 +482,9 @@
             Controls.Add(SurnameText);
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
+            MaximumSize = new Size(650, 545);
+            MinimumSize = new Size(650, 545);
             Name = "SignUpForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpForm";

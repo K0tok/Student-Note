@@ -36,7 +36,7 @@ namespace Student_Note
             labels_invisible();
             if (Program.isLog)
             {
-                Program.ReplaceForm(Program.MainForm, this);
+                Program.ReplaceForm(Program.MainHomeworkForm, this);
             }
         }
         /// <summary>
@@ -134,7 +134,7 @@ namespace Student_Note
 
             if (Program.isLog)
             {
-                Program.ReplaceForm(Program.MainForm, this);
+                Program.ReplaceForm(Program.MainHomeworkForm, this);
             }
             else
             {

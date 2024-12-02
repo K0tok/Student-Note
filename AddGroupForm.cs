@@ -44,7 +44,7 @@ namespace Student_Note
                 if (countRows == 1)
                 {
                     CopyableMessageBox.Show(RandomCode, "Группа создана \n Нажмите на код чтобы сохранить его");
-                    Program.ReplaceForm(Program.MainForm, this);
+                    Program.ReplaceForm(Program.MainHomeworkForm, this);
                 }
 
             }
@@ -55,7 +55,7 @@ namespace Student_Note
         }
         private void CenselCreateGroup_Click(object sender, EventArgs e)
         {
-            Program.ReplaceForm(Program.MainForm, this);
+            Program.ReplaceForm(Program.MainHomeworkForm, this);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace Student_Note
 
             try
             {
-                ScheduleLoader _scheduleLoader = MainForm._scheduleLoader;
+                ScheduleLoader _scheduleLoader = MainHomeworkForm._scheduleLoader;
                 // Загружаем расписание
                 await _scheduleLoader.GetScheduleAsync();
                 foreach (var item in _scheduleLoader.CurrentSchedule.Groups)
