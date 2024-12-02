@@ -27,6 +27,7 @@ namespace Student_Note
         public bool member_type { get; set; }
         public List<string> Group { get; set; }
         public string? selectGroup { get; set; }
+        public List<string> Codes { get; set; }
         /// <summary>
         /// id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type
         /// Конструктор
@@ -56,7 +57,8 @@ namespace Student_Note
                 this.email          = email;
                 this.phone_number   = phone_number;
                 this.member_type    = member_type == "1";
-                this.Group          = GetGroups(this.id);
+                this.Group          = GetGroups(this.id)[0];
+                this.Codes          = GetGroups(this.id)[1];
                 this.selectGroup    = Group.Count() > 0 ? Group[0] : "";
             } 
             catch 
@@ -67,13 +69,15 @@ namespace Student_Note
         public string NewToString()
         {
             return $"{id}, {last_name}, {first_name}, {second_name}, {gender}, {birthdate}, {reg_date}, {email}, {phone_number}, {member_type}";
-        } 
+        }
 
-        public static List<string> GetGroups(int UserID)
+        public static List<List<string>> GetGroups(int UserID)
         {
             List<string> Groups = new List<string>();
 
-            string Query = @"SELECT code_name From Groups AS G
+            List<string> Codes = new List<string>();
+
+            string Query = @"SELECT code_name, code From Groups AS G
                 INNER JOIN users_in_groups AS U_I_G ON U_I_G.group_id=G.id
                 INNER JOIN Users AS U ON U.id=U_I_G.user_id
                 WHERE U.id = @id";
@@ -102,6 +106,7 @@ namespace Student_Note
                     while (reader.Read())
                     {
                         Groups.Add(reader["code_name"].ToString());
+                        Codes.Add(reader["code"].ToString());
                     }
                 }
 
@@ -111,8 +116,7 @@ namespace Student_Note
                 MessageBox.Show($"Ошибка подключения к базе данных: {ex.Message}");
             }
 
-
-            return Groups;
+            return new List<List<string>>{Groups, Codes};
         }
     }
 }

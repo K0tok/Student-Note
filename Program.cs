@@ -1,5 +1,7 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using Student_Note;
+using System.Text;
+using BCrypt.Net;
 
 namespace Student_Note
 {
@@ -52,7 +54,6 @@ namespace Student_Note
                 Application.Exit();
             }
         }
-
 
         static public bool isLog = false;
 
