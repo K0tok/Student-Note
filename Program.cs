@@ -55,17 +55,6 @@ namespace Student_Note
             }
         }
 
-        //static byte[] GenerateSha256Hash(string password, byte[] salt)
-        //{
-        //    byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-        //    byte[] saltedPassword = new byte[salt.Length + passwordBytes.Length];
-
-        //    using var hash = new SHA256CryptoServiceProvider();
-
-        //    return hash.ComputeHash(saltedPassword);
-        //}
-
-
         static public bool isLog = false;
 
         public static string relativePath = @"Student Note.db";
