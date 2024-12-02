@@ -1,5 +1,7 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using Student_Note;
+using System.Text;
+using BCrypt.Net;
 
 namespace Student_Note
 {
@@ -52,6 +54,16 @@ namespace Student_Note
                 Application.Exit();
             }
         }
+
+        //static byte[] GenerateSha256Hash(string password, byte[] salt)
+        //{
+        //    byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+        //    byte[] saltedPassword = new byte[salt.Length + passwordBytes.Length];
+
+        //    using var hash = new SHA256CryptoServiceProvider();
+
+        //    return hash.ComputeHash(saltedPassword);
+        //}
 
 
         static public bool isLog = false;

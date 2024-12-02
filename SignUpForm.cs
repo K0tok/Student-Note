@@ -66,6 +66,8 @@ namespace Student_Note
             }
             string password = PasswordText.Text;
 
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
+
             labels_invisible();
 
             bool hasErrors = false;
@@ -144,7 +146,7 @@ namespace Student_Note
                 cmd.Parameters.AddWithValue("@Email", email);
                 cmd.Parameters.AddWithValue("@Phone_number", phoneNumber);
                 cmd.Parameters.AddWithValue("@Member_type", status_int);
-                cmd.Parameters.AddWithValue("@Password", password);
+                cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
                 // SQL-запрос
                 cmd.CommandText = "INSERT INTO Users (last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password) " +
