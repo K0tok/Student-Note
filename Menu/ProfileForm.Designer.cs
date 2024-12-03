@@ -63,10 +63,9 @@
             // 
             buttonUser.ContextMenuStrip = contextMenuStrip1;
             buttonUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonUser.Location = new Point(414, 9);
-            buttonUser.Margin = new Padding(3, 2, 3, 2);
+            buttonUser.Location = new Point(473, 12);
             buttonUser.Name = "buttonUser";
-            buttonUser.Size = new Size(276, 40);
+            buttonUser.Size = new Size(315, 53);
             buttonUser.TabIndex = 3;
             buttonUser.Text = "Войдите в аккаунт";
             buttonUser.UseVisualStyleBackColor = true;
@@ -82,10 +81,9 @@
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.ContextMenuStrip = contextMenuStrip1;
             button1.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(444, 10);
-            button1.Margin = new Padding(3, 2, 3, 2);
+            button1.Location = new Point(679, 13);
             button1.Name = "button1";
-            button1.Size = new Size(276, 40);
+            button1.Size = new Size(315, 53);
             button1.TabIndex = 4;
             button1.Text = "Войдите в аккаунт";
             button1.UseVisualStyleBackColor = true;
@@ -100,8 +98,8 @@
             label1.Location = new Point(0, 0);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Padding = new Padding(88, 0, 0, 0);
-            label1.Size = new Size(731, 60);
+            label1.Padding = new Padding(101, 0, 0, 0);
+            label1.Size = new Size(1007, 80);
             label1.TabIndex = 5;
             label1.Text = "Профиль";
             label1.TextAlign = ContentAlignment.MiddleLeft;
@@ -113,7 +111,7 @@
             lblLastName.Font = new Font("Arial", 18F);
             lblLastName.Location = new Point(3, 0);
             lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(246, 47);
+            lblLastName.Size = new Size(305, 61);
             lblLastName.TabIndex = 6;
             lblLastName.Text = "Фамилия";
             lblLastName.TextAlign = ContentAlignment.MiddleRight;
@@ -124,9 +122,9 @@
             lblFirstName.AutoSize = true;
             lblFirstName.Dock = DockStyle.Fill;
             lblFirstName.Font = new Font("Arial", 18F);
-            lblFirstName.Location = new Point(3, 47);
+            lblFirstName.Location = new Point(3, 61);
             lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(246, 47);
+            lblFirstName.Size = new Size(305, 61);
             lblFirstName.TabIndex = 7;
             lblFirstName.Text = "Имя";
             lblFirstName.TextAlign = ContentAlignment.MiddleRight;
@@ -136,9 +134,9 @@
             lblSecondName.AutoSize = true;
             lblSecondName.Dock = DockStyle.Fill;
             lblSecondName.Font = new Font("Arial", 18F);
-            lblSecondName.Location = new Point(3, 94);
+            lblSecondName.Location = new Point(3, 122);
             lblSecondName.Name = "lblSecondName";
-            lblSecondName.Size = new Size(246, 47);
+            lblSecondName.Size = new Size(305, 61);
             lblSecondName.TabIndex = 8;
             lblSecondName.Text = "Отчество";
             lblSecondName.TextAlign = ContentAlignment.MiddleRight;
@@ -148,9 +146,9 @@
             lblGender.AutoSize = true;
             lblGender.Dock = DockStyle.Fill;
             lblGender.Font = new Font("Arial", 18F);
-            lblGender.Location = new Point(3, 141);
+            lblGender.Location = new Point(3, 183);
             lblGender.Name = "lblGender";
-            lblGender.Size = new Size(246, 47);
+            lblGender.Size = new Size(305, 61);
             lblGender.TabIndex = 9;
             lblGender.Text = "Пол";
             lblGender.TextAlign = ContentAlignment.MiddleRight;
@@ -160,9 +158,9 @@
             lblBirthdate.AutoSize = true;
             lblBirthdate.Dock = DockStyle.Fill;
             lblBirthdate.Font = new Font("Arial", 18F);
-            lblBirthdate.Location = new Point(3, 188);
+            lblBirthdate.Location = new Point(3, 244);
             lblBirthdate.Name = "lblBirthdate";
-            lblBirthdate.Size = new Size(246, 47);
+            lblBirthdate.Size = new Size(305, 61);
             lblBirthdate.TabIndex = 10;
             lblBirthdate.Text = "День рождения";
             lblBirthdate.TextAlign = ContentAlignment.MiddleRight;
@@ -172,11 +170,11 @@
             lblRegDate.AutoSize = true;
             lblRegDate.Dock = DockStyle.Fill;
             lblRegDate.Font = new Font("Arial", 18F);
-            lblRegDate.Location = new Point(3, 235);
+            lblRegDate.Location = new Point(3, 305);
             lblRegDate.Name = "lblRegDate";
-            lblRegDate.Size = new Size(246, 47);
+            lblRegDate.Size = new Size(305, 61);
             lblRegDate.TabIndex = 11;
-            lblRegDate.Text = "Дата регистарции";
+            lblRegDate.Text = "Дата регистрации";
             lblRegDate.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lblEmail
@@ -184,9 +182,9 @@
             lblEmail.AutoSize = true;
             lblEmail.Dock = DockStyle.Fill;
             lblEmail.Font = new Font("Arial", 18F);
-            lblEmail.Location = new Point(3, 282);
+            lblEmail.Location = new Point(3, 366);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(246, 47);
+            lblEmail.Size = new Size(305, 61);
             lblEmail.TabIndex = 12;
             lblEmail.Text = "Email";
             lblEmail.TextAlign = ContentAlignment.MiddleRight;
@@ -196,9 +194,9 @@
             lblPhoneNumber.AutoSize = true;
             lblPhoneNumber.Dock = DockStyle.Fill;
             lblPhoneNumber.Font = new Font("Arial", 18F);
-            lblPhoneNumber.Location = new Point(3, 329);
+            lblPhoneNumber.Location = new Point(3, 427);
             lblPhoneNumber.Name = "lblPhoneNumber";
-            lblPhoneNumber.Size = new Size(246, 47);
+            lblPhoneNumber.Size = new Size(305, 61);
             lblPhoneNumber.TabIndex = 13;
             lblPhoneNumber.Text = "Номер телефона";
             lblPhoneNumber.TextAlign = ContentAlignment.MiddleRight;
@@ -208,9 +206,9 @@
             lblMemberType.AutoSize = true;
             lblMemberType.Dock = DockStyle.Fill;
             lblMemberType.Font = new Font("Arial", 18F);
-            lblMemberType.Location = new Point(3, 376);
+            lblMemberType.Location = new Point(3, 488);
             lblMemberType.Name = "lblMemberType";
-            lblMemberType.Size = new Size(246, 47);
+            lblMemberType.Size = new Size(305, 61);
             lblMemberType.TabIndex = 14;
             lblMemberType.Text = "Статус";
             lblMemberType.TextAlign = ContentAlignment.MiddleRight;
@@ -220,9 +218,9 @@
             lblGroups.AutoSize = true;
             lblGroups.Dock = DockStyle.Fill;
             lblGroups.Font = new Font("Arial", 18F);
-            lblGroups.Location = new Point(3, 423);
+            lblGroups.Location = new Point(3, 549);
             lblGroups.Name = "lblGroups";
-            lblGroups.Size = new Size(246, 47);
+            lblGroups.Size = new Size(305, 61);
             lblGroups.TabIndex = 15;
             lblGroups.Text = "Мои группы";
             lblGroups.TextAlign = ContentAlignment.MiddleRight;
@@ -232,9 +230,9 @@
             lblSelectedGroup.AutoSize = true;
             lblSelectedGroup.Dock = DockStyle.Fill;
             lblSelectedGroup.Font = new Font("Arial", 18F);
-            lblSelectedGroup.Location = new Point(3, 470);
+            lblSelectedGroup.Location = new Point(3, 610);
             lblSelectedGroup.Name = "lblSelectedGroup";
-            lblSelectedGroup.Size = new Size(246, 55);
+            lblSelectedGroup.Size = new Size(305, 69);
             lblSelectedGroup.TabIndex = 16;
             lblSelectedGroup.Text = "Действующая группа";
             lblSelectedGroup.TextAlign = ContentAlignment.MiddleRight;
@@ -244,10 +242,10 @@
             label2.AutoSize = true;
             label2.Dock = DockStyle.Fill;
             label2.Font = new Font("Arial", 18F);
-            label2.Location = new Point(252, 10);
-            label2.Margin = new Padding(0, 10, 0, 10);
+            label2.Location = new Point(311, 13);
+            label2.Margin = new Padding(0, 13, 0, 13);
             label2.Name = "label2";
-            label2.Size = new Size(479, 27);
+            label2.Size = new Size(696, 35);
             label2.TabIndex = 17;
             label2.Text = "label2";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -257,10 +255,10 @@
             label3.AutoSize = true;
             label3.Dock = DockStyle.Fill;
             label3.Font = new Font("Arial", 18F);
-            label3.Location = new Point(252, 57);
-            label3.Margin = new Padding(0, 10, 0, 10);
+            label3.Location = new Point(311, 74);
+            label3.Margin = new Padding(0, 13, 0, 13);
             label3.Name = "label3";
-            label3.Size = new Size(479, 27);
+            label3.Size = new Size(696, 35);
             label3.TabIndex = 18;
             label3.Text = "label3";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -270,10 +268,10 @@
             label4.AutoSize = true;
             label4.Dock = DockStyle.Fill;
             label4.Font = new Font("Arial", 18F);
-            label4.Location = new Point(252, 104);
-            label4.Margin = new Padding(0, 10, 0, 10);
+            label4.Location = new Point(311, 135);
+            label4.Margin = new Padding(0, 13, 0, 13);
             label4.Name = "label4";
-            label4.Size = new Size(479, 27);
+            label4.Size = new Size(696, 35);
             label4.TabIndex = 19;
             label4.Text = "label4";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -283,10 +281,10 @@
             label5.AutoSize = true;
             label5.Dock = DockStyle.Fill;
             label5.Font = new Font("Arial", 18F);
-            label5.Location = new Point(252, 151);
-            label5.Margin = new Padding(0, 10, 0, 10);
+            label5.Location = new Point(311, 196);
+            label5.Margin = new Padding(0, 13, 0, 13);
             label5.Name = "label5";
-            label5.Size = new Size(479, 27);
+            label5.Size = new Size(696, 35);
             label5.TabIndex = 20;
             label5.Text = "label5";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -296,10 +294,10 @@
             label6.AutoSize = true;
             label6.Dock = DockStyle.Fill;
             label6.Font = new Font("Arial", 18F);
-            label6.Location = new Point(252, 198);
-            label6.Margin = new Padding(0, 10, 0, 10);
+            label6.Location = new Point(311, 257);
+            label6.Margin = new Padding(0, 13, 0, 13);
             label6.Name = "label6";
-            label6.Size = new Size(479, 27);
+            label6.Size = new Size(696, 35);
             label6.TabIndex = 21;
             label6.Text = "label6";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -309,10 +307,10 @@
             label7.AutoSize = true;
             label7.Dock = DockStyle.Fill;
             label7.Font = new Font("Arial", 18F);
-            label7.Location = new Point(252, 245);
-            label7.Margin = new Padding(0, 10, 0, 10);
+            label7.Location = new Point(311, 318);
+            label7.Margin = new Padding(0, 13, 0, 13);
             label7.Name = "label7";
-            label7.Size = new Size(479, 27);
+            label7.Size = new Size(696, 35);
             label7.TabIndex = 22;
             label7.Text = "label7";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -322,10 +320,10 @@
             label8.AutoSize = true;
             label8.Dock = DockStyle.Fill;
             label8.Font = new Font("Arial", 18F);
-            label8.Location = new Point(252, 292);
-            label8.Margin = new Padding(0, 10, 0, 10);
+            label8.Location = new Point(311, 379);
+            label8.Margin = new Padding(0, 13, 0, 13);
             label8.Name = "label8";
-            label8.Size = new Size(479, 27);
+            label8.Size = new Size(696, 35);
             label8.TabIndex = 23;
             label8.Text = "label8";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -335,10 +333,10 @@
             label9.AutoSize = true;
             label9.Dock = DockStyle.Fill;
             label9.Font = new Font("Arial", 18F);
-            label9.Location = new Point(252, 339);
-            label9.Margin = new Padding(0, 10, 0, 10);
+            label9.Location = new Point(311, 440);
+            label9.Margin = new Padding(0, 13, 0, 13);
             label9.Name = "label9";
-            label9.Size = new Size(479, 27);
+            label9.Size = new Size(696, 35);
             label9.TabIndex = 24;
             label9.Text = "label9";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -348,10 +346,10 @@
             label10.AutoSize = true;
             label10.Dock = DockStyle.Fill;
             label10.Font = new Font("Arial", 18F);
-            label10.Location = new Point(252, 386);
-            label10.Margin = new Padding(0, 10, 0, 10);
+            label10.Location = new Point(311, 501);
+            label10.Margin = new Padding(0, 13, 0, 13);
             label10.Name = "label10";
-            label10.Size = new Size(479, 27);
+            label10.Size = new Size(696, 35);
             label10.TabIndex = 25;
             label10.Text = "label10";
             label10.TextAlign = ContentAlignment.MiddleCenter;
@@ -361,28 +359,29 @@
             label11.AutoSize = true;
             label11.Dock = DockStyle.Fill;
             label11.Font = new Font("Arial", 18F);
-            label11.Location = new Point(252, 433);
-            label11.Margin = new Padding(0, 10, 0, 10);
+            label11.Location = new Point(311, 562);
+            label11.Margin = new Padding(0, 13, 0, 13);
             label11.Name = "label11";
-            label11.Size = new Size(479, 27);
+            label11.Size = new Size(696, 35);
             label11.TabIndex = 26;
             label11.Text = "label11";
             label11.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // comboBoxGroups
             // 
-            comboBoxGroups.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxGroups.Dock = DockStyle.Fill;
             comboBoxGroups.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxGroups.FormattingEnabled = true;
-            comboBoxGroups.Location = new Point(252, 480);
-            comboBoxGroups.Margin = new Padding(0, 10, 0, 10);
+            comboBoxGroups.Location = new Point(334, 623);
+            comboBoxGroups.Margin = new Padding(23, 13, 29, 13);
             comboBoxGroups.Name = "comboBoxGroups";
-            comboBoxGroups.Size = new Size(479, 35);
+            comboBoxGroups.Size = new Size(644, 43);
             comboBoxGroups.TabIndex = 28;
             comboBoxGroups.SelectedIndexChanged += comboBoxGroups_SelectedIndexChanged;
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.AutoScroll = true;
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 2;
@@ -410,8 +409,9 @@
             tableLayoutPanel1.Controls.Add(lblBirthdate, 0, 4);
             tableLayoutPanel1.Controls.Add(lblEmail, 0, 6);
             tableLayoutPanel1.Controls.Add(lblRegDate, 0, 5);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 60);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(0, 80);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 11;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
@@ -425,23 +425,23 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(731, 525);
+            tableLayoutPanel1.Size = new Size(1007, 679);
             tableLayoutPanel1.TabIndex = 29;
             // 
             // ProfileForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             AutoSize = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            ClientSize = new Size(731, 585);
+            ClientSize = new Size(1007, 769);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(buttonUser);
-            Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(1900, 624);
-            MinimumSize = new Size(747, 624);
+            MaximumSize = new Size(2169, 918);
+            MinimumSize = new Size(908, 816);
             Name = "ProfileForm";
             Text = "ProfileForm";
             Load += ProfileForm_Load;

@@ -52,8 +52,8 @@
             HeaderLabel.Location = new Point(0, 0);
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new Padding(50, 0, 0, 0);
-            HeaderLabel.Size = new Size(634, 50);
+            HeaderLabel.Padding = new Padding(57, 0, 0, 0);
+            HeaderLabel.Size = new Size(725, 67);
             HeaderLabel.TabIndex = 0;
             HeaderLabel.Text = "Войти в аккаунт";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -64,9 +64,10 @@
             LoginTextBox.BackColor = Color.FromArgb(224, 224, 224);
             LoginTextBox.BorderStyle = BorderStyle.None;
             LoginTextBox.Font = new Font("Arial", 18F);
-            LoginTextBox.Location = new Point(173, 107);
+            LoginTextBox.Location = new Point(198, 143);
+            LoginTextBox.Margin = new Padding(3, 4, 3, 4);
             LoginTextBox.Name = "LoginTextBox";
-            LoginTextBox.Size = new Size(289, 28);
+            LoginTextBox.Size = new Size(330, 35);
             LoginTextBox.TabIndex = 1;
             // 
             // LoginLabel
@@ -74,9 +75,9 @@
             LoginLabel.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LoginLabel.BackColor = Color.Transparent;
             LoginLabel.Font = new Font("Arial", 18F);
-            LoginLabel.Location = new Point(173, 74);
+            LoginLabel.Location = new Point(198, 99);
             LoginLabel.Name = "LoginLabel";
-            LoginLabel.Size = new Size(289, 27);
+            LoginLabel.Size = new Size(330, 36);
             LoginLabel.TabIndex = 2;
             LoginLabel.Text = "Почта / Номер телефона";
             // 
@@ -86,9 +87,9 @@
             PasswordLabel.AutoSize = true;
             PasswordLabel.BackColor = Color.Transparent;
             PasswordLabel.Font = new Font("Arial", 18F);
-            PasswordLabel.Location = new Point(173, 159);
+            PasswordLabel.Location = new Point(198, 212);
             PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(95, 27);
+            PasswordLabel.Size = new Size(119, 35);
             PasswordLabel.TabIndex = 4;
             PasswordLabel.Text = "Пароль";
             // 
@@ -98,10 +99,11 @@
             PasswordTextBox.BackColor = Color.FromArgb(224, 224, 224);
             PasswordTextBox.BorderStyle = BorderStyle.None;
             PasswordTextBox.Font = new Font("Arial", 18F);
-            PasswordTextBox.Location = new Point(173, 192);
+            PasswordTextBox.Location = new Point(198, 256);
+            PasswordTextBox.Margin = new Padding(3, 4, 3, 4);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.PasswordChar = '*';
-            PasswordTextBox.Size = new Size(289, 28);
+            PasswordTextBox.Size = new Size(330, 35);
             PasswordTextBox.TabIndex = 3;
             // 
             // WrongLoginLabel
@@ -111,9 +113,9 @@
             WrongLoginLabel.BackColor = Color.Transparent;
             WrongLoginLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongLoginLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongLoginLabel.Location = new Point(173, 138);
+            WrongLoginLabel.Location = new Point(198, 184);
             WrongLoginLabel.Name = "WrongLoginLabel";
-            WrongLoginLabel.Size = new Size(118, 15);
+            WrongLoginLabel.Size = new Size(139, 17);
             WrongLoginLabel.TabIndex = 5;
             WrongLoginLabel.Text = "*Неверный формат";
             WrongLoginLabel.Visible = false;
@@ -124,9 +126,9 @@
             WrongPasswordLabel.BackColor = Color.Transparent;
             WrongPasswordLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongPasswordLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongPasswordLabel.Location = new Point(173, 223);
+            WrongPasswordLabel.Location = new Point(198, 297);
             WrongPasswordLabel.Name = "WrongPasswordLabel";
-            WrongPasswordLabel.Size = new Size(118, 15);
+            WrongPasswordLabel.Size = new Size(135, 20);
             WrongPasswordLabel.TabIndex = 6;
             WrongPasswordLabel.Text = "*Неверный формат";
             WrongPasswordLabel.Visible = false;
@@ -136,9 +138,10 @@
             LogInButton.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             LogInButton.BackColor = Color.FromArgb(52, 199, 89);
             LogInButton.Font = new Font("Arial", 18F);
-            LogInButton.Location = new Point(197, 250);
+            LogInButton.Location = new Point(225, 333);
+            LogInButton.Margin = new Padding(3, 4, 3, 4);
             LogInButton.Name = "LogInButton";
-            LogInButton.Size = new Size(240, 49);
+            LogInButton.Size = new Size(274, 65);
             LogInButton.TabIndex = 7;
             LogInButton.Text = "Вход";
             LogInButton.UseVisualStyleBackColor = false;
@@ -148,9 +151,9 @@
             // 
             label6.Anchor = AnchorStyles.Left;
             label6.BackColor = Color.Transparent;
-            label6.Location = new Point(5, 0);
+            label6.Location = new Point(6, 0);
             label6.Name = "label6";
-            label6.Size = new Size(83, 15);
+            label6.Size = new Size(95, 20);
             label6.TabIndex = 8;
             label6.Text = "Нет аккаунта?";
             // 
@@ -158,9 +161,9 @@
             // 
             LogUpLinkLabel.Anchor = AnchorStyles.Right;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(85, 0);
+            LogUpLinkLabel.Location = new Point(97, 0);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
-            LogUpLinkLabel.Size = new Size(122, 15);
+            LogUpLinkLabel.Size = new Size(139, 20);
             LogUpLinkLabel.TabIndex = 9;
             LogUpLinkLabel.TabStop = true;
             LogUpLinkLabel.Text = "Зарегистрироваться!";
@@ -172,9 +175,9 @@
             WrongDataLabel.BackColor = Color.Transparent;
             WrongDataLabel.Font = new Font("Arial", 9F, FontStyle.Regular, GraphicsUnit.Point, 204);
             WrongDataLabel.ForeColor = Color.FromArgb(255, 59, 48);
-            WrongDataLabel.Location = new Point(230, 317);
+            WrongDataLabel.Location = new Point(263, 423);
             WrongDataLabel.Name = "WrongDataLabel";
-            WrongDataLabel.Size = new Size(175, 15);
+            WrongDataLabel.Size = new Size(200, 20);
             WrongDataLabel.TabIndex = 10;
             WrongDataLabel.Text = "*Неверный логин или пароль";
             WrongDataLabel.TextAlign = ContentAlignment.MiddleCenter;
@@ -184,17 +187,20 @@
             panel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             panel1.Controls.Add(label6);
             panel1.Controls.Add(LogUpLinkLabel);
-            panel1.Location = new Point(213, 300);
+            panel1.Location = new Point(243, 400);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(209, 18);
+            panel1.Size = new Size(239, 24);
             panel1.TabIndex = 11;
             // 
             // LogInForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(209, 209, 214);
-            ClientSize = new Size(634, 361);
+            ClientSize = new Size(725, 481);
             Controls.Add(panel1);
             Controls.Add(WrongDataLabel);
             Controls.Add(LogInButton);
@@ -206,8 +212,9 @@
             Controls.Add(LoginTextBox);
             Controls.Add(HeaderLabel);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            MinimumSize = new Size(650, 400);
+            MinimumSize = new Size(740, 518);
             Name = "LogInForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
