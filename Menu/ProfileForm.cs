@@ -32,7 +32,7 @@ namespace Student_Note
                     button1.Text = _userData.last_name + " " + _userData.first_name;
 
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
-                contextMenuStrip1.Items.Add("Открыть расписание", null, (s, e) => { Program.MainForm = new MainForm(); Program.ReplaceForm(Program.MainForm, this); });
+                contextMenuStrip1.Items.Add("Открыть расписание", null, (s, e) => { Program.MainHomeworkForm = new MainHomeworkForm(); Program.ReplaceForm(Program.MainHomeworkForm, this); });
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
                 if (_userData.member_type) // Дополнительные менюшки для старосты
                 {
@@ -56,7 +56,7 @@ namespace Student_Note
             label11.Text = string.Join(", ", _userData.Group) ?? "Нет групп";
             comboBoxGroups.DataSource = _userData.Group;
             comboBoxGroups.Text = _userData.selectGroup ?? "Нет групп";
-            label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
+            //label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
         }
 
         private void button1_Click(object sender, EventArgs e)
