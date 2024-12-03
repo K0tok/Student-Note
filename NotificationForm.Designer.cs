@@ -174,6 +174,8 @@
             Controls.Add(textBox2);
             Controls.Add(button1);
             Controls.Add(LogInButton);
+            Controls.Add(LogUpLinkLabel);
+            Controls.Add(textBox1);
             Controls.Add(label5);
             Controls.Add(LoginTextBox);
             Controls.Add(label4);

@@ -151,7 +151,7 @@
             // 
             label6.Anchor = AnchorStyles.Left;
             label6.BackColor = Color.Transparent;
-            label6.Location = new Point(6, 0);
+            label6.Location = new Point(5, 0);
             label6.Name = "label6";
             label6.Size = new Size(95, 20);
             label6.TabIndex = 8;
@@ -203,6 +203,8 @@
             ClientSize = new Size(725, 481);
             Controls.Add(panel1);
             Controls.Add(WrongDataLabel);
+            Controls.Add(label6);
+            Controls.Add(LogUpLinkLabel);
             Controls.Add(LogInButton);
             Controls.Add(WrongPasswordLabel);
             Controls.Add(WrongLoginLabel);

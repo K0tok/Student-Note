@@ -46,8 +46,8 @@
             HeaderLabel.Location = new Point(0, 0);
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new Padding(50, 0, 0, 0);
-            HeaderLabel.Size = new Size(366, 50);
+            HeaderLabel.Padding = new Padding(57, 0, 0, 0);
+            HeaderLabel.Size = new Size(548, 67);
             HeaderLabel.TabIndex = 2;
             HeaderLabel.Text = "Создание группы";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -55,18 +55,17 @@
             // NameGroup
             // 
             NameGroup.AutoSize = true;
-            NameGroup.Location = new Point(10, 62);
+            NameGroup.Location = new Point(12, 82);
             NameGroup.Name = "NameGroup";
-            NameGroup.Size = new Size(103, 15);
+            NameGroup.Size = new Size(132, 20);
             NameGroup.TabIndex = 3;
             NameGroup.Text = "Название группы";
             // 
             // CreateGroup
             // 
-            CreateGroup.Location = new Point(186, 104);
-            CreateGroup.Margin = new Padding(3, 2, 3, 2);
+            CreateGroup.Location = new Point(212, 139);
             CreateGroup.Name = "CreateGroup";
-            CreateGroup.Size = new Size(170, 22);
+            CreateGroup.Size = new Size(194, 29);
             CreateGroup.TabIndex = 5;
             CreateGroup.Text = "Создать";
             CreateGroup.UseVisualStyleBackColor = true;
@@ -74,10 +73,9 @@
             // 
             // CenselCreateGroup
             // 
-            CenselCreateGroup.Location = new Point(10, 104);
-            CenselCreateGroup.Margin = new Padding(3, 2, 3, 2);
+            CenselCreateGroup.Location = new Point(12, 139);
             CenselCreateGroup.Name = "CenselCreateGroup";
-            CenselCreateGroup.Size = new Size(170, 22);
+            CenselCreateGroup.Size = new Size(194, 29);
             CenselCreateGroup.TabIndex = 6;
             CenselCreateGroup.Text = "Отменить";
             CenselCreateGroup.UseVisualStyleBackColor = true;
@@ -86,35 +84,33 @@
             // GroupSpeNames
             // 
             GroupSpeNames.FormattingEnabled = true;
-            GroupSpeNames.Location = new Point(186, 79);
-            GroupSpeNames.Margin = new Padding(3, 2, 3, 2);
+            GroupSpeNames.Location = new Point(212, 105);
             GroupSpeNames.Name = "GroupSpeNames";
-            GroupSpeNames.Size = new Size(170, 23);
+            GroupSpeNames.Size = new Size(194, 28);
             GroupSpeNames.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(186, 62);
+            label1.Location = new Point(212, 82);
             label1.Name = "label1";
-            label1.Size = new Size(93, 15);
+            label1.Size = new Size(119, 20);
             label1.TabIndex = 9;
             label1.Text = "Специализация";
             // 
             // ComboBoxNames
             // 
             ComboBoxNames.FormattingEnabled = true;
-            ComboBoxNames.Location = new Point(10, 79);
-            ComboBoxNames.Margin = new Padding(3, 2, 3, 2);
+            ComboBoxNames.Location = new Point(12, 105);
             ComboBoxNames.Name = "ComboBoxNames";
-            ComboBoxNames.Size = new Size(170, 23);
+            ComboBoxNames.Size = new Size(194, 28);
             ComboBoxNames.TabIndex = 10;
             // 
             // AddGroupForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(366, 133);
+            ClientSize = new Size(548, 303);
             Controls.Add(ComboBoxNames);
             Controls.Add(label1);
             Controls.Add(GroupSpeNames);
@@ -122,11 +118,7 @@
             Controls.Add(CreateGroup);
             Controls.Add(NameGroup);
             Controls.Add(HeaderLabel);
-            Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(382, 172);
-            MinimumSize = new Size(382, 172);
             Name = "AddGroupForm";
-            SizeGripStyle = SizeGripStyle.Hide;
             Text = "AddGroupForm";
             Load += AddGroupForm_Load;
             ResumeLayout(false);
