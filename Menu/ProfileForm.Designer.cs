@@ -55,13 +55,16 @@
             label10 = new Label();
             label11 = new Label();
             comboBoxGroups = new ComboBox();
+            lblInviteCode = new Label();
+            label12 = new Label();
             SuspendLayout();
             // 
             // buttonUser
             // 
             buttonUser.ContextMenuStrip = contextMenuStrip1;
             buttonUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            buttonUser.Location = new Point(473, 12);
+            buttonUser.Location = new Point(414, 9);
+            buttonUser.Margin = new Padding(3, 2, 3, 2);
             buttonUser.Name = "buttonUser";
             buttonUser.Size = new Size(315, 53);
             buttonUser.TabIndex = 3;
@@ -111,7 +114,6 @@
             lblLastName.Size = new Size(246, 47);
             lblLastName.TabIndex = 6;
             lblLastName.Text = "Фамилия";
-            lblLastName.Click += label2_Click;
             // 
             // lblFirstName
             // 
@@ -465,5 +467,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Label label11;
         private ComboBox comboBoxGroups;
+        private Label lblInviteCode;
+        private Label label12;
     }
 }

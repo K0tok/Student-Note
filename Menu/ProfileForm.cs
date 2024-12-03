@@ -56,19 +56,13 @@ namespace Student_Note
             label11.Text = string.Join(", ", _userData.Group) ?? "Нет групп";
             comboBoxGroups.DataSource = _userData.Group;
             comboBoxGroups.Text = _userData.selectGroup ?? "Нет групп";
-
-
+            label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Показать меню рядом с кнопкой
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void comboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)

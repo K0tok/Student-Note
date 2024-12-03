@@ -61,40 +61,51 @@ namespace Student_Note
 
                 // Добавление параметров для защиты от SQL-инъекций
                 cmd.Parameters.AddWithValue("@EmailOrPhoneNumber", emailOrPhoneNumber);
-                cmd.Parameters.AddWithValue("@Password", password);
 
-                // Проверка на наличие пользователя и получение его данных
-                cmd.CommandText = @"SELECT id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type 
-                    FROM Users WHERE (email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber) AND password = @Password";
+                // Извлечение хэша пароля из базы данных
+                cmd.CommandText = @"SELECT id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password 
+                            FROM Users 
+                            WHERE email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber";
 
+                string hashedPassword = null;
 
-                // Выполнение запроса
                 using (SqliteDataReader reader = cmd.ExecuteReader())
                 {
-                    while (reader.Read())
+                    if (reader.Read())
                     {
-                        Program.isLog = true;
+                        hashedPassword = reader["password"].ToString(); // Получаем хэш пароля
 
-                        Program.userData = new UserData(
-                            reader["id"].ToString(), 
-                            reader["last_name"].ToString(), 
-                            reader["first_name"].ToString(), 
-                            reader["second_name"].ToString(),
-                            reader["sex"].ToString(), 
-                            reader["birthdate"].ToString(),
-                            reader["reg_date"].ToString(), 
-                            reader["email"].ToString(),
-                            reader["phone_number"].ToString(), 
-                            reader["member_type"].ToString()
+                        // Проверка хэша пароля
+                        if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+                        {
+                            // Если пароль верен, сохраняем данные пользователя
+                            Program.isLog = true;
+
+                            Program.userData = new UserData(
+                                reader["id"].ToString(),
+                                reader["last_name"].ToString(),
+                                reader["first_name"].ToString(),
+                                reader["second_name"].ToString(),
+                                reader["sex"].ToString(),
+                                reader["birthdate"].ToString(),
+                                reader["reg_date"].ToString(),
+                                reader["email"].ToString(),
+                                reader["phone_number"].ToString(),
+                                reader["member_type"].ToString()
                             );
+
+                            return true;
+                        }
+                        else
+                        {
+                            // Если пароль неверен
+                            return false;
+                        }
                     }
                 }
-                if (Program.isLog)
-                {
-                    return true;
-                }
-                else { return false; }
 
+                // Если пользователь не найден
+                return false;
             }
             catch (Exception ex)
             {
@@ -105,8 +116,8 @@ namespace Student_Note
 
         private void LogInButton_Click(object sender, EventArgs e)
         {
-            string emailOrPhoneNumber = /*LoginTextBox.Text*/"+79892674364";
-            string password = /*PasswordTextBox.Text*/"19643826_kurwaBobr111";
+            string emailOrPhoneNumber = LoginTextBox.Text;
+            string password = PasswordTextBox.Text;
 
 
             labels_invisible();
