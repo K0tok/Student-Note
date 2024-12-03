@@ -20,7 +20,7 @@ namespace Student_Note
         /// </summary>
         static public UserData? userData;
 
-        static public Form MainForm         = new MainForm();
+        static public Form MainHomeworkForm = new MainHomeworkForm();
         static public Form LogInForm        = new LogInForm();
         static public Form SignUpForm       = new SignUpForm();
         static public Form MakeHomeworkForm = new MakeHomework();
