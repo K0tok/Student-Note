@@ -262,11 +262,7 @@ namespace Student_Note
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
-            //tableLayoutPanel.OnClick += (e) =>
-            //{
-            //    MakeHomework homework = new MakeHomework();
-            //    homework.ShowDialog();
-            //};
+            tableLayoutPanel.Click += ;
 
             tableLayoutPanel.ResumeLayout();
         }
@@ -290,7 +286,7 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private void Homework_Filler()
+        private static void Homework_Filler()
         {
             MakeHomework Homework = new MakeHomework();
             Homework.ShowDialog();
@@ -299,11 +295,6 @@ namespace Student_Note
         private void label10_Click(object sender, EventArgs e)
         {
             Homework_Filler();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
