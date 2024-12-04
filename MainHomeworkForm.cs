@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Student_Note
 {
@@ -18,6 +19,8 @@ namespace Student_Note
 
         private async void MainHomeworkForm_Load(object sender, EventArgs e)
         {
+            // Полноэкранный режим
+            WindowState = FormWindowState.Maximized;
             // Проверяем, авторизован ли пользователь
             if (Program.userData == null)
             {
@@ -25,13 +28,13 @@ namespace Student_Note
                 return;
             }
             else
-            {
+            {  
                 // Отрисовка имени пользователя в кнопке
                 if (Program.userData.second_name != "" && Program.userData.second_name != null)
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
-
+                Task.Factory.StartNew(() => {MessageBox.Show("Загрузка расписания. Пожалуйста подождите!");}); 
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
                 contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля

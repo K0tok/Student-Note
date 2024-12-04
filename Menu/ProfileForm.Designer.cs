@@ -439,7 +439,6 @@
             Controls.Add(label1);
             Controls.Add(buttonUser);
             Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(1900, 624);
             MinimumSize = new Size(747, 624);
             Name = "ProfileForm";
             Text = "ProfileForm";

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
 using Student_Note;
+using BCrypt.Net;
 
 namespace Student_Note
 {
