@@ -32,7 +32,7 @@ namespace Student_Note
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
-                Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); });
+                Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); } );
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
                 contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля
@@ -262,7 +262,11 @@ namespace Student_Note
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
-            //tableLayoutPanel.Click.Add(lblHomework);
+            //tableLayoutPanel.OnClick += (e) =>
+            //{
+            //    MakeHomework homework = new MakeHomework();
+            //    homework.ShowDialog();
+            //};
 
             tableLayoutPanel.ResumeLayout();
         }
@@ -284,6 +288,22 @@ namespace Student_Note
         {
             // Показываем контекстное меню
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
+        }
+
+        private void Homework_Filler()
+        {
+            MakeHomework Homework = new MakeHomework();
+            Homework.ShowDialog();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Homework_Filler();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
