@@ -230,9 +230,9 @@
             label24.AutoSize = true;
             label24.Dock = DockStyle.Fill;
             label24.Font = new Font("Arial", 18F);
-            label24.Location = new Point(287, 0);
+            label24.Location = new Point(244, 0);
             label24.Name = "label24";
-            label24.Size = new Size(208, 27);
+            label24.Size = new Size(251, 27);
             label24.TabIndex = 8;
             label24.Text = "Первая пара дз";
             label24.TextAlign = ContentAlignment.MiddleCenter;
@@ -256,7 +256,7 @@
             label26.Font = new Font("Arial", 18F);
             label26.Location = new Point(73, 0);
             label26.Name = "label26";
-            label26.Size = new Size(208, 27);
+            label26.Size = new Size(165, 27);
             label26.TabIndex = 7;
             label26.Text = "Первая пара";
             label26.TextAlign = ContentAlignment.MiddleCenter;
@@ -458,9 +458,9 @@
             label14.AutoSize = true;
             label14.Dock = DockStyle.Fill;
             label14.Font = new Font("Arial", 18F);
-            label14.Location = new Point(287, 0);
+            label14.Location = new Point(244, 0);
             label14.Name = "label14";
-            label14.Size = new Size(208, 27);
+            label14.Size = new Size(251, 27);
             label14.TabIndex = 8;
             label14.Text = "Первая пара дз";
             label14.TextAlign = ContentAlignment.MiddleCenter;
@@ -484,7 +484,7 @@
             label16.Font = new Font("Arial", 18F);
             label16.Location = new Point(73, 0);
             label16.Name = "label16";
-            label16.Size = new Size(208, 27);
+            label16.Size = new Size(165, 27);
             label16.TabIndex = 7;
             label16.Text = "Первая пара";
             label16.TextAlign = ContentAlignment.MiddleCenter;
@@ -687,9 +687,9 @@
             label1.AutoSize = true;
             label1.Dock = DockStyle.Fill;
             label1.Font = new Font("Arial", 18F);
-            label1.Location = new Point(287, 0);
+            label1.Location = new Point(244, 0);
             label1.Name = "label1";
-            label1.Size = new Size(208, 27);
+            label1.Size = new Size(251, 27);
             label1.TabIndex = 8;
             label1.Text = "Первая пара дз";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -713,7 +713,7 @@
             label4.Font = new Font("Arial", 18F);
             label4.Location = new Point(73, 0);
             label4.Name = "label4";
-            label4.Size = new Size(208, 27);
+            label4.Size = new Size(165, 27);
             label4.TabIndex = 7;
             label4.Text = "Первая пара";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -802,9 +802,9 @@
             label10.AutoSize = true;
             label10.Dock = DockStyle.Fill;
             label10.Font = new Font("Arial", 18F);
-            label10.Location = new Point(287, 0);
+            label10.Location = new Point(244, 0);
             label10.Name = "label10";
-            label10.Size = new Size(208, 27);
+            label10.Size = new Size(251, 27);
             label10.TabIndex = 8;
             label10.Text = "Первая пара дз";
             label10.TextAlign = ContentAlignment.MiddleCenter;
@@ -828,7 +828,7 @@
             label9.Font = new Font("Arial", 18F);
             label9.Location = new Point(73, 0);
             label9.Name = "label9";
-            label9.Size = new Size(208, 27);
+            label9.Size = new Size(165, 27);
             label9.TabIndex = 7;
             label9.Text = "Первая пара";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -896,6 +896,7 @@
             MinimumSize = new Size(1024, 700);
             Name = "MainHomeworkForm";
             Text = "MainHomeworkForm";
+            WindowState = FormWindowState.Maximized;
             Load += MainHomeworkForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

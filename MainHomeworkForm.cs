@@ -14,13 +14,11 @@ namespace Student_Note
 
         public MainHomeworkForm()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
         private async void MainHomeworkForm_Load(object sender, EventArgs e)
         {
-            // Полноэкранный режим
-            WindowState = FormWindowState.Maximized;
             // Проверяем, авторизован ли пользователь
             if (Program.userData == null)
             {
@@ -28,13 +26,13 @@ namespace Student_Note
                 return;
             }
             else
-            {  
+            {
                 // Отрисовка имени пользователя в кнопке
                 if (Program.userData.second_name != "" && Program.userData.second_name != null)
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
-                Task.Factory.StartNew(() => {MessageBox.Show("Загрузка расписания. Пожалуйста подождите!");}); 
+                Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); });
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
                 contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля
@@ -219,11 +217,11 @@ namespace Student_Note
             {
                 { "I", GetLessonsForPeriod(daySchedule.I, isNumerator) },
                 { "II", GetLessonsForPeriod(daySchedule.II, isNumerator) },
-                { "III", GetLessonsForPeriod(daySchedule.III, isNumerator) },  
-                { "IV", GetLessonsForPeriod(daySchedule.IV, isNumerator) }, 
-                { "V", GetLessonsForPeriod(daySchedule.V, isNumerator) }, 
-                { "I - B", GetLessonsForPeriod(daySchedule.I_V, isNumerator) },  
-                { "II - B", GetLessonsForPeriod(daySchedule.II_V, isNumerator) }, 
+                { "III", GetLessonsForPeriod(daySchedule.III, isNumerator) },
+                { "IV", GetLessonsForPeriod(daySchedule.IV, isNumerator) },
+                { "V", GetLessonsForPeriod(daySchedule.V, isNumerator) },
+                { "I - B", GetLessonsForPeriod(daySchedule.I_V, isNumerator) },
+                { "II - B", GetLessonsForPeriod(daySchedule.II_V, isNumerator) },
             };
 
             // Добавляем пары в таблицу
@@ -264,6 +262,7 @@ namespace Student_Note
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
+            //tableLayoutPanel.Click.Add(lblHomework);
 
             tableLayoutPanel.ResumeLayout();
         }

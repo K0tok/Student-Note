@@ -56,7 +56,7 @@ namespace Student_Note
             label11.Text = string.Join(", ", _userData.Group) ?? "Нет групп";
             comboBoxGroups.DataSource = _userData.Group;
             comboBoxGroups.Text = _userData.selectGroup ?? "Нет групп";
-            //label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
+            label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
         }
 
         private void button1_Click(object sender, EventArgs e)
