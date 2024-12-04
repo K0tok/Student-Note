@@ -61,7 +61,7 @@ namespace Student_Note
             {
                 // Проверяем, загружено ли расписание
                 if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
                     // Заполняем расписание для текущей недели
                     FillSchedule(
@@ -148,7 +148,7 @@ namespace Student_Note
 
                 // Заполняем таблицы с расписанием для выбранной недели
                 if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
@@ -262,7 +262,7 @@ namespace Student_Note
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
-            tableLayoutPanel.Click += ;
+            //tableLayoutPanel.Click += ;
 
             tableLayoutPanel.ResumeLayout();
         }
@@ -286,15 +286,15 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private static void Homework_Filler()
-        {
-            MakeHomework Homework = new MakeHomework();
-            Homework.ShowDialog();
-        }
+        //private static void Homework_Filler()
+        //{
+        //    MakeHomework Homework = new MakeHomework();
+        //    Homework.ShowDialog();
+        //}
 
-        private void label10_Click(object sender, EventArgs e)
-        {
-            Homework_Filler();
-        }
+        //private void label10_Click(object sender, EventArgs e)
+        //{
+        //    Homework_Filler();
+        //}
     }
 }

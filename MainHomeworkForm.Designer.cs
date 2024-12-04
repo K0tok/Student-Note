@@ -808,7 +808,7 @@
             label10.TabIndex = 8;
             label10.Text = "Первая пара дз";
             label10.TextAlign = ContentAlignment.MiddleCenter;
-            label10.Click += label10_Click;
+            //label10.Click += label10_Click;
             // 
             // label2
             // 

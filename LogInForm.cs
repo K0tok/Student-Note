@@ -63,10 +63,9 @@ namespace Student_Note
                 // Добавление параметров для защиты от SQL-инъекций
                 cmd.Parameters.AddWithValue("@EmailOrPhoneNumber", emailOrPhoneNumber);
 
-                // Извлечение хэша пароля из базы данных
+                // Извлечение хеша пароля из базы данных
                 cmd.CommandText = @"SELECT id, last_name, first_name, second_name, sex, birthdate, reg_date, email, phone_number, member_type, password 
-                            FROM Users 
-                            WHERE email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber";
+                                    FROM Users WHERE email = @EmailOrPhoneNumber OR phone_number = @EmailOrPhoneNumber";
 
                 string hashedPassword = null;
 
@@ -74,7 +73,7 @@ namespace Student_Note
                 {
                     if (reader.Read())
                     {
-                        hashedPassword = reader["password"].ToString(); // Получаем хэш пароля
+                        hashedPassword = reader["password"].ToString(); // Получаем хеш пароля
 
                         // Проверка хэша пароля
                         if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
