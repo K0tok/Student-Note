@@ -297,10 +297,8 @@ namespace Student_Note
         {
             // Открываем форму MakeHomework, передавая данные
             MakeHomework HomeworkForm = new MakeHomework();
-            //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
+            HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             HomeworkForm.ShowDialog();
         }
-
-
     }
 }

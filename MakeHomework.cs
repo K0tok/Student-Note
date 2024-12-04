@@ -11,11 +11,15 @@ using Microsoft.Data.Sqlite;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Runtime.InteropServices.JavaScript;
 
 namespace Student_Note
 {
     public partial class MakeHomework : Form
     {
+        private string _lessonNumber;
+        private string _subject;
+        private DateTime _lessonDate;
         public MakeHomework()
         {
             InitializeComponent();
@@ -24,6 +28,19 @@ namespace Student_Note
             SelectLesson.DataSource = new List<string> { "Математика", "Не математика"};
             TextHomework.Text = "StartHomeWork";
             SelectDate.Value = new DateTime(2001, 10, 20);
+        }
+        // Метод для установки данных домашнего задания
+        public void SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate)
+        {
+            _lessonNumber = lessonNumber;
+            _subject = subject;
+            _lessonDate = lessonDate;
+
+            MessageBox.Show(_lessonNumber + _subject + _lessonDate.ToString());
+            // Отображаем данные на форме
+            //SelectNumberLesson.Text = _lessonNumber;
+            //SelectLesson.Text = _subject;
+            //homeworkTextBox.Text = _homework;
         }
         private void SaveHomework_Click(object sender, EventArgs e)
         {
