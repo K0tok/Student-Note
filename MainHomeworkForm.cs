@@ -55,30 +55,6 @@ namespace Student_Note
                 return;
             }
 
-            // Загружаем расписание для выбранной группы
-            await _scheduleLoader.GetScheduleAsync();
-            try
-            {
-                // Проверяем, загружено ли расписание
-                if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
-                {
-                    DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
-                    // Заполняем расписание для текущей недели
-                    FillSchedule(
-                        MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
-                        ThursdayTableLayoutPanel, FridayTableLayoutPanel, SaturdayTableLayoutPanel,
-                        groupSchedule, GetCurrentWeekType(), currentWeekStartDate);
-                }
-                else
-                {
-                    MessageBox.Show("Расписание не найдено.");  // Сообщение, если расписание не найдено
-                }
-            }
-            catch
-            {
-                Program.ReplaceForm(Program.LogInForm, this);  // Переход на форму логина в случае ошибки
-            }
 
             // Устанавливаем даты начала и конца учебного года
             DateTime startDate = new DateTime(DateTime.Now.Year, 9, 2);
@@ -126,6 +102,30 @@ namespace Student_Note
             {
                 var currentWeek = _weeks[WeekComboBox.SelectedIndex];
                 UpdateWeekDayLabels(currentWeek);  // Обновляем метки дней недели для текущей недели
+            }
+            // Загружаем расписание для выбранной группы
+            await _scheduleLoader.GetScheduleAsync();
+            try
+            {
+                // Проверяем, загружено ли расписание
+                if (_scheduleLoader.CurrentSchedule != null &&
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
+                {
+                    DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
+                    // Заполняем расписание для текущей недели
+                    FillSchedule(
+                        MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
+                        ThursdayTableLayoutPanel, FridayTableLayoutPanel, SaturdayTableLayoutPanel,
+                        groupSchedule, GetCurrentWeekType(), currentWeekStartDate);
+                }
+                else
+                {
+                    MessageBox.Show("Расписание не найдено.");  // Сообщение, если расписание не найдено
+                }
+            }
+            catch
+            {
+                Program.ReplaceForm(Program.LogInForm, this);  // Переход на форму логина в случае ошибки
             }
         }
 
@@ -297,7 +297,7 @@ namespace Student_Note
         {
             // Открываем форму MakeHomework, передавая данные
             MakeHomework HomeworkForm = new MakeHomework();
-            HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
+            //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             HomeworkForm.ShowDialog();
         }
 
