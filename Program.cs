@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using Student_Note;
+using Student_Note.Menu;
 using System.Text;
 using BCrypt.Net;
 
@@ -27,7 +28,7 @@ namespace Student_Note
         static public Form AddGroupForm     = new AddGroupForm();
         /// MENU
         static public Form ProfileForm      = new ProfileForm();
-
+        static public Form SettingsForm     = new SettingsForm();
         /// <summary>
         /// Меняет форму на newForm из oldForm
         /// </summary>

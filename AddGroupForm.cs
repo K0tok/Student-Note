@@ -43,8 +43,12 @@ namespace Student_Note
                 // Проверка на ответ 
                 if (countRows == 1)
                 {
-                    CopyableMessageBox.Show(RandomCode, "Группа создана \n Нажмите на код чтобы сохранить его");
-                    Program.ReplaceForm(Program.MainHomeworkForm, this);
+                    CopyableMessageBox.Show(RandomCode, "Группа создана \nНажмите на код чтобы сохранить его");
+                    if (ScheduleLoader.AddUserInGroup(Program.userData.id, RandomCode, this))
+                    {
+                        Program.ReplaceForm(Program.MainHomeworkForm, this);
+                    }
+                    
                 }
 
             }
@@ -57,7 +61,6 @@ namespace Student_Note
         {
             Program.ReplaceForm(Program.MainHomeworkForm, this);
         }
-
         /// <summary>
         /// Список специальностей  
         /// </summary>
@@ -125,11 +128,10 @@ namespace Student_Note
             {
                 MessageBox.Show($"Ошибка в получении списка возможных групп");
             }
-             ComboBoxNames.DataSource = GroupNames;
+            ComboBoxNames.DataSource = GroupNames;
 
         }
 
-        
         public class CopyableMessageBox : Form
         {   /// <summary>
             /// Форма для вывода Meassge для копирования в буфер обмена
