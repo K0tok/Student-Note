@@ -19,7 +19,6 @@ namespace Student_Note
         }
         private void ProfileForm_Load(object sender, EventArgs e)
         {
-
             UserData _userData = Program.userData;
             // Если при загрузки формы нет данных пользователя, то мы возращаем в Login Form
             if (_userData == null) { Program.ReplaceForm(Program.LogInForm, this); return; }
@@ -53,10 +52,17 @@ namespace Student_Note
             label8.Text = _userData.email;
             label9.Text = _userData.phone_number;
             label10.Text = _userData.member_type ? "Староста" : "Студент";
-            label11.Text = string.Join(", ", _userData.Group) ?? "Нет групп";
-            comboBoxGroups.DataSource = _userData.Group;
-            comboBoxGroups.Text = _userData.selectGroup ?? "Нет групп";
-            label12.Text = string.Join(", ", _userData.Codes) ?? "Нет инвайт-кодов";
+
+            List<string> groups = new List<string>();
+            foreach (var group in _userData.groups)
+            {
+                groups.Add(group.code_name);
+            }
+            label11.Text = string.Join(", ", groups) ?? "Нет групп";
+            comboBoxGroups.DataSource = groups;
+
+            comboBoxGroups.Text = _userData.selectGroup.code_name ?? "Нет групп";
+            label12.Text = string.Join(", ", _userData.groups) ?? "Нет инвайт-кодов";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -68,7 +74,13 @@ namespace Student_Note
         private void comboBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Program.userData == null) return;
-            Program.userData.selectGroup = comboBoxGroups.Text;
+            foreach (var group in Program.userData.groups) 
+            {
+                if (group.code_name == comboBoxGroups.Text)
+                {
+                    Program.userData.selectGroup = group;
+                }
+            }
         }
     }
 }

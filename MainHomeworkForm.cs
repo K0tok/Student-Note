@@ -61,7 +61,7 @@ namespace Student_Note
             {
                 // Проверяем, загружено ли расписание
                 if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
                     DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
                     // Заполняем расписание для текущей недели
@@ -149,7 +149,7 @@ namespace Student_Note
 
                 // Заполняем таблицы с расписанием для выбранной недели
                 if (_scheduleLoader.CurrentSchedule != null &&
-                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup, out var groupSchedule))
+                    _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
