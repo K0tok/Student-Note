@@ -32,10 +32,10 @@ namespace Student_Note
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
-                Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); });
+                //Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); } );
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
-                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля
+                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));   // Открытие профиля
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));  // Открытие уведомлений
 
                 // Если пользователь является членом группы, добавляются дополнительные пункты в меню
@@ -44,7 +44,7 @@ namespace Student_Note
                     contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));  // Открытие группы
                     contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));  // Открытие формы добавления объявления
                 }
-                contextMenuStrip1.Items.Add("Настройки", null, (s, e) => MessageBox.Show("Открыты настройки"));  // Открытие настроек
+                contextMenuStrip1.Items.Add("Настройки", null, (s, e) => Program.ReplaceForm(Program.SettingsForm, this));  // Открытие настроек
                 contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());  // Выход из приложения
             }
 
