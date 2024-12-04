@@ -68,6 +68,7 @@
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(289, 28);
             LoginTextBox.TabIndex = 1;
+            LoginTextBox.Text = "testing_user@temp.mail";
             // 
             // LoginLabel
             // 
@@ -103,6 +104,7 @@
             PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.Size = new Size(289, 28);
             PasswordTextBox.TabIndex = 3;
+            PasswordTextBox.Text = "Testing_User01";
             // 
             // WrongLoginLabel
             // 
@@ -148,7 +150,7 @@
             // 
             label6.Anchor = AnchorStyles.Left;
             label6.BackColor = Color.Transparent;
-            label6.Location = new Point(5, 0);
+            label6.Location = new Point(3, 2);
             label6.Name = "label6";
             label6.Size = new Size(83, 15);
             label6.TabIndex = 8;
@@ -158,7 +160,7 @@
             // 
             LogUpLinkLabel.Anchor = AnchorStyles.Right;
             LogUpLinkLabel.BackColor = Color.Transparent;
-            LogUpLinkLabel.Location = new Point(85, 0);
+            LogUpLinkLabel.Location = new Point(84, 2);
             LogUpLinkLabel.Name = "LogUpLinkLabel";
             LogUpLinkLabel.Size = new Size(122, 15);
             LogUpLinkLabel.TabIndex = 9;
