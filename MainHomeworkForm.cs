@@ -75,7 +75,7 @@ namespace Student_Note
             }
             catch
             {
-                Program.ReplaceForm(Program.LogInForm, this);  // Перехід на форму логина в случае ошибки
+                Program.ReplaceForm(Program.LogInForm, this);  // Переход на форму логина в случае ошибки
             }
 
             // Устанавливаем даты начала и конца учебного года
@@ -250,42 +250,31 @@ namespace Student_Note
         // Добавляем строку с данными пары в таблицу
         private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, string homework)
         {
-            var lblNumber = new Label
+            tableLayoutPanel.SuspendLayout();
+
+            var lblNumber = CreateLabel(lessonNumber);
+            var lblSubject = CreateLabel(subject);
+            var lblHomework = CreateLabel(homework);
+
+            tableLayoutPanel.RowCount += 1;
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
+            tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
+            tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
+
+            tableLayoutPanel.ResumeLayout();
+        }
+
+        private static Label CreateLabel(string text)
+        {
+            return new Label
             {
-                Text = lessonNumber,  // Номер пары
+                Text = text,
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 14F),
-                AutoSize = true,
-                MaximumSize = new Size(0, 0),
+                AutoSize = true
             };
-
-            var lblSubject = new Label
-            {
-                Text = subject,  // Название предмета
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 14F),
-                AutoSize = true,
-                MaximumSize = new Size(0, 0),
-            };
-
-            var lblHomework = new Label
-            {
-                Text = homework,  // Домашнее задание
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Font = new Font("Arial", 14F),
-                AutoSize = true,
-                MaximumSize = new Size(0, 0),
-            };
-
-            // Добавляем данные в таблицу
-            tableLayoutPanel.RowCount += 1;  // Увеличиваем количество строк в таблице
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));  // Добавляем стиль для строки
-            tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);  // Номер урока в первый столбец
-            tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);  // Название предмета во второй столбец
-            tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);  // Домашнее задание в третий столбец
         }
 
         // Обработчик нажатия на кнопку "Пользователь"
