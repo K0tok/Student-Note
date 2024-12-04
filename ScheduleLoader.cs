@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Microsoft.Data.Sqlite;
+using System.Security.Policy;
 
 namespace Student_Note
 {
@@ -118,6 +120,86 @@ namespace Student_Note
                 MessageBox.Show($"Ошибка десериализации JSON: {ex.Message}");
                 return null;
             }
+        }
+
+        public static bool AddUserInGroup(int userId, string groupCode, Form thisForm)
+        {
+            try
+            {
+                // Строка подключения к базе данных SQLite
+                string connectionString = "Data Source=Student Note.db";
+
+
+                using (var connection = new SqliteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (var transaction = connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            // SQL-запрос
+                            string query = @"
+                                WITH UserCheck AS (
+                                    SELECT 1 AS user_exists
+                                    FROM Users
+                                    WHERE id = @userId
+                                ),
+                                GroupCheck AS (
+                                    SELECT id AS group_id
+                                    FROM Groups
+                                    WHERE code = @groupCode
+                                ),
+                                MembershipCheck AS (
+                                    SELECT 1 AS membership_exists
+                                    FROM users_in_groups
+                                    WHERE user_id = @userId AND group_id = (SELECT group_id FROM GroupCheck)
+                                )
+                                INSERT INTO users_in_groups (user_id, group_id)
+                                SELECT @userId, group_id
+                                FROM GroupCheck
+                                WHERE EXISTS (SELECT 1 FROM UserCheck)
+                                  AND EXISTS (SELECT 1 FROM GroupCheck)
+                                  AND NOT EXISTS (SELECT 1 FROM MembershipCheck);
+                            ";
+
+                            using (var command = new SqliteCommand(query, connection, transaction)) // Привязка транзакции
+                            {
+                                // Добавляем параметры
+                                command.Parameters.AddWithValue("@userId", userId);
+                                command.Parameters.AddWithValue("@groupCode", groupCode);
+
+                                // Выполнение команды
+                                int rowsAffected = command.ExecuteNonQuery();
+
+                                if (rowsAffected < 1)
+                                {
+                                    transaction.Rollback();
+                                    MessageBox.Show("Вы уже есть в этой группе");
+                                    return false;
+                                }
+                            }
+
+                            // Фиксация транзакции
+                            transaction.Commit();
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            // Откат транзакции в случае ошибки
+                            transaction.Rollback();
+                            MessageBox.Show("Ошибка: " + ex.Message);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Обработка ошибки
+                MessageBox.Show("Возникла ошибка: " + ex.Message);
+            }
+            return false;
         }
     }
 }

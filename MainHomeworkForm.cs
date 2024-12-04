@@ -32,10 +32,10 @@ namespace Student_Note
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name.First() + "." + Program.userData.second_name.First() + ".";
                 else
                     buttonUser.Text = Program.userData.last_name + " " + Program.userData.first_name;
-                Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); } );
+                //Task.Factory.StartNew(() => { MessageBox.Show("Загрузка расписания. Пожалуйста подождите!"); } );
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1 = new ContextMenuStrip();
-                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля
+                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));   // Открытие профиля
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));  // Открытие уведомлений
 
                 // Если пользователь является членом группы, добавляются дополнительные пункты в меню
@@ -44,7 +44,7 @@ namespace Student_Note
                     contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));  // Открытие группы
                     contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));  // Открытие формы добавления объявления
                 }
-                contextMenuStrip1.Items.Add("Настройки", null, (s, e) => MessageBox.Show("Открыты настройки"));  // Открытие настроек
+                contextMenuStrip1.Items.Add("Настройки", null, (s, e) => Program.ReplaceForm(Program.SettingsForm, this));  // Открытие настроек
                 contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());  // Выход из приложения
             }
 
@@ -63,11 +63,12 @@ namespace Student_Note
                 if (_scheduleLoader.CurrentSchedule != null &&
                     _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
+                    DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
                     // Заполняем расписание для текущей недели
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
                         ThursdayTableLayoutPanel, FridayTableLayoutPanel, SaturdayTableLayoutPanel,
-                        groupSchedule, GetCurrentWeekType());
+                        groupSchedule, GetCurrentWeekType(), currentWeekStartDate);
                 }
                 else
                 {
@@ -153,7 +154,7 @@ namespace Student_Note
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
                         ThursdayTableLayoutPanel, FridayTableLayoutPanel, SaturdayTableLayoutPanel,
-                        groupSchedule, selectedWeek.IsNumerator);
+                        groupSchedule, selectedWeek.IsNumerator, selectedWeek.StartDate);
                 }
             }
         }
@@ -174,17 +175,18 @@ namespace Student_Note
 
         // Заполняем расписание для всей недели
         public void FillSchedule(TableLayoutPanel mondayTLP, TableLayoutPanel tuesdayTLP,
-                         TableLayoutPanel wednesdayTLP, TableLayoutPanel thursdayTLP,
-                         TableLayoutPanel fridayTLP, TableLayoutPanel saturdayTLP,
-                         GroupSchedule groupSchedule, bool isNumerator)
+                                 TableLayoutPanel wednesdayTLP, TableLayoutPanel thursdayTLP,
+                                 TableLayoutPanel fridayTLP, TableLayoutPanel saturdayTLP,
+                                 GroupSchedule groupSchedule, bool isNumerator, DateTime weekStartDate)
         {
-            FillDaySchedule(mondayTLP, groupSchedule.Monday, isNumerator);  // Понедельник
-            FillDaySchedule(tuesdayTLP, groupSchedule.Tuesday, isNumerator);  // Вторник
-            FillDaySchedule(wednesdayTLP, groupSchedule.Wednesday, isNumerator);  // Среда
-            FillDaySchedule(thursdayTLP, groupSchedule.Thursday, isNumerator);  // Четверг
-            FillDaySchedule(fridayTLP, groupSchedule.Friday, isNumerator);  // Пятница
-            FillDaySchedule(saturdayTLP, groupSchedule.Saturday, isNumerator);  // Суббота
+            FillDaySchedule(MondayTableLayoutPanel, groupSchedule.Monday, isNumerator, weekStartDate);  // Понедельник
+            FillDaySchedule(TuesdayTableLayoutPanel, groupSchedule.Tuesday, isNumerator, weekStartDate.AddDays(1));  // Вторник
+            FillDaySchedule(WednesdayTableLayoutPanel, groupSchedule.Wednesday, isNumerator, weekStartDate.AddDays(2));  // Среда
+            FillDaySchedule(ThursdayTableLayoutPanel, groupSchedule.Thursday, isNumerator, weekStartDate.AddDays(3));  // Четверг
+            FillDaySchedule(FridayTableLayoutPanel, groupSchedule.Friday, isNumerator, weekStartDate.AddDays(4));  // Пятница
+            FillDaySchedule(SaturdayTableLayoutPanel, groupSchedule.Saturday, isNumerator, weekStartDate.AddDays(5));  // Суббота
         }
+
 
         // Очищаем таблицы расписания
         private void ClearTables()
@@ -206,7 +208,7 @@ namespace Student_Note
         }
 
         // Заполняем таблицу для одного дня
-        private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule, bool isNumerator)
+        private void FillDaySchedule(TableLayoutPanel tableLayoutPanel, DaySchedule daySchedule, bool isNumerator, DateTime weekStartDate)
         {
             tableLayoutPanel.Controls.Clear();  // Очищаем таблицу
             tableLayoutPanel.RowCount = 0;  // Сбрасываем количество строк
@@ -231,7 +233,8 @@ namespace Student_Note
                 {
                     foreach (var lesson in lessonList)
                     {
-                        AddRowToTable(tableLayoutPanel, lessonNumber, lesson.Name, lesson.Auditorium);  // Добавляем строку с данными пары
+                        DateTime lessonDate = weekStartDate.AddDays(lessonList.IndexOf(lesson));
+                        AddRowToTable(tableLayoutPanel, lessonNumber, lesson.Name, lessonDate);  // Добавляем строку с данными пары
                     }
                 }
             }
@@ -249,23 +252,27 @@ namespace Student_Note
         }
 
         // Добавляем строку с данными пары в таблицу
-        private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, string homework)
+        private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, DateTime lessonDate)
         {
             tableLayoutPanel.SuspendLayout();
 
             var lblNumber = CreateLabel(lessonNumber);
             var lblSubject = CreateLabel(subject);
-            var lblHomework = CreateLabel(homework);
+            //var lblHomework = CreateLabel(homework);
+
+            lblNumber.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            lblSubject.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            //lblHomework.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, homework);
 
             tableLayoutPanel.RowCount += 1;
             tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
-            tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
-            //tableLayoutPanel.Click += ;
+            //tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
 
             tableLayoutPanel.ResumeLayout();
         }
+
 
         private static Label CreateLabel(string text)
         {
@@ -286,15 +293,14 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        //private static void Homework_Filler()
-        //{
-        //    MakeHomework Homework = new MakeHomework();
-        //    Homework.ShowDialog();
-        //}
+        private static void Homework_Filler_Click(object sender, EventArgs e, string lessonNumber, string subject, DateTime lessonDate)
+        {
+            // Открываем форму MakeHomework, передавая данные
+            MakeHomework HomeworkForm = new MakeHomework();
+            HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
+            HomeworkForm.ShowDialog();
+        }
 
-        //private void label10_Click(object sender, EventArgs e)
-        //{
-        //    Homework_Filler();
-        //}
+
     }
 }
