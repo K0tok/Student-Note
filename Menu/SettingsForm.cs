@@ -41,11 +41,11 @@ namespace Student_Note.Menu
 
                 // Инициализация ContextMenuStrip для выпадающего списка для старосты и обычного студента
                 contextMenuStrip1.Items.Add("Открыть расписание", null, (s, e) => { Program.MainHomeworkForm = new MainHomeworkForm(); Program.ReplaceForm(Program.MainHomeworkForm, this); });
-                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ProfileForm, this));  // Открытие профиля
+                contextMenuStrip1.Items.Add("Профиль", null, (s, e) => Program.ReplaceForm(Program.ShowUsersInGroupForm, this));  // Открытие профиля
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
                 if (_userData.member_type) // Дополнительные менюшки для старосты
                 {
-                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));
+                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => Program.ReplaceForm(new ShowUsersInGroupForm(), this));
                     contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));
                 }
                 contextMenuStrip1.Items.Add("Выйти", null, (s, e) => Application.Exit());

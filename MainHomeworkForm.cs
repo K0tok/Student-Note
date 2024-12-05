@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
-
+using Student_Note.Menu;
 namespace Student_Note
 {
     public partial class MainHomeworkForm : Form
@@ -41,7 +41,7 @@ namespace Student_Note
                 // Если пользователь является членом группы, добавляются дополнительные пункты в меню
                 if (Program.userData.member_type)
                 {
-                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));  // Открытие группы
+                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => Program.ReplaceForm(new ShowUsersInGroupForm(), this));  // Открытие группы
                     contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));  // Открытие формы добавления объявления
                 }
                 contextMenuStrip1.Items.Add("Настройки", null, (s, e) => Program.ReplaceForm(Program.SettingsForm, this));  // Открытие настроек
