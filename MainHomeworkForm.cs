@@ -292,8 +292,8 @@ namespace Student_Note
             lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
             lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
             // Добавляем обработчики клика
-            //lblNumber.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
-            //lblSubject.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            lblNumber.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
+            lblSubject.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
             lblHomework.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
 
             // Добавляем элементы в таблицу

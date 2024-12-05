@@ -248,7 +248,7 @@
             label2.Location = new Point(297, 10);
             label2.Margin = new Padding(0, 10, 0, 10);
             label2.Name = "label2";
-            label2.Size = new Size(479, 27);
+            label2.Size = new Size(483, 27);
             label2.TabIndex = 17;
             label2.Text = "label2";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -261,7 +261,7 @@
             label3.Location = new Point(297, 57);
             label3.Margin = new Padding(0, 10, 0, 10);
             label3.Name = "label3";
-            label3.Size = new Size(479, 27);
+            label3.Size = new Size(483, 27);
             label3.TabIndex = 18;
             label3.Text = "label3";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -274,7 +274,7 @@
             label4.Location = new Point(297, 104);
             label4.Margin = new Padding(0, 10, 0, 10);
             label4.Name = "label4";
-            label4.Size = new Size(479, 27);
+            label4.Size = new Size(483, 27);
             label4.TabIndex = 19;
             label4.Text = "label4";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -287,7 +287,7 @@
             label5.Location = new Point(297, 151);
             label5.Margin = new Padding(0, 10, 0, 10);
             label5.Name = "label5";
-            label5.Size = new Size(479, 27);
+            label5.Size = new Size(483, 27);
             label5.TabIndex = 20;
             label5.Text = "label5";
             label5.TextAlign = ContentAlignment.MiddleCenter;
@@ -300,7 +300,7 @@
             label6.Location = new Point(297, 198);
             label6.Margin = new Padding(0, 10, 0, 10);
             label6.Name = "label6";
-            label6.Size = new Size(479, 27);
+            label6.Size = new Size(483, 27);
             label6.TabIndex = 21;
             label6.Text = "label6";
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -313,7 +313,7 @@
             label7.Location = new Point(297, 245);
             label7.Margin = new Padding(0, 10, 0, 10);
             label7.Name = "label7";
-            label7.Size = new Size(479, 27);
+            label7.Size = new Size(483, 27);
             label7.TabIndex = 22;
             label7.Text = "label7";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -326,7 +326,7 @@
             label8.Location = new Point(297, 292);
             label8.Margin = new Padding(0, 10, 0, 10);
             label8.Name = "label8";
-            label8.Size = new Size(479, 27);
+            label8.Size = new Size(483, 27);
             label8.TabIndex = 23;
             label8.Text = "label8";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -339,7 +339,7 @@
             label9.Location = new Point(297, 339);
             label9.Margin = new Padding(0, 10, 0, 10);
             label9.Name = "label9";
-            label9.Size = new Size(479, 27);
+            label9.Size = new Size(483, 27);
             label9.TabIndex = 24;
             label9.Text = "label9";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -352,7 +352,7 @@
             label10.Location = new Point(297, 386);
             label10.Margin = new Padding(0, 10, 0, 10);
             label10.Name = "label10";
-            label10.Size = new Size(479, 27);
+            label10.Size = new Size(483, 27);
             label10.TabIndex = 25;
             label10.Text = "label10";
             label10.TextAlign = ContentAlignment.MiddleCenter;
@@ -365,7 +365,7 @@
             label11.Location = new Point(297, 433);
             label11.Margin = new Padding(0, 10, 0, 10);
             label11.Name = "label11";
-            label11.Size = new Size(479, 27);
+            label11.Size = new Size(483, 27);
             label11.TabIndex = 26;
             label11.Text = "label11";
             label11.TextAlign = ContentAlignment.MiddleCenter;
@@ -375,10 +375,10 @@
             comboBoxGroups.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             comboBoxGroups.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point, 204);
             comboBoxGroups.FormattingEnabled = true;
-            comboBoxGroups.Location = new Point(297, 480);
-            comboBoxGroups.Margin = new Padding(0, 10, 0, 10);
+            comboBoxGroups.Location = new Point(312, 480);
+            comboBoxGroups.Margin = new Padding(15, 10, 15, 10);
             comboBoxGroups.Name = "comboBoxGroups";
-            comboBoxGroups.Size = new Size(479, 35);
+            comboBoxGroups.Size = new Size(453, 35);
             comboBoxGroups.TabIndex = 28;
             comboBoxGroups.SelectedIndexChanged += comboBoxGroups_SelectedIndexChanged;
             // 
@@ -453,7 +453,7 @@
             label12.Location = new Point(297, 535);
             label12.Margin = new Padding(0, 10, 0, 10);
             label12.Name = "label12";
-            label12.Size = new Size(479, 26);
+            label12.Size = new Size(483, 26);
             label12.TabIndex = 30;
             label12.Text = "label12";
             label12.TextAlign = ContentAlignment.MiddleCenter;
