@@ -23,7 +23,7 @@ namespace Student_Note
         static public Form MainHomeworkForm = new MainHomeworkForm();
         static public Form LogInForm        = new LogInForm();
         static public Form SignUpForm       = new SignUpForm();
-        static public Form MakeHomeworkForm = new MakeHomework();
+        static public Form MakeHomeworkForm;
         static public Form AddGroupForm     = new AddGroupForm();
         /// MENU
         static public Form ProfileForm      = new ProfileForm();

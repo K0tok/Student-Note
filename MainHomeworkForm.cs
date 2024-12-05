@@ -333,8 +333,8 @@ namespace Student_Note
         private static void Homework_Filler_Click(string lessonNumber, string subject, DateTime lessonDate)
         {
             // Открываем форму MakeHomework, передавая данные
-            MakeHomework HomeworkForm = new MakeHomework();
-            HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
+            MakeHomework HomeworkForm = new MakeHomework(lessonNumber, subject, lessonDate);
+            //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             HomeworkForm.ShowDialog();
         }
     }

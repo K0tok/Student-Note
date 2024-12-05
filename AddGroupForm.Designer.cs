@@ -55,7 +55,7 @@
             // NameGroup
             // 
             NameGroup.AutoSize = true;
-            NameGroup.Location = new Point(12, 82);
+            NameGroup.Location = new Point(212, 82);
             NameGroup.Name = "NameGroup";
             NameGroup.Size = new Size(132, 20);
             NameGroup.TabIndex = 3;
@@ -84,7 +84,7 @@
             // GroupSpeNames
             // 
             GroupSpeNames.FormattingEnabled = true;
-            GroupSpeNames.Location = new Point(212, 105);
+            GroupSpeNames.Location = new Point(12, 105);
             GroupSpeNames.Name = "GroupSpeNames";
             GroupSpeNames.Size = new Size(194, 28);
             GroupSpeNames.TabIndex = 8;
@@ -92,7 +92,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(212, 82);
+            label1.Location = new Point(12, 82);
             label1.Name = "label1";
             label1.Size = new Size(119, 20);
             label1.TabIndex = 9;
@@ -101,7 +101,7 @@
             // ComboBoxNames
             // 
             ComboBoxNames.FormattingEnabled = true;
-            ComboBoxNames.Location = new Point(12, 105);
+            ComboBoxNames.Location = new Point(212, 105);
             ComboBoxNames.Name = "ComboBoxNames";
             ComboBoxNames.Size = new Size(194, 28);
             ComboBoxNames.TabIndex = 10;
