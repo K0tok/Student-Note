@@ -75,6 +75,7 @@ namespace Student_Note.Menu
         }
         public void ShowUsers(List<User> users)
         {
+         
             dataGridView1.DataSource = users;
         }
         private void button1_Click(object sender, EventArgs e)
