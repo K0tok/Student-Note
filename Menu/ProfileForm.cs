@@ -8,6 +8,7 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Student_Note.Menu;
 
 namespace Student_Note
 {
@@ -35,7 +36,7 @@ namespace Student_Note
                 contextMenuStrip1.Items.Add("Уведомления", null, (s, e) => MessageBox.Show("Открыты уведомления"));
                 if (_userData.member_type) // Дополнительные менюшки для старосты
                 {
-                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => MessageBox.Show("Показаны участники группы"));
+                    contextMenuStrip1.Items.Add("Группа", null, (s, e) => Program.ReplaceForm(new ShowUsersInGroupForm(), this));
                     contextMenuStrip1.Items.Add("Добавить объявление", null, (s, e) => MessageBox.Show("Открыта форма добавления уведомления"));
                 }
                 contextMenuStrip1.Items.Add("Настройки", null, (s, e) => Program.ReplaceForm(Program.SettingsForm, this));
@@ -59,6 +60,8 @@ namespace Student_Note
                 groups.Add(group.code_name);
             }
             label11.Text = string.Join(", ", groups) ?? "Нет групп";
+
+            if (_userData.selectGroup==null) return;
 
             comboBoxGroups.Text = _userData.selectGroup.code_name ?? "Нет групп";
             comboBoxGroups.DataSource = groups;

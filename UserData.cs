@@ -8,8 +8,6 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Student_Note
 {
@@ -77,9 +75,9 @@ namespace Student_Note
             List<string> Codes = new List<string>();
 
             string Query = @"SELECT G.id, code_name, specialization_id, code From Groups AS G
-                INNER JOIN users_in_groups AS U_I_G ON U_I_G.group_id=G.id
-                INNER JOIN Users AS U ON U.id=U_I_G.user_id
-                WHERE U.id = @id";
+	            INNER JOIN users_in_groups AS U_I_G ON U_I_G.group_id=G.id
+	            INNER JOIN Users AS U ON U.id=U_I_G.user_id
+	            WHERE U.id = @id";
 
             // Путь к базе данных
             string connectionString = $"Data Source={Program.fullPath}";
@@ -106,9 +104,8 @@ namespace Student_Note
                     {
                         groupDatas.Add(new GroupData(reader["id"].ToString(), reader["code_name"].ToString(), 
                            reader["specialization_id"].ToString(), reader["code"].ToString()));
-                        //Groups.Add(reader["code_name"].ToString());
-                        //Codes.Add(reader["code"].ToString());
                     }
+
                 }
 
             }

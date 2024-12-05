@@ -20,13 +20,14 @@ namespace Student_Note
         /// </summary>
         static public UserData? userData;
 
-        static public Form MainHomeworkForm = new MainHomeworkForm();
-        static public Form LogInForm        = new LogInForm();
-        static public Form SignUpForm       = new SignUpForm();
-        static public Form AddGroupForm     = new AddGroupForm();
+        static public Form MainHomeworkForm     = new MainHomeworkForm();
+        static public Form LogInForm            = new LogInForm();
+        static public Form SignUpForm           = new SignUpForm();
+        static public Form AddGroupForm         = new AddGroupForm();
         /// MENU
-        static public Form ProfileForm      = new ProfileForm();
-        static public Form SettingsForm     = new SettingsForm();
+        static public Form ProfileForm          = new ProfileForm();
+        static public Form SettingsForm         = new SettingsForm();
+        static public Form ShowUsersInGroupForm;
         /// <summary>
         /// Меняет форму на newForm из oldForm
         /// </summary>
