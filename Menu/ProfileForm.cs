@@ -60,8 +60,8 @@ namespace Student_Note
             }
             label11.Text = string.Join(", ", groups) ?? "Нет групп";
 
-            //comboBoxGroups.DataSource = groups;
             comboBoxGroups.Text = _userData.selectGroup.code_name ?? "Нет групп";
+            comboBoxGroups.DataSource = groups;
 
             List<string> group_codes = new List<string>();
             foreach (var group in _userData.groups)

@@ -2,7 +2,6 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Student_Note;
 using Student_Note.Menu;
 using System.Text;
-using BCrypt.Net;
 
 namespace Student_Note
 {
@@ -24,7 +23,6 @@ namespace Student_Note
         static public Form MainHomeworkForm = new MainHomeworkForm();
         static public Form LogInForm        = new LogInForm();
         static public Form SignUpForm       = new SignUpForm();
-        static public Form MakeHomeworkForm = new MakeHomework();
         static public Form AddGroupForm     = new AddGroupForm();
         /// MENU
         static public Form ProfileForm      = new ProfileForm();

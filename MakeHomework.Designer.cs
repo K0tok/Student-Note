@@ -30,7 +30,6 @@
         {
             HeaderLabel = new Label();
             TextHomework = new TextBox();
-            SelectLesson = new ComboBox();
             LabelSubject = new Label();
             SelectDate = new DateTimePicker();
             SelectNumberLesson = new ComboBox();
@@ -40,6 +39,7 @@
             CancelHomework = new Button();
             SaveHomework = new Button();
             FileLink = new TextBox();
+            textSubject = new TextBox();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -66,18 +66,6 @@
             TextHomework.Size = new Size(469, 162);
             TextHomework.TabIndex = 4;
             // 
-            // SelectLesson
-            // 
-            SelectLesson.DropDownStyle = ComboBoxStyle.DropDownList;
-            SelectLesson.FlatStyle = FlatStyle.Flat;
-            SelectLesson.FormattingEnabled = true;
-            SelectLesson.Items.AddRange(new object[] { "Математика", "Философия" });
-            SelectLesson.Location = new Point(10, 73);
-            SelectLesson.Margin = new Padding(3, 2, 3, 2);
-            SelectLesson.Name = "SelectLesson";
-            SelectLesson.Size = new Size(133, 23);
-            SelectLesson.TabIndex = 1;
-            // 
             // LabelSubject
             // 
             LabelSubject.AutoSize = true;
@@ -101,7 +89,7 @@
             SelectNumberLesson.DropDownStyle = ComboBoxStyle.DropDownList;
             SelectNumberLesson.FlatStyle = FlatStyle.Flat;
             SelectNumberLesson.FormattingEnabled = true;
-            SelectNumberLesson.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "1-В", "2-В" });
+            SelectNumberLesson.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "1 - В", "2 - В" });
             SelectNumberLesson.Location = new Point(373, 73);
             SelectNumberLesson.Margin = new Padding(3, 2, 3, 2);
             SelectNumberLesson.Name = "SelectNumberLesson";
@@ -144,6 +132,7 @@
             CancelHomework.TabIndex = 6;
             CancelHomework.Text = "Отменить";
             CancelHomework.UseVisualStyleBackColor = true;
+            CancelHomework.Click += CancelHomework_Click;
             // 
             // SaveHomework
             // 
@@ -164,11 +153,21 @@
             FileLink.Size = new Size(137, 16);
             FileLink.TabIndex = 10;
             // 
+            // textSubject
+            // 
+            textSubject.Location = new Point(10, 73);
+            textSubject.Margin = new Padding(3, 2, 3, 2);
+            textSubject.Name = "textSubject";
+            textSubject.ReadOnly = true;
+            textSubject.Size = new Size(133, 23);
+            textSubject.TabIndex = 11;
+            // 
             // MakeHomework
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(490, 292);
+            Controls.Add(textSubject);
             Controls.Add(FileLink);
             Controls.Add(SaveHomework);
             Controls.Add(CancelHomework);
@@ -178,7 +177,6 @@
             Controls.Add(SelectNumberLesson);
             Controls.Add(SelectDate);
             Controls.Add(LabelSubject);
-            Controls.Add(SelectLesson);
             Controls.Add(TextHomework);
             Controls.Add(HeaderLabel);
             Margin = new Padding(3, 2, 3, 2);
@@ -192,7 +190,6 @@
 
         private Label HeaderLabel;
         private TextBox TextHomework;
-        private ComboBox SelectLesson;
         private Label LabelSubject;
         private DateTimePicker SelectDate;
         private ComboBox SelectNumberLesson;
@@ -202,5 +199,6 @@
         private Button CancelHomework;
         private Button SaveHomework;
         private TextBox FileLink;
+        private TextBox textSubject;
     }
 }
