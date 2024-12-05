@@ -32,7 +32,6 @@
             TextHomework = new TextBox();
             LabelSubject = new Label();
             SelectDate = new DateTimePicker();
-            SelectNumberLesson = new ComboBox();
             LabelDate = new Label();
             LabelNumberLesson = new Label();
             LabelAddFile = new Label();
@@ -40,6 +39,7 @@
             SaveHomework = new Button();
             FileLink = new TextBox();
             textSubject = new TextBox();
+            textLessonNumber = new TextBox();
             SuspendLayout();
             // 
             // HeaderLabel
@@ -64,7 +64,7 @@
             TextHomework.Multiline = true;
             TextHomework.Name = "TextHomework";
             TextHomework.Size = new Size(469, 162);
-            TextHomework.TabIndex = 4;
+            TextHomework.TabIndex = 2;
             // 
             // LabelSubject
             // 
@@ -81,20 +81,9 @@
             SelectDate.Margin = new Padding(3, 2, 3, 2);
             SelectDate.Name = "SelectDate";
             SelectDate.Size = new Size(219, 23);
-            SelectDate.TabIndex = 2;
-            SelectDate.Value = new DateTime(2024, 12, 4, 22, 10, 51, 0);
-            // 
-            // SelectNumberLesson
-            // 
-            SelectNumberLesson.DropDownStyle = ComboBoxStyle.DropDownList;
-            SelectNumberLesson.FlatStyle = FlatStyle.Flat;
-            SelectNumberLesson.FormattingEnabled = true;
-            SelectNumberLesson.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "1 - В", "2 - В" });
-            SelectNumberLesson.Location = new Point(373, 73);
-            SelectNumberLesson.Margin = new Padding(3, 2, 3, 2);
-            SelectNumberLesson.Name = "SelectNumberLesson";
-            SelectNumberLesson.Size = new Size(107, 23);
-            SelectNumberLesson.TabIndex = 3;
+            SelectDate.TabIndex = 4;
+            SelectDate.TabStop = false;
+            SelectDate.Value = new DateTime(2024, 12, 4, 0, 0, 0, 0);
             // 
             // LabelDate
             // 
@@ -155,18 +144,28 @@
             // 
             // textSubject
             // 
-            textSubject.Location = new Point(10, 73);
+            textSubject.Location = new Point(10, 74);
             textSubject.Margin = new Padding(3, 2, 3, 2);
             textSubject.Name = "textSubject";
             textSubject.ReadOnly = true;
-            textSubject.Size = new Size(133, 23);
+            textSubject.Size = new Size(132, 23);
             textSubject.TabIndex = 11;
+            // 
+            // textLessonNumber
+            // 
+            textLessonNumber.Location = new Point(373, 74);
+            textLessonNumber.Name = "textLessonNumber";
+            textLessonNumber.ReadOnly = true;
+            textLessonNumber.Size = new Size(105, 23);
+            textLessonNumber.TabIndex = 12;
             // 
             // MakeHomework
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(490, 292);
+            Controls.Add(textLessonNumber);
+            Controls.Add(SelectDate);
             Controls.Add(textSubject);
             Controls.Add(FileLink);
             Controls.Add(SaveHomework);
@@ -174,8 +173,6 @@
             Controls.Add(LabelAddFile);
             Controls.Add(LabelNumberLesson);
             Controls.Add(LabelDate);
-            Controls.Add(SelectNumberLesson);
-            Controls.Add(SelectDate);
             Controls.Add(LabelSubject);
             Controls.Add(TextHomework);
             Controls.Add(HeaderLabel);
@@ -192,7 +189,6 @@
         private TextBox TextHomework;
         private Label LabelSubject;
         private DateTimePicker SelectDate;
-        private ComboBox SelectNumberLesson;
         private Label LabelDate;
         private Label LabelNumberLesson;
         private Label LabelAddFile;
@@ -200,5 +196,6 @@
         private Button SaveHomework;
         private TextBox FileLink;
         private TextBox textSubject;
+        private TextBox textLessonNumber;
     }
 }

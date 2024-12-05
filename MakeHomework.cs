@@ -25,28 +25,28 @@ namespace Student_Note
             switch (lessonNumber)
             {
                 case "I":
-                    SelectNumberLesson.Text = "1";
+                    textLessonNumber.Text = "1";
                     break;
                 case "II":
-                    SelectNumberLesson.Text = "2";
+                    textLessonNumber.Text = "2";
                     break;
                 case "III":
-                    SelectNumberLesson.Text = "3";
+                    textLessonNumber.Text = "3";
                     break;
                 case "IV":
-                    SelectNumberLesson.Text = "4";
+                    textLessonNumber.Text = "4";
                     break;
                 case "V":
-                    SelectNumberLesson.Text = "5";
+                    textLessonNumber.Text = "5";
                     break;
-                case "I - В":
-                    SelectNumberLesson.Text = "6";
+                case "I - B":
+                    textLessonNumber.Text = "6";
                     break;
-                case "II - В":
-                    SelectNumberLesson.Text = "7";
+                case "II - B":
+                    textLessonNumber.Text = "7";
                     break;
                 default:
-                    SelectNumberLesson.Text = null;
+                    textLessonNumber.Text = null;
                     break;
 
             }
@@ -57,7 +57,7 @@ namespace Student_Note
         {
             string lesson = textSubject.Text;
             string date = SelectDate.Value.Date.ToString("dd.MM.yyyy");
-            string lesson_number = SelectNumberLesson.Text;
+            string lesson_number = textLessonNumber.Text;
             string homework_text = TextHomework.Text;
             string file = FileLink.Text;
             if (Program.userData == null)
