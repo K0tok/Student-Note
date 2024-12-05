@@ -124,6 +124,7 @@
             // buttonUser
             // 
             buttonUser.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            buttonUser.Cursor = Cursors.Hand;
             buttonUser.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             buttonUser.Location = new Point(681, 12);
             buttonUser.Name = "buttonUser";
@@ -138,16 +139,17 @@
             WeekLable.AutoSize = true;
             WeekLable.Location = new Point(54, 95);
             WeekLable.Name = "WeekLable";
-            WeekLable.Size = new Size(222, 35);
+            WeekLable.Size = new Size(178, 27);
             WeekLable.TabIndex = 2;
             WeekLable.Text = "Выбор недели:";
             // 
             // WeekComboBox
             // 
+            WeekComboBox.Cursor = Cursors.Hand;
             WeekComboBox.FormattingEnabled = true;
             WeekComboBox.Location = new Point(238, 92);
             WeekComboBox.Name = "WeekComboBox";
-            WeekComboBox.Size = new Size(433, 43);
+            WeekComboBox.Size = new Size(433, 35);
             WeekComboBox.TabIndex = 4;
             WeekComboBox.Text = "4 неделя (07.10.24 - 13.10.24)";
             WeekComboBox.SelectedIndexChanged += WeekComboBox_SelectedIndexChanged;
@@ -185,7 +187,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel1.Size = new Size(1008, 408);
+            tableLayoutPanel1.Size = new Size(1008, 279);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel17
@@ -197,12 +199,12 @@
             tableLayoutPanel17.Controls.Add(SaturdayTableLayoutPanel, 0, 1);
             tableLayoutPanel17.Controls.Add(tableLayoutPanel19, 0, 0);
             tableLayoutPanel17.Dock = DockStyle.Fill;
-            tableLayoutPanel17.Location = new Point(507, 273);
+            tableLayoutPanel17.Location = new Point(507, 189);
             tableLayoutPanel17.Name = "tableLayoutPanel17";
             tableLayoutPanel17.RowCount = 2;
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel17.Size = new Size(498, 132);
+            tableLayoutPanel17.Size = new Size(498, 87);
             tableLayoutPanel17.TabIndex = 5;
             // 
             // SaturdayTableLayoutPanel
@@ -216,13 +218,14 @@
             SaturdayTableLayoutPanel.Controls.Add(label24, 2, 0);
             SaturdayTableLayoutPanel.Controls.Add(label25, 0, 0);
             SaturdayTableLayoutPanel.Controls.Add(label26, 1, 0);
+            SaturdayTableLayoutPanel.Cursor = Cursors.Hand;
             SaturdayTableLayoutPanel.Dock = DockStyle.Fill;
             SaturdayTableLayoutPanel.Location = new Point(0, 60);
             SaturdayTableLayoutPanel.Margin = new Padding(0);
             SaturdayTableLayoutPanel.Name = "SaturdayTableLayoutPanel";
             SaturdayTableLayoutPanel.RowCount = 1;
             SaturdayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            SaturdayTableLayoutPanel.Size = new Size(498, 72);
+            SaturdayTableLayoutPanel.Size = new Size(498, 27);
             SaturdayTableLayoutPanel.TabIndex = 1;
             // 
             // label24
@@ -232,7 +235,7 @@
             label24.Font = new Font("Arial", 18F);
             label24.Location = new Point(244, 0);
             label24.Name = "label24";
-            label24.Size = new Size(251, 72);
+            label24.Size = new Size(251, 27);
             label24.TabIndex = 8;
             label24.Text = "Первая пара дз";
             label24.TextAlign = ContentAlignment.MiddleCenter;
@@ -244,7 +247,7 @@
             label25.Font = new Font("Arial", 18F);
             label25.Location = new Point(3, 0);
             label25.Name = "label25";
-            label25.Size = new Size(64, 72);
+            label25.Size = new Size(64, 27);
             label25.TabIndex = 0;
             label25.Text = "I";
             label25.TextAlign = ContentAlignment.MiddleCenter;
@@ -256,7 +259,7 @@
             label26.Font = new Font("Arial", 18F);
             label26.Location = new Point(73, 0);
             label26.Name = "label26";
-            label26.Size = new Size(165, 72);
+            label26.Size = new Size(165, 27);
             label26.TabIndex = 7;
             label26.Text = "Первая пара";
             label26.TextAlign = ContentAlignment.MiddleCenter;
@@ -311,12 +314,12 @@
             tableLayoutPanel14.Controls.Add(FridayTableLayoutPanel, 0, 1);
             tableLayoutPanel14.Controls.Add(tableLayoutPanel16, 0, 0);
             tableLayoutPanel14.Dock = DockStyle.Fill;
-            tableLayoutPanel14.Location = new Point(3, 273);
+            tableLayoutPanel14.Location = new Point(3, 189);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
             tableLayoutPanel14.RowCount = 2;
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel14.Size = new Size(498, 132);
+            tableLayoutPanel14.Size = new Size(498, 87);
             tableLayoutPanel14.TabIndex = 4;
             // 
             // FridayTableLayoutPanel
@@ -330,13 +333,14 @@
             FridayTableLayoutPanel.Controls.Add(label19, 2, 0);
             FridayTableLayoutPanel.Controls.Add(label20, 0, 0);
             FridayTableLayoutPanel.Controls.Add(label21, 1, 0);
+            FridayTableLayoutPanel.Cursor = Cursors.Hand;
             FridayTableLayoutPanel.Dock = DockStyle.Fill;
             FridayTableLayoutPanel.Location = new Point(0, 60);
             FridayTableLayoutPanel.Margin = new Padding(0);
             FridayTableLayoutPanel.Name = "FridayTableLayoutPanel";
             FridayTableLayoutPanel.RowCount = 1;
             FridayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            FridayTableLayoutPanel.Size = new Size(498, 72);
+            FridayTableLayoutPanel.Size = new Size(498, 27);
             FridayTableLayoutPanel.TabIndex = 1;
             // 
             // label19
@@ -346,7 +350,7 @@
             label19.Font = new Font("Arial", 18F);
             label19.Location = new Point(244, 0);
             label19.Name = "label19";
-            label19.Size = new Size(251, 72);
+            label19.Size = new Size(251, 27);
             label19.TabIndex = 8;
             label19.Text = "Первая пара дз";
             label19.TextAlign = ContentAlignment.MiddleCenter;
@@ -358,7 +362,7 @@
             label20.Font = new Font("Arial", 18F);
             label20.Location = new Point(3, 0);
             label20.Name = "label20";
-            label20.Size = new Size(64, 72);
+            label20.Size = new Size(64, 27);
             label20.TabIndex = 0;
             label20.Text = "I";
             label20.TextAlign = ContentAlignment.MiddleCenter;
@@ -370,7 +374,7 @@
             label21.Font = new Font("Arial", 18F);
             label21.Location = new Point(73, 0);
             label21.Name = "label21";
-            label21.Size = new Size(165, 72);
+            label21.Size = new Size(165, 27);
             label21.TabIndex = 7;
             label21.Text = "Первая пара";
             label21.TextAlign = ContentAlignment.MiddleCenter;
@@ -425,12 +429,12 @@
             tableLayoutPanel11.Controls.Add(ThursdayTableLayoutPanel, 0, 1);
             tableLayoutPanel11.Controls.Add(tableLayoutPanel13, 0, 0);
             tableLayoutPanel11.Dock = DockStyle.Fill;
-            tableLayoutPanel11.Location = new Point(507, 138);
+            tableLayoutPanel11.Location = new Point(507, 96);
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 2;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel11.Size = new Size(498, 129);
+            tableLayoutPanel11.Size = new Size(498, 87);
             tableLayoutPanel11.TabIndex = 3;
             // 
             // ThursdayTableLayoutPanel
@@ -444,13 +448,14 @@
             ThursdayTableLayoutPanel.Controls.Add(label14, 2, 0);
             ThursdayTableLayoutPanel.Controls.Add(label15, 0, 0);
             ThursdayTableLayoutPanel.Controls.Add(label16, 1, 0);
+            ThursdayTableLayoutPanel.Cursor = Cursors.Hand;
             ThursdayTableLayoutPanel.Dock = DockStyle.Fill;
             ThursdayTableLayoutPanel.Location = new Point(0, 60);
             ThursdayTableLayoutPanel.Margin = new Padding(0);
             ThursdayTableLayoutPanel.Name = "ThursdayTableLayoutPanel";
             ThursdayTableLayoutPanel.RowCount = 1;
             ThursdayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            ThursdayTableLayoutPanel.Size = new Size(498, 69);
+            ThursdayTableLayoutPanel.Size = new Size(498, 27);
             ThursdayTableLayoutPanel.TabIndex = 1;
             // 
             // label14
@@ -460,7 +465,7 @@
             label14.Font = new Font("Arial", 18F);
             label14.Location = new Point(244, 0);
             label14.Name = "label14";
-            label14.Size = new Size(251, 70);
+            label14.Size = new Size(251, 27);
             label14.TabIndex = 8;
             label14.Text = "Первая пара дз";
             label14.TextAlign = ContentAlignment.MiddleCenter;
@@ -472,7 +477,7 @@
             label15.Font = new Font("Arial", 18F);
             label15.Location = new Point(3, 0);
             label15.Name = "label15";
-            label15.Size = new Size(64, 70);
+            label15.Size = new Size(64, 27);
             label15.TabIndex = 0;
             label15.Text = "I";
             label15.TextAlign = ContentAlignment.MiddleCenter;
@@ -484,7 +489,7 @@
             label16.Font = new Font("Arial", 18F);
             label16.Location = new Point(73, 0);
             label16.Name = "label16";
-            label16.Size = new Size(165, 70);
+            label16.Size = new Size(165, 27);
             label16.TabIndex = 7;
             label16.Text = "Первая пара";
             label16.TextAlign = ContentAlignment.MiddleCenter;
@@ -539,13 +544,13 @@
             tableLayoutPanel8.Controls.Add(WednesdayTableLayoutPanel, 0, 1);
             tableLayoutPanel8.Controls.Add(tableLayoutPanel10, 0, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(3, 138);
+            tableLayoutPanel8.Location = new Point(3, 96);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel8.Size = new Size(498, 129);
+            tableLayoutPanel8.Size = new Size(498, 87);
             tableLayoutPanel8.TabIndex = 2;
             // 
             // WednesdayTableLayoutPanel
@@ -559,13 +564,14 @@
             WednesdayTableLayoutPanel.Controls.Add(label7, 2, 0);
             WednesdayTableLayoutPanel.Controls.Add(label8, 0, 0);
             WednesdayTableLayoutPanel.Controls.Add(label11, 1, 0);
+            WednesdayTableLayoutPanel.Cursor = Cursors.Hand;
             WednesdayTableLayoutPanel.Dock = DockStyle.Fill;
             WednesdayTableLayoutPanel.Location = new Point(0, 60);
             WednesdayTableLayoutPanel.Margin = new Padding(0);
             WednesdayTableLayoutPanel.Name = "WednesdayTableLayoutPanel";
             WednesdayTableLayoutPanel.RowCount = 1;
             WednesdayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            WednesdayTableLayoutPanel.Size = new Size(498, 69);
+            WednesdayTableLayoutPanel.Size = new Size(498, 27);
             WednesdayTableLayoutPanel.TabIndex = 1;
             // 
             // label7
@@ -575,7 +581,7 @@
             label7.Font = new Font("Arial", 18F);
             label7.Location = new Point(244, 0);
             label7.Name = "label7";
-            label7.Size = new Size(251, 70);
+            label7.Size = new Size(251, 27);
             label7.TabIndex = 8;
             label7.Text = "Первая пара дз";
             label7.TextAlign = ContentAlignment.MiddleCenter;
@@ -587,7 +593,7 @@
             label8.Font = new Font("Arial", 18F);
             label8.Location = new Point(3, 0);
             label8.Name = "label8";
-            label8.Size = new Size(64, 70);
+            label8.Size = new Size(64, 27);
             label8.TabIndex = 0;
             label8.Text = "I";
             label8.TextAlign = ContentAlignment.MiddleCenter;
@@ -599,7 +605,7 @@
             label11.Font = new Font("Arial", 18F);
             label11.Location = new Point(73, 0);
             label11.Name = "label11";
-            label11.Size = new Size(165, 70);
+            label11.Size = new Size(165, 27);
             label11.TabIndex = 7;
             label11.Text = "Первая пара";
             label11.TextAlign = ContentAlignment.MiddleCenter;
@@ -659,7 +665,7 @@
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(498, 129);
+            tableLayoutPanel5.Size = new Size(498, 87);
             tableLayoutPanel5.TabIndex = 1;
             // 
             // TuesdayTableLayoutPanel
@@ -673,13 +679,14 @@
             TuesdayTableLayoutPanel.Controls.Add(label1, 2, 0);
             TuesdayTableLayoutPanel.Controls.Add(label3, 0, 0);
             TuesdayTableLayoutPanel.Controls.Add(label4, 1, 0);
+            TuesdayTableLayoutPanel.Cursor = Cursors.Hand;
             TuesdayTableLayoutPanel.Dock = DockStyle.Fill;
             TuesdayTableLayoutPanel.Location = new Point(0, 60);
             TuesdayTableLayoutPanel.Margin = new Padding(0);
             TuesdayTableLayoutPanel.Name = "TuesdayTableLayoutPanel";
             TuesdayTableLayoutPanel.RowCount = 1;
             TuesdayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            TuesdayTableLayoutPanel.Size = new Size(498, 69);
+            TuesdayTableLayoutPanel.Size = new Size(498, 27);
             TuesdayTableLayoutPanel.TabIndex = 1;
             // 
             // label1
@@ -689,7 +696,7 @@
             label1.Font = new Font("Arial", 18F);
             label1.Location = new Point(244, 0);
             label1.Name = "label1";
-            label1.Size = new Size(251, 70);
+            label1.Size = new Size(251, 27);
             label1.TabIndex = 8;
             label1.Text = "Первая пара дз";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -701,7 +708,7 @@
             label3.Font = new Font("Arial", 18F);
             label3.Location = new Point(3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(64, 70);
+            label3.Size = new Size(64, 27);
             label3.TabIndex = 0;
             label3.Text = "I";
             label3.TextAlign = ContentAlignment.MiddleCenter;
@@ -713,7 +720,7 @@
             label4.Font = new Font("Arial", 18F);
             label4.Location = new Point(73, 0);
             label4.Name = "label4";
-            label4.Size = new Size(165, 70);
+            label4.Size = new Size(165, 27);
             label4.TabIndex = 7;
             label4.Text = "Первая пара";
             label4.TextAlign = ContentAlignment.MiddleCenter;
@@ -773,7 +780,7 @@
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(498, 129);
+            tableLayoutPanel2.Size = new Size(498, 87);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // MondayTableLayoutPanel
@@ -787,6 +794,7 @@
             MondayTableLayoutPanel.Controls.Add(label10, 2, 0);
             MondayTableLayoutPanel.Controls.Add(label2, 0, 0);
             MondayTableLayoutPanel.Controls.Add(label9, 1, 0);
+            MondayTableLayoutPanel.Cursor = Cursors.Hand;
             MondayTableLayoutPanel.Dock = DockStyle.Fill;
             MondayTableLayoutPanel.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point, 204);
             MondayTableLayoutPanel.Location = new Point(0, 60);
@@ -794,7 +802,7 @@
             MondayTableLayoutPanel.Name = "MondayTableLayoutPanel";
             MondayTableLayoutPanel.RowCount = 1;
             MondayTableLayoutPanel.RowStyles.Add(new RowStyle());
-            MondayTableLayoutPanel.Size = new Size(498, 69);
+            MondayTableLayoutPanel.Size = new Size(498, 27);
             MondayTableLayoutPanel.TabIndex = 1;
             // 
             // label10
@@ -804,7 +812,7 @@
             label10.Font = new Font("Arial", 18F);
             label10.Location = new Point(244, 0);
             label10.Name = "label10";
-            label10.Size = new Size(251, 70);
+            label10.Size = new Size(251, 27);
             label10.TabIndex = 8;
             label10.Text = "Первая пара дз";
             label10.TextAlign = ContentAlignment.MiddleCenter;
@@ -816,7 +824,7 @@
             label2.Font = new Font("Arial", 18F);
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(64, 70);
+            label2.Size = new Size(64, 27);
             label2.TabIndex = 0;
             label2.Text = "I";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -828,7 +836,7 @@
             label9.Font = new Font("Arial", 18F);
             label9.Location = new Point(73, 0);
             label9.Name = "label9";
-            label9.Size = new Size(165, 70);
+            label9.Size = new Size(165, 27);
             label9.TabIndex = 7;
             label9.Text = "Первая пара";
             label9.TextAlign = ContentAlignment.MiddleCenter;
@@ -883,7 +891,7 @@
             // 
             // MainHomeworkForm
             // 
-            AutoScaleDimensions = new SizeF(17F, 35F);
+            AutoScaleDimensions = new SizeF(14F, 27F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             ClientSize = new Size(1008, 661);

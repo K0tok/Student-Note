@@ -256,23 +256,57 @@ namespace Student_Note
         {
             tableLayoutPanel.SuspendLayout();
 
+            tableLayoutPanel.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+            tableLayoutPanel.Padding = new Padding(0); // Убираем отступы
+            tableLayoutPanel.Margin = new Padding(0); // Убираем внешние отступы
+
+            // Цвета для наведения
+            Color defaultBackColor = Color.FromArgb(240, 240, 240);
+            Color hoverBackColor = Color.LightGray;
+
+            // Создаём метки для строки
             var lblNumber = CreateLabel(lessonNumber);
             var lblSubject = CreateLabel(subject);
-            //var lblHomework = CreateLabel(homework);
+            var lblHomework = CreateLabel("homework");
 
+
+            // Создаём события для изменения цвета при наведении
+            lblNumber.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblNumber, hoverBackColor);
+            lblNumber.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblNumber, defaultBackColor);
+
+            lblSubject.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblSubject, hoverBackColor);
+            lblSubject.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblSubject, defaultBackColor);
+
+            lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
+            lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
+            // Добавляем обработчики клика
             lblNumber.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
             lblSubject.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
-            //lblHomework.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, homework);
+            lblHomework.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
 
+            // Добавляем элементы в таблицу
             tableLayoutPanel.RowCount += 1;
-            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
             tableLayoutPanel.Controls.Add(lblNumber, 0, tableLayoutPanel.RowCount - 1);
             tableLayoutPanel.Controls.Add(lblSubject, 1, tableLayoutPanel.RowCount - 1);
-            //tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
+            tableLayoutPanel.Controls.Add(lblHomework, 2, tableLayoutPanel.RowCount - 1);
+            tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.AutoSize));
 
             tableLayoutPanel.ResumeLayout();
         }
+        private static void ChangeRowBackColor(TableLayoutPanel tableLayoutPanel, Control control, Color backColor)
+        {
+            // Находим индекс строки
+            var rowIndex = tableLayoutPanel.GetRow(control);
 
+            // Пробегаем по всем элементам строки и меняем их цвет
+            foreach (Control ctrl in tableLayoutPanel.Controls)
+            {
+                if (tableLayoutPanel.GetRow(ctrl) == rowIndex)
+                {
+                    ctrl.BackColor = backColor;
+                }
+            }
+        }
 
         private static Label CreateLabel(string text)
         {
@@ -282,7 +316,10 @@ namespace Student_Note
                 Dock = DockStyle.Fill,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Font = new Font("Arial", 14F),
-                AutoSize = true
+                AutoSize = true,
+                Margin = new Padding(0), 
+                Padding = new Padding(5),
+                BackColor = Color.FromArgb(240, 240, 240) // Устанавливаем базовый цвет
             };
         }
 
