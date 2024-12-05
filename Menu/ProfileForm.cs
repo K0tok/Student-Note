@@ -59,10 +59,16 @@ namespace Student_Note
                 groups.Add(group.code_name);
             }
             label11.Text = string.Join(", ", groups) ?? "Нет групп";
-            comboBoxGroups.DataSource = groups;
 
+            //comboBoxGroups.DataSource = groups;
             comboBoxGroups.Text = _userData.selectGroup.code_name ?? "Нет групп";
-            label12.Text = string.Join(", ", _userData.groups) ?? "Нет инвайт-кодов";
+
+            List<string> group_codes = new List<string>();
+            foreach (var group in _userData.groups)
+            {
+                group_codes.Add(group.code);
+            }
+            label12.Text = string.Join(", ", group_codes) ?? "Нет инвайт-кодов";
         }
 
         private void button1_Click(object sender, EventArgs e)
