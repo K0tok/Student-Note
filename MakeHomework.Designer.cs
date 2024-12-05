@@ -144,6 +144,7 @@
             CancelHomework.TabIndex = 6;
             CancelHomework.Text = "Отменить";
             CancelHomework.UseVisualStyleBackColor = true;
+            CancelHomework.Click += CancelHomework_Click;
             // 
             // SaveHomework
             // 

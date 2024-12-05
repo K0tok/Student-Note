@@ -24,10 +24,9 @@ namespace Student_Note
         {
             InitializeComponent();
             //MainHomeworkForm.SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate);
-            SelectNumberLesson.DataSource = new List<string>{"1", "2", "3", "4", "5", "1-B", "2-B"};
-            SelectLesson.DataSource = new List<string> { "Математика", "Не математика"};
-            TextHomework.Text = "StartHomeWork";
-            SelectDate.Value = new DateTime(2001, 10, 20);
+            SelectNumberLesson.Text = _lessonNumber;
+            SelectLesson.Text = _subject;
+            SelectDate.Value = _lessonDate;
         }
         // Метод для установки данных домашнего задания
         public void SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate)
@@ -45,7 +44,7 @@ namespace Student_Note
         private void SaveHomework_Click(object sender, EventArgs e)
         {
             string lesson = SelectLesson.Text;
-            DateTime date = SelectDate.Value;
+            string date = SelectDate.Value.Date.ToString();
             string lesson_number = SelectNumberLesson.Text;
             string homework_text = TextHomework.Text;
             string file = FileLink.Text;
@@ -94,6 +93,11 @@ namespace Student_Note
                 // Обработка ошибки
                 MessageBox.Show("Не удалось добавить домашнее задание. Возникла ошибка: " + ex.Message);
             }
+        }
+
+        private void CancelHomework_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

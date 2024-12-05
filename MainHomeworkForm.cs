@@ -267,7 +267,7 @@ namespace Student_Note
             // Создаём метки для строки
             var lblNumber = CreateLabel(lessonNumber);
             var lblSubject = CreateLabel(subject);
-            var lblHomework = CreateLabel("homework");
+            var lblHomework = CreateLabel("Добавить ДЗ");
 
 
             // Создаём события для изменения цвета при наведении
@@ -280,9 +280,9 @@ namespace Student_Note
             lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
             lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
             // Добавляем обработчики клика
-            lblNumber.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
-            lblSubject.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
-            lblHomework.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            //lblNumber.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            //lblSubject.Click += (sender, e) => Homework_Filler_Click(sender, e, lessonNumber, subject, lessonDate);
+            lblHomework.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
 
             // Добавляем элементы в таблицу
             tableLayoutPanel.RowCount += 1;
@@ -330,7 +330,7 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private static void Homework_Filler_Click(object sender, EventArgs e, string lessonNumber, string subject, DateTime lessonDate)
+        private static void Homework_Filler_Click(string lessonNumber, string subject, DateTime lessonDate)
         {
             // Открываем форму MakeHomework, передавая данные
             MakeHomework HomeworkForm = new MakeHomework();

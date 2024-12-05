@@ -2,7 +2,6 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Student_Note;
 using Student_Note.Menu;
 using System.Text;
-using BCrypt.Net;
 
 namespace Student_Note
 {
