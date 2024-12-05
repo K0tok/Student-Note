@@ -141,6 +141,18 @@ namespace Student_Note
         // Обработчик выбора недели в комбинированном списке
         private void WeekComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Program.userData == null)
+            {
+                Program.ReplaceForm(Program.LogInForm, this);  // Переход на форму логина, если пользователь не авторизован
+                return;
+            }
+
+            if (Program.userData.selectGroup == null)
+            {
+                Program.ReplaceForm(Program.LogInForm, this);  // Переход на форму логина, если пользователь не авторизован
+                return;
+            }
+
             if (WeekComboBox.SelectedIndex != -1)
             {
                 var selectedWeek = _weeks[WeekComboBox.SelectedIndex];

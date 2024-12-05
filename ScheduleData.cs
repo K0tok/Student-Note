@@ -23,7 +23,7 @@ public class Lesson
 }
 
 
-public class DaySchedule
+public class DaySchedule 
 {
     public List<Lesson> I { get; set; }
     public List<Lesson> II { get; set; }
