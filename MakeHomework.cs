@@ -26,7 +26,7 @@ namespace Student_Note
             //MainHomeworkForm.SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate);
             SelectNumberLesson.Text = _lessonNumber;
             SelectLesson.Text = _subject;
-            SelectDate.Value = _lessonDate;
+            SelectDate.Value = _lessonDate == null ? DateTime.Now : _lessonDate;
         }
         // Метод для установки данных домашнего задания
         public void SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate)
