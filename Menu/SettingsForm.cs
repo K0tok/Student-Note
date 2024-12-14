@@ -28,7 +28,7 @@ namespace Student_Note.Menu
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            UserData _userData = Program.userData;
+            UserData? _userData = Program.userData;
             // Если при загрузки формы нет данных пользователя, то мы возращаем в Login Form
             if (_userData == null) { Program.ReplaceForm(Program.LogInForm, this); return; }
             else

@@ -30,7 +30,7 @@ namespace Student_Note.Menu
             string Query = @"SELECT U.id, U.last_name, U.first_name, U.second_name, U.sex, U.birthdate, U.reg_date, U.email, U.phone_number, U.member_type From Groups AS G
 	            INNER JOIN users_in_groups AS U_I_G ON U_I_G.group_id=G.id
 	            INNER JOIN Users AS U ON U.id=U_I_G.user_id
-	            WHERE G.code = ""1234-EVeW-4234-LAVC""
+	            WHERE G.code = @code
             ";
             try
             {

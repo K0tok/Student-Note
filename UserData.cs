@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Student_Note.Menu;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -123,7 +124,7 @@ namespace Student_Note
         public string code_name { get; set; }
         public int specialization_id { get; set; }
         public string code { get; set; }
-
+        public List<User>? users { get; set; } 
         public GroupData(string id, string code_name, string specialization_id, string code)
         {
             try 
