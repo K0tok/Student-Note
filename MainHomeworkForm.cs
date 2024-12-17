@@ -5,6 +5,9 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using Student_Note.Menu;
+using Microsoft.Data.Sqlite;
+using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 namespace Student_Note
 {
     public partial class MainHomeworkForm : Form
@@ -279,8 +282,38 @@ namespace Student_Note
             // Создаём метки для строки
             var lblNumber = CreateLabel(lessonNumber);
             var lblSubject = CreateLabel(subject);
-            var lblHomework = CreateLabel("Добавить ДЗ");
+            var lblHomework = CreateLabel("");
+            //if ( )
+            //{
+            //    // Укажите строку подключения к вашей базе данных SQLite
+            //    string connectionString = $"Data Source={Program.fullPath}";
 
+            //    // Создаем подключение
+            //    using SqliteConnection connection = new SqliteConnection(connectionString);
+            //    // Открываем соединение
+            //    connection.Open();
+
+            //    // Создаем команду
+            //    using SqliteCommand cmd = new SqliteCommand();
+            //    cmd.Connection = connection; // Указываем подключение для команды
+            //    cmd.CommandType = CommandType.Text;
+
+            //    cmd.Parameters.AddWithValue("@Lesson_number", lesson_number);
+            //    cmd.Parameters.AddWithValue("@Lesson", lesson);
+            //    cmd.Parameters.AddWithValue("@Date", date);
+            //    cmd.Parameters.AddWithValue("@Group_id", group_id);
+
+            //    cmd.CommandText = "SELECT homework_text FROM Schedules WHERE lesson_number = @Lesson_number && lesson = @Lesson && date = @Date && group_id = @Group_id";
+            //    string homework = Convert.ToString(cmd.ExecuteReader());
+
+            //    lblHomework.Text = homework;
+
+            //    connection.Close();
+            //}
+            //else
+            //{
+            //    lblHomework.Text = "Добавить ДЗ";
+            //}
 
             // Создаём события для изменения цвета при наведении
             lblNumber.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblNumber, hoverBackColor);
