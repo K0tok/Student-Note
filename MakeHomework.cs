@@ -18,47 +18,53 @@ namespace Student_Note
 {
     public partial class MakeHomework : Form
     {
-        public MakeHomework(string lessonNumber, string subject, DateTime lessonDate, string homework_text)
+        public MakeHomework(Homework homework)
         {
             InitializeComponent();
             //MainHomeworkForm.SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate);
-            switch (lessonNumber)
-            {
-                case "I":
-                    textLessonNumber.Text = "1";
-                    break;
-                case "II":
-                    textLessonNumber.Text = "2";
-                    break;
-                case "III":
-                    textLessonNumber.Text = "3";
-                    break;
-                case "IV":
-                    textLessonNumber.Text = "4";
-                    break;
-                case "V":
-                    textLessonNumber.Text = "5";
-                    break;
-                case "I - B":
-                    textLessonNumber.Text = "6";
-                    break;
-                case "II - B":
-                    textLessonNumber.Text = "7";
-                    break;
-                default:
-                    textLessonNumber.Text = null;
-                    break;
+            //switch (homework.LessonNumber)
+            //{
+            //    case "I":
+            //        textLessonNumber.Text = "1";
+            //        break;
+            //    case "II":
+            //        textLessonNumber.Text = "2";
+            //        break;
+            //    case "III":
+            //        textLessonNumber.Text = "3";
+            //        break;
+            //    case "IV":
+            //        textLessonNumber.Text = "4";
+            //        break;
+            //    case "V":
+            //        textLessonNumber.Text = "5";
+            //        break;
+            //    case "I - B":
+            //        textLessonNumber.Text = "6";
+            //        break;
+            //    case "II - B":
+            //        textLessonNumber.Text = "7";
+            //        break;
+            //    default:
+            //        textLessonNumber.Text = null;
+            //        break;
 
-            }
-            textSubject.Text = subject;
-            SelectDate.Value = lessonDate;
-            TextHomework.Text = homework_text;
+            //}
+            textSubject.Text = homework.Lesson;
+            SelectDate.Value = DateTime.Parse(homework.Date);
+            TextHomework.Text = homework.HomeworkText;
+            textLessonNumber.Text = homework.LessonNumber.ToString();
+            FileLink.Text = homework.File;
+            id = homework.Id;
         }
+
+        public int id;
+
         private void SaveHomework_Click(object sender, EventArgs e)
         {
             string lesson = textSubject.Text;
             string date = SelectDate.Value.Date.ToString("yyyy-MM-dd");
-            string lesson_number = textLessonNumber.Text;
+            int lesson_number = int.Parse(textLessonNumber.Text);
             string homework_text = TextHomework.Text;
             string file = FileLink.Text;
             if (Program.userData == null)
@@ -76,8 +82,10 @@ namespace Student_Note
 
             if (IsScheduleExist(date, lesson_number))
             {
-                UpdateSchedule(id, lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id);
-                return;
+                if (UpdateSchedule(id, lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id))
+                    Close();
+                else
+                    return;
             }
 
             if (AddHomeWork(lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id))
@@ -91,15 +99,14 @@ namespace Student_Note
             }
             
         }
-        public void UpdateSchedule(string id, string lesson, string date, int lessonNumber, string homeworkText, string file, int groupId)
+        public bool UpdateSchedule(int id, string lesson, string date, int lessonNumber, string homeworkText, string file, int groupId)
         {
             // Укажите строку подключения к вашей базе данных SQLite
             string connectionString = $"Data Source={Program.fullPath}";
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
-                string query = @"
-                    UPDATE Schedules
+                string query = @"UPDATE Schedules
                     SET lesson = @lesson,
                         date = @date,
                         lesson_number = @lessonNumber,
@@ -118,11 +125,23 @@ namespace Student_Note
                     command.Parameters.AddWithValue("@file", file);
                     command.Parameters.AddWithValue("@groupId", groupId);
 
-                    command.ExecuteNonQuery();
+                    int countRows = command.ExecuteNonQuery();
+
+                    // Проверка на ответ 
+                    if (countRows == 1)
+                    {
+                        MessageBox.Show("ДЗ успешно изменено.");
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Возникла ошибка при изменении ДЗ.");
+                        return false;
+                    }
                 }
             }
         }
-        public bool AddHomeWork(string lesson, string date, string lesson_number, string homework_text, string file, int group_id)
+        public bool AddHomeWork(string lesson, string date, int lesson_number, string homework_text, string file, int group_id)
         {
             try
             {
@@ -172,7 +191,7 @@ namespace Student_Note
                 return false;
             }
         }
-        public bool IsScheduleExist(string date, string lessonNumber)
+        public bool IsScheduleExist(string date, int lessonNumber)
         {
             string connectionString = $"Data Source={Program.fullPath}";
             using var connection = new SqliteConnection(connectionString);

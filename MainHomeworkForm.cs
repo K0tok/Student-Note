@@ -342,39 +342,74 @@ namespace Student_Note
             var lblSubject = CreateLabel(subject);
             var lblHomework = CreateLabel("");
 
+            if (Program.userData == null)
+            {
+                return;
+            }
+
+            if (Program.userData.selectGroup == null)
+            {
+                return;
+            }
+
+            switch (lessonNumber)
+            {
+                case "I":
+                    lessonNumber = "1";
+                    break;
+                case "II":
+                    lessonNumber = "2";
+                    break;
+                case "III":
+                    lessonNumber = "3";
+                    break;
+                case "IV":
+                    lessonNumber = "4";
+                    break;
+                case "V":
+                    lessonNumber = "5";
+                    break;
+                case "I - B":
+                    lessonNumber = "6";
+                    break;
+                case "II - B":
+                    lessonNumber = "7";
+                    break;
+            }
+
+                    Homework select_homework = new Homework(0, subject, lessonDate.ToString("yyyy-MM-dd"), int.Parse(lessonNumber), "", "", Program.userData.selectGroup.id);
+
             foreach (Homework homework in homeworks)
             {
-                string int_lesson_number;
-                switch (lessonNumber)
-                {
-                    case "I":
-                        int_lesson_number = "1";
-                        break;
-                    case "II":
-                        int_lesson_number = "2";
-                        break;
-                    case "III":
-                        int_lesson_number = "3";
-                        break;
-                    case "IV":
-                        int_lesson_number = "4";
-                        break;
-                    case "V":
-                        int_lesson_number = "5";
-                        break;
-                    case "I - B":
-                        int_lesson_number = "6";
-                        break;
-                    case "II - B":
-                        int_lesson_number = "7";
-                        break;
-                    default:
-                        int_lesson_number = null;
-                        break;
-                }
-                if (homework.LessonNumber.ToString() == int_lesson_number && DateTime.Parse(homework.Date) == lessonDate)
+                //string int_lesson_number;
+                //switch (lessonNumber)
+                //{
+                //    case "I":
+                //        int_lesson_number = "1";
+                //        break;
+                //    case "II":
+                //        int_lesson_number = "2";
+                //        break;
+                //    case "III":
+                //        int_lesson_number = "3";
+                //        break;
+                //    case "IV":
+                //        int_lesson_number = "4";
+                //        break;
+                //    case "V":
+                //        int_lesson_number = "5";
+                //        break;
+                //    case "I - B":
+                //        int_lesson_number = "6";
+                //        break;
+                //    case "II - B":
+                //        int_lesson_number = "7";
+                //        break;
+                //}
+                if (homework.LessonNumber.ToString() == lessonNumber && DateTime.Parse(homework.Date) == lessonDate)
                 {
                     lblHomework = CreateLabel(homework.HomeworkText);
+                    select_homework = homework;
                 }
             }
 
@@ -390,9 +425,9 @@ namespace Student_Note
             lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
             lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
             // Добавляем обработчики клика
-            lblNumber.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
-            lblSubject.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
-            lblHomework.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
+            lblNumber.Click += (sender, e) => Homework_Filler_Click(select_homework);
+            lblSubject.Click += (sender, e) => Homework_Filler_Click(select_homework);
+            lblHomework.Click += (sender, e) => Homework_Filler_Click(select_homework);
 
             // Добавляем элементы в таблицу
             tableLayoutPanel.RowCount += 1;
@@ -440,10 +475,10 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private static void Homework_Filler_Click(string lessonNumber, string subject, DateTime lessonDate, string homework_text)
+        private static void Homework_Filler_Click(Homework homework)
         {
             // Открываем форму MakeHomework, передавая данные
-            MakeHomework HomeworkForm = new MakeHomework(lessonNumber, subject, lessonDate, homework_text);
+            MakeHomework HomeworkForm = new MakeHomework(homework);
             //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             HomeworkForm.ShowDialog();
         }
