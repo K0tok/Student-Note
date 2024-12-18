@@ -22,6 +22,50 @@ public class Lesson
     //public string? HomeWork { get; set; }
 }
 
+public class Homework
+{
+    [JsonProperty("id")]
+    public int Id { get; set; }
+
+    [JsonProperty("lesson")]
+    public string Lesson { get; set; }
+
+    [JsonProperty("date")]
+    public string Date { get; set; }
+
+    [JsonProperty("lessonNumber")]
+    public int LessonNumber { get; set; }
+
+    [JsonProperty("homeworkText")]
+    public string HomeworkText { get; set; }
+
+    [JsonProperty("file")]
+    public string? File { get; set; }
+
+    [JsonProperty("groupId")]
+    public int GroupId { get; set; }
+
+    public Homework(int Id, string Lesson, string Date, int LessonNumber, string HomeworkText, string? File, int GroupId) 
+    {
+        this.Id = Id;
+        this.Lesson = Lesson;
+        this.Date = Date;
+        this.LessonNumber = LessonNumber;
+        this.HomeworkText = HomeworkText;
+        this.File = File;
+        this.GroupId = GroupId;
+    }
+}
+
+public class AddSheduleRequest
+{
+    public string Lesson { get; set; }
+    public string Date { get; set; }
+    public int LessonNumber { get; set; }
+    public string HomeworkText { get; set; }
+    public string? File { get; set; }
+    public int GroupId { get; set; }
+}
 
 public class DaySchedule 
 {

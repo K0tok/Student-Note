@@ -8,16 +8,59 @@ using Student_Note.Menu;
 using Microsoft.Data.Sqlite;
 using System.Data;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace Student_Note
 {
     public partial class MainHomeworkForm : Form
     {
         public static ScheduleLoader _scheduleLoader = new ScheduleLoader();
         private List<Week> _weeks;
+        public static List<Homework> homeworks = new List<Homework>();
 
         public MainHomeworkForm()
         {
             InitializeComponent();
+        }
+
+        private static List<Homework> GetWeeklyHomeworks (int group_id, DateTime start_date)
+        {
+            List<Homework> homeworks = new List<Homework>();
+            // Путь к базе данных
+            string connectionString = $"Data Source={Program.fullPath}";
+
+            try
+            {
+                using SqliteConnection connection = new SqliteConnection(connectionString);
+
+                connection.Open();
+
+                // Рассчитать дату конца недели
+                DateTime endOfWeek = start_date.AddDays(6);
+
+                string query = @"SELECT * FROM Schedules WHERE group_id = @GroupId and (date <= @EndOfWeek and date >= @StartDate)";
+
+                using SqliteCommand cmd = new SqliteCommand();
+                cmd.Connection = connection;
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@GroupId", group_id);
+                cmd.Parameters.AddWithValue("@EndOfWeek", endOfWeek.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@StartDate", start_date.ToString("yyyy-MM-dd"));
+
+                cmd.CommandText = query;
+                using var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Homework work = new Homework(int.Parse(reader["id"].ToString()), reader["lesson"].ToString(), reader["date"].ToString(), 
+                        int.Parse(reader["lesson_number"].ToString()), reader["homework_text"].ToString(), reader["file"].ToString(), int.Parse(reader["group_id"].ToString()));
+                    homeworks.Add(work);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("При выполнении запроса возникла ошибка: " + ex.Message);
+            }
+            return homeworks;
         }
 
         private async void MainHomeworkForm_Load(object sender, EventArgs e)
@@ -108,13 +151,28 @@ namespace Student_Note
             }
             // Загружаем расписание для выбранной группы
             await _scheduleLoader.GetScheduleAsync();
+            DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
+
+            // Проверяем, авторизован ли пользователь
+            if (Program.userData == null)
+            {
+                return;
+            }
+            // Проверяем, авторизован ли пользователь
+            if (Program.userData.selectGroup == null)
+            {
+                return;
+            }
+
+            homeworks = GetWeeklyHomeworks(Program.userData.selectGroup.id, currentWeekStartDate);
+
             try
             {
                 // Проверяем, загружено ли расписание
                 if (_scheduleLoader.CurrentSchedule != null &&
                     _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
-                    DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
+                    //DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
                     // Заполняем расписание для текущей недели
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
@@ -283,37 +341,44 @@ namespace Student_Note
             var lblNumber = CreateLabel(lessonNumber);
             var lblSubject = CreateLabel(subject);
             var lblHomework = CreateLabel("");
-            //if ( )
-            //{
-            //    // Укажите строку подключения к вашей базе данных SQLite
-            //    string connectionString = $"Data Source={Program.fullPath}";
 
-            //    // Создаем подключение
-            //    using SqliteConnection connection = new SqliteConnection(connectionString);
-            //    // Открываем соединение
-            //    connection.Open();
+            foreach (Homework homework in homeworks)
+            {
+                string int_lesson_number;
+                switch (lessonNumber)
+                {
+                    case "I":
+                        int_lesson_number = "1";
+                        break;
+                    case "II":
+                        int_lesson_number = "2";
+                        break;
+                    case "III":
+                        int_lesson_number = "3";
+                        break;
+                    case "IV":
+                        int_lesson_number = "4";
+                        break;
+                    case "V":
+                        int_lesson_number = "5";
+                        break;
+                    case "I - B":
+                        int_lesson_number = "6";
+                        break;
+                    case "II - B":
+                        int_lesson_number = "7";
+                        break;
+                    default:
+                        int_lesson_number = null;
+                        break;
+                }
+                if (homework.LessonNumber.ToString() == int_lesson_number && DateTime.Parse(homework.Date) == lessonDate)
+                {
+                    lblHomework = CreateLabel(homework.HomeworkText);
+                }
+            }
 
-            //    // Создаем команду
-            //    using SqliteCommand cmd = new SqliteCommand();
-            //    cmd.Connection = connection; // Указываем подключение для команды
-            //    cmd.CommandType = CommandType.Text;
-
-            //    cmd.Parameters.AddWithValue("@Lesson_number", lesson_number);
-            //    cmd.Parameters.AddWithValue("@Lesson", lesson);
-            //    cmd.Parameters.AddWithValue("@Date", date);
-            //    cmd.Parameters.AddWithValue("@Group_id", group_id);
-
-            //    cmd.CommandText = "SELECT homework_text FROM Schedules WHERE lesson_number = @Lesson_number && lesson = @Lesson && date = @Date && group_id = @Group_id";
-            //    string homework = Convert.ToString(cmd.ExecuteReader());
-
-            //    lblHomework.Text = homework;
-
-            //    connection.Close();
-            //}
-            //else
-            //{
-            //    lblHomework.Text = "Добавить ДЗ";
-            //}
+            string homework_text = lblHomework.Text;
 
             // Создаём события для изменения цвета при наведении
             lblNumber.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblNumber, hoverBackColor);
@@ -325,9 +390,9 @@ namespace Student_Note
             lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
             lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
             // Добавляем обработчики клика
-            lblNumber.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
-            lblSubject.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
-            lblHomework.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate);
+            lblNumber.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
+            lblSubject.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
+            lblHomework.Click += (sender, e) => Homework_Filler_Click(lessonNumber, subject, lessonDate, homework_text);
 
             // Добавляем элементы в таблицу
             tableLayoutPanel.RowCount += 1;
@@ -375,10 +440,10 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private static void Homework_Filler_Click(string lessonNumber, string subject, DateTime lessonDate)
+        private static void Homework_Filler_Click(string lessonNumber, string subject, DateTime lessonDate, string homework_text)
         {
             // Открываем форму MakeHomework, передавая данные
-            MakeHomework HomeworkForm = new MakeHomework(lessonNumber, subject, lessonDate);
+            MakeHomework HomeworkForm = new MakeHomework(lessonNumber, subject, lessonDate, homework_text);
             //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             HomeworkForm.ShowDialog();
         }

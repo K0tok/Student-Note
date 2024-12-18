@@ -54,8 +54,8 @@ namespace Student_Note
             {
                 sex = 0;
             }
-            string birthdate = BirthdateText.Text;
-            string reg_date = DateTime.Now.Date.ToString("dd-MM-yyyy");
+            string birthdate = DateTime.Parse(BirthdateText.Text).ToString("yyyy-MM-dd");
+            string reg_date = DateTime.Now.Date.ToString("yyyy-MM-dd");
             string email = EmailText.Text;
             string phoneNumber = PhoneNumberText.Text;
             string status = listBox2.Text;
@@ -110,7 +110,7 @@ namespace Student_Note
                 hasErrors = true;
             }
 
-            if (!Regex.IsMatch(birthdate, @"^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.(19|20)\d{2}$"))
+            if (!Regex.IsMatch(birthdate, @"^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$"))
             {
                 WrongBirthdateLabel.Visible = true;
                 hasErrors = true;

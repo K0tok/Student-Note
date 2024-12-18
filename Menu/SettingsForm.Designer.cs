@@ -47,8 +47,8 @@
             HeaderLabel.Location = new Point(0, 0);
             HeaderLabel.Margin = new Padding(0);
             HeaderLabel.Name = "HeaderLabel";
-            HeaderLabel.Padding = new Padding(100, 0, 0, 0);
-            HeaderLabel.Size = new Size(697, 80);
+            HeaderLabel.Padding = new Padding(88, 0, 0, 0);
+            HeaderLabel.Size = new Size(610, 60);
             HeaderLabel.TabIndex = 3;
             HeaderLabel.Text = "Настройки";
             HeaderLabel.TextAlign = ContentAlignment.MiddleLeft;
@@ -63,9 +63,10 @@
             // 
             button1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button1.Font = new Font("Arial", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            button1.Location = new Point(370, 12);
+            button1.Location = new Point(324, 9);
+            button1.Margin = new Padding(3, 2, 3, 2);
             button1.Name = "button1";
-            button1.Size = new Size(315, 54);
+            button1.Size = new Size(276, 40);
             button1.TabIndex = 5;
             button1.Text = "Войдите в аккаунт";
             button1.UseVisualStyleBackColor = true;
@@ -74,17 +75,18 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 118);
+            label1.Location = new Point(10, 88);
             label1.Name = "label1";
-            label1.Size = new Size(163, 20);
+            label1.Size = new Size(129, 15);
             label1.TabIndex = 6;
             label1.Text = "Войти в новую группу";
             // 
             // button2
             // 
-            button2.Location = new Point(522, 115);
+            button2.Location = new Point(457, 86);
+            button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(82, 22);
             button2.TabIndex = 7;
             button2.Text = "Войти";
             button2.UseVisualStyleBackColor = true;
@@ -92,31 +94,37 @@
             // 
             // textCodeGroup
             // 
-            textCodeGroup.Location = new Point(181, 115);
+            textCodeGroup.Location = new Point(158, 86);
+            textCodeGroup.Margin = new Padding(3, 2, 3, 2);
             textCodeGroup.Name = "textCodeGroup";
-            textCodeGroup.Size = new Size(335, 27);
+            textCodeGroup.Size = new Size(294, 23);
             textCodeGroup.TabIndex = 8;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(181, 92);
+            label2.Location = new Point(158, 69);
             label2.Name = "label2";
-            label2.Size = new Size(90, 20);
+            label2.Size = new Size(71, 15);
             label2.TabIndex = 9;
             label2.Text = "Код группы";
             // 
             // SettingsForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(697, 450);
-            Controls.Add(label2);
+            ClientSize = new Size(610, 134);
             Controls.Add(textCodeGroup);
             Controls.Add(button2);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(HeaderLabel);
+            Controls.Add(label2);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            MaximumSize = new Size(626, 173);
+            MinimumSize = new Size(626, 173);
             Name = "SettingsForm";
             Text = "Settings";
             Load += Settings_Load;

@@ -18,7 +18,7 @@ namespace Student_Note
 {
     public partial class MakeHomework : Form
     {
-        public MakeHomework(string lessonNumber, string subject, DateTime lessonDate)
+        public MakeHomework(string lessonNumber, string subject, DateTime lessonDate, string homework_text)
         {
             InitializeComponent();
             //MainHomeworkForm.SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate);
@@ -52,11 +52,12 @@ namespace Student_Note
             }
             textSubject.Text = subject;
             SelectDate.Value = lessonDate;
+            TextHomework.Text = homework_text;
         }
         private void SaveHomework_Click(object sender, EventArgs e)
         {
             string lesson = textSubject.Text;
-            string date = SelectDate.Value.Date.ToString("dd.MM.yyyy");
+            string date = SelectDate.Value.Date.ToString("yyyy-MM-dd");
             string lesson_number = textLessonNumber.Text;
             string homework_text = TextHomework.Text;
             string file = FileLink.Text;
@@ -75,10 +76,7 @@ namespace Student_Note
 
             if (IsScheduleExist(date, lesson_number))
             {
-                //if (UpdateSchedule(lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id))
-                //{
-
-                //}
+                UpdateSchedule(id, lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id);
                 return;
             }
 
