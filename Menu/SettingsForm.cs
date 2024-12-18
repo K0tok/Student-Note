@@ -57,6 +57,9 @@ namespace Student_Note.Menu
 
             if (ScheduleLoader.AddUserInGroup(Program.userData.id, textCodeGroup.Text, this))
             {
+                Program.userData.groups = UserData.GetGroups(Program.userData.id);
+                if (Program.userData.groups.Count != 0)
+                    Program.userData.selectGroup = Program.userData.groups[0];
                 Program.MainHomeworkForm = new MainHomeworkForm();
                 Program.ReplaceForm(Program.MainHomeworkForm, this);
             }
