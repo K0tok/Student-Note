@@ -60,6 +60,11 @@ namespace Student_Note
 
         public int id;
 
+        /// <summary>
+        /// Нажатие на кнопку сохранить
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveHomework_Click(object sender, EventArgs e)
         {
             string lesson = textSubject.Text;
@@ -104,6 +109,17 @@ namespace Student_Note
                 }
             }
         }
+        /// <summary>
+        /// Обновление домашнего задания 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="lesson"></param>
+        /// <param name="date"></param>
+        /// <param name="lessonNumber"></param>
+        /// <param name="homeworkText"></param>
+        /// <param name="file"></param>
+        /// <param name="groupId"></param>
+        /// <returns></returns>
         public bool UpdateSchedule(int id, string lesson, string date, int lessonNumber, string homeworkText, string file, int groupId)
         {
             // Укажите строку подключения к вашей базе данных SQLite
@@ -144,6 +160,16 @@ namespace Student_Note
                 }
             }
         }
+        /// <summary>
+        /// Добавление домашнего задания
+        /// </summary>
+        /// <param name="lesson"></param>
+        /// <param name="date"></param>
+        /// <param name="lesson_number"></param>
+        /// <param name="homework_text"></param>
+        /// <param name="file"></param>
+        /// <param name="group_id"></param>
+        /// <returns></returns>
         public bool AddHomeWork(string lesson, string date, int lesson_number, string homework_text, string file, int group_id)
         {
             try
@@ -194,6 +220,12 @@ namespace Student_Note
                 return false;
             }
         }
+        /// <summary>
+        /// Проверка на существование записи об расписании на это место 
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="lessonNumber"></param>
+        /// <returns></returns>
         public bool IsScheduleExist(string date, int lessonNumber)
         {
             string connectionString = $"Data Source={Program.fullPath}";
