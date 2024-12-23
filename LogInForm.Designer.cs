@@ -68,7 +68,6 @@
             LoginTextBox.Name = "LoginTextBox";
             LoginTextBox.Size = new Size(289, 28);
             LoginTextBox.TabIndex = 1;
-            LoginTextBox.Text = "testing_user@temp.mail";
             // 
             // LoginLabel
             // 
@@ -104,7 +103,6 @@
             PasswordTextBox.PasswordChar = '*';
             PasswordTextBox.Size = new Size(289, 28);
             PasswordTextBox.TabIndex = 3;
-            PasswordTextBox.Text = "Testing_User01";
             // 
             // WrongLoginLabel
             // 
