@@ -23,10 +23,10 @@ namespace Student_Note
         static public Form MainHomeworkForm     = new MainHomeworkForm();
         static public Form LogInForm            = new LogInForm();
         static public Form SignUpForm           = new SignUpForm();
-        static public Form AddGroupForm         = new AddGroupForm();
+        static public Form AddGroupForm         = new AddGroupForm((MainHomeworkForm)MainHomeworkForm);
         /// MENU
         static public Form ProfileForm          = new ProfileForm();
-        static public Form SettingsForm         = new SettingsForm();
+        static public Form SettingsForm         = new SettingsForm((MainHomeworkForm)MainHomeworkForm);
         static public Form ShowUsersInGroupForm;
         /// <summary>
         /// Меняет форму на newForm из oldForm

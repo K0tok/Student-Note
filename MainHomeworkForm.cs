@@ -62,7 +62,7 @@ namespace Student_Note
             return homeworks;
         }
 
-        private async void MainHomeworkForm_Load(object sender, EventArgs e)
+        public async void MainHomeworkForm_Load(object sender, EventArgs e)
         {
             // Проверяем, авторизован ли пользователь
             if (Program.userData == null)

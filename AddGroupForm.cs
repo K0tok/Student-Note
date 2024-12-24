@@ -1,23 +1,19 @@
 ﻿using System.Data;
+using System.Security.Policy;
 using Microsoft.Data.Sqlite;
 
 namespace Student_Note
 {
     public partial class AddGroupForm : Form
     {
-        public AddGroupForm()
+        public AddGroupForm(MainHomeworkForm mainHomeworkForm)
         {
             InitializeComponent();
+            this.mainHomeworkForm = mainHomeworkForm;
         }
+        MainHomeworkForm mainHomeworkForm;
         private void CreateGroup_Click(object sender, EventArgs e)
         {
-            //GetGroups();
-            //if (!GroupNames.Contains(TextBoxNameGroup.Text))
-            //{
-            //    MessageBox.Show("Creating group...");
-            //}
-            //else { MessageBox.Show("Такая группа уже существует "); }
-
             // Путь к базе данных
             string connectionString = $"Data Source=Student Note.db";
 
@@ -40,12 +36,20 @@ namespace Student_Note
                 cmd.CommandText = "INSERT INTO 'Groups' (code_name, specialization_id, code) VALUES (@code_name, (SELECT id FROM 'Specializations' WHERE long_name=@long_name), @code)";
                 int countRows = cmd.ExecuteNonQuery();
 
+                if (Program.userData==null) {return;}
+
                 // Проверка на ответ 
                 if (countRows == 1)
                 {
                     CopyableMessageBox.Show(RandomCode, "Группа создана \nНажмите на код чтобы сохранить его");
+
                     if (ScheduleLoader.AddUserInGroup(Program.userData.id, RandomCode, this))
                     {
+                        Program.userData.groups = UserData.GetGroups(Program.userData.id);
+
+                        if (Program.userData.groups.Count != 0)
+                            Program.userData.selectGroup = Program.userData.groups[0];
+
                         Program.ReplaceForm(Program.MainHomeworkForm, this);
                     }
                     
