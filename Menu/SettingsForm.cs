@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.Sqlite;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
 
 namespace Student_Note.Menu
 {
     public partial class SettingsForm : Form
     {
-        public SettingsForm()
+        public SettingsForm(MainHomeworkForm mainHomeworkForm)
         {
             InitializeComponent();
+            this.mainHomeworkForm = mainHomeworkForm ?? new MainHomeworkForm();
         }
+
+        MainHomeworkForm mainHomeworkForm;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -58,10 +60,13 @@ namespace Student_Note.Menu
             if (ScheduleLoader.AddUserInGroup(Program.userData.id, textCodeGroup.Text, this))
             {
                 Program.userData.groups = UserData.GetGroups(Program.userData.id);
+
                 if (Program.userData.groups.Count != 0)
                     Program.userData.selectGroup = Program.userData.groups[0];
-                Program.MainHomeworkForm = new MainHomeworkForm();
-                Program.ReplaceForm(Program.MainHomeworkForm, this);
+
+                mainHomeworkForm.MainHomeworkForm_Load(new object(), new EventArgs());
+
+                Program.ReplaceForm(mainHomeworkForm, this);
             }
         }
     }
