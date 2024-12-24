@@ -18,48 +18,21 @@ namespace Student_Note
 {
     public partial class MakeHomework : Form
     {
-        public MakeHomework(Homework homework)
+        public MakeHomework(Homework homework, MainHomeworkForm mainHomeworkForm)
         {
             InitializeComponent();
-            //MainHomeworkForm.SetHomeworkData(string lessonNumber, string subject, DateTime lessonDate);
-            //switch (homework.LessonNumber)
-            //{
-            //    case "I":
-            //        textLessonNumber.Text = "1";
-            //        break;
-            //    case "II":
-            //        textLessonNumber.Text = "2";
-            //        break;
-            //    case "III":
-            //        textLessonNumber.Text = "3";
-            //        break;
-            //    case "IV":
-            //        textLessonNumber.Text = "4";
-            //        break;
-            //    case "V":
-            //        textLessonNumber.Text = "5";
-            //        break;
-            //    case "I - B":
-            //        textLessonNumber.Text = "6";
-            //        break;
-            //    case "II - B":
-            //        textLessonNumber.Text = "7";
-            //        break;
-            //    default:
-            //        textLessonNumber.Text = null;
-            //        break;
 
-            //}
             textSubject.Text = homework.Lesson;
             SelectDate.Value = DateTime.Parse(homework.Date);
             TextHomework.Text = homework.HomeworkText;
             textLessonNumber.Text = homework.LessonNumber.ToString();
             FileLink.Text = homework.File;
             id = homework.Id;
+            this.mainHomeworkForm = mainHomeworkForm;
         }
 
         public int id;
-
+        MainHomeworkForm mainHomeworkForm;
         /// <summary>
         /// Нажатие на кнопку сохранить
         /// </summary>
@@ -90,8 +63,10 @@ namespace Student_Note
             {
                 if (UpdateSchedule(id, lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id))
                 {
-                    MessageBox.Show("Изменение произошло успешно");
-                    Program.ReplaceForm(new MainHomeworkForm(), this);
+                    mainHomeworkForm.WeekComboBox_SelectedIndexChanged(
+                        new object(),
+                        new EventArgs());
+                    Close();
                 }
                 else
                     return;
@@ -100,8 +75,10 @@ namespace Student_Note
             {
                 if (AddHomeWork(lesson, date, lesson_number, homework_text, file, Program.userData.selectGroup.id))
                 {
-                    MessageBox.Show("Домашняя работа успешно добавлена");
-                    Program.ReplaceForm(new MainHomeworkForm(), this);
+                    mainHomeworkForm.WeekComboBox_SelectedIndexChanged(
+                        new object(),
+                        new EventArgs());
+                    Close();
                 }
                 else 
                 { 

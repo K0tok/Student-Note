@@ -21,7 +21,7 @@ namespace Student_Note
             InitializeComponent();
         }
 
-        private static List<Homework> GetWeeklyHomeworks (int group_id, DateTime start_date)
+        public static List<Homework> GetWeeklyHomeworks (int group_id, DateTime start_date)
         {
             List<Homework> homeworks = new List<Homework>();
             // Путь к базе данных
@@ -171,7 +171,6 @@ namespace Student_Note
                 if (_scheduleLoader.CurrentSchedule != null &&
                     _scheduleLoader.CurrentSchedule.Groups.TryGetValue(Program.userData.selectGroup.code_name, out var groupSchedule))
                 {
-                    //DateTime currentWeekStartDate = _weeks[WeekComboBox.SelectedIndex].StartDate;
                     // Заполняем расписание для текущей недели
                     FillSchedule(
                         MondayTableLayoutPanel, TuesdayTableLayoutPanel, WednesdayTableLayoutPanel,
@@ -199,7 +198,7 @@ namespace Student_Note
         }
 
         // Обработчик выбора недели в комбинированном списке
-        private void WeekComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        public void WeekComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Program.userData == null)
             {
@@ -218,6 +217,8 @@ namespace Student_Note
                 var selectedWeek = _weeks[WeekComboBox.SelectedIndex];
                 UpdateWeekDayLabels(selectedWeek);  // Обновляем метки с датами
                 ClearTables();  // Очищаем таблицы перед заполнением новыми данными
+
+                homeworks = GetWeeklyHomeworks(Program.userData.selectGroup.id, selectedWeek.StartDate);
 
                 // Заполняем таблицы с расписанием для выбранной недели
                 if (_scheduleLoader.CurrentSchedule != null &&
@@ -306,7 +307,7 @@ namespace Student_Note
                     foreach (var lesson in lessonList)
                     {
                         DateTime lessonDate = weekStartDate.AddDays(lessonList.IndexOf(lesson));
-                        AddRowToTable(tableLayoutPanel, lessonNumber, lesson.Name, lessonDate);  // Добавляем строку с данными пары
+                        AddRowToTable(tableLayoutPanel, lessonNumber, lesson.Name, lessonDate, this);  // Добавляем строку с данными пары
                     }
                 }
             }
@@ -324,7 +325,7 @@ namespace Student_Note
         }
 
         // Добавляем строку с данными пары в таблицу
-        private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, DateTime lessonDate)
+        private static void AddRowToTable(TableLayoutPanel tableLayoutPanel, string lessonNumber, string subject, DateTime lessonDate, MainHomeworkForm mainHomeworkForm)
         {
             tableLayoutPanel.SuspendLayout();
 
@@ -400,9 +401,9 @@ namespace Student_Note
             lblHomework.MouseEnter += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, hoverBackColor);
             lblHomework.MouseLeave += (sender, e) => ChangeRowBackColor(tableLayoutPanel, lblHomework, defaultBackColor);
             // Добавляем обработчики клика
-            lblNumber.Click += (sender, e) => Homework_Filler_Click(select_homework);
-            lblSubject.Click += (sender, e) => Homework_Filler_Click(select_homework);
-            lblHomework.Click += (sender, e) => Homework_Filler_Click(select_homework);
+            lblNumber.Click += (sender, e) => Homework_Filler_Click(select_homework, mainHomeworkForm);
+            lblSubject.Click += (sender, e) => Homework_Filler_Click(select_homework, mainHomeworkForm);
+            lblHomework.Click += (sender, e) => Homework_Filler_Click(select_homework, mainHomeworkForm);
 
             // Добавляем элементы в таблицу
             tableLayoutPanel.RowCount += 1;
@@ -450,13 +451,11 @@ namespace Student_Note
             contextMenuStrip1.Show(buttonUser, new Point(0, buttonUser.Height));
         }
 
-        private static void Homework_Filler_Click(Homework homework)
+        private static void Homework_Filler_Click(Homework homework, MainHomeworkForm mainHomeworkForm)
         {
             // Открываем форму MakeHomework, передавая данные
-            MakeHomework HomeworkForm = new MakeHomework(homework);
-            homework.print();
-            //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
-            Program.ReplaceForm(HomeworkForm, ActiveForm);
+            MakeHomework HomeworkForm = new MakeHomework(homework, mainHomeworkForm);
+            HomeworkForm.Show();
         }
     }
 }
