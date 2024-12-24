@@ -55,6 +55,10 @@ public class Homework
         this.File = File;
         this.GroupId = GroupId;
     }
+    public void print()
+    {
+        MessageBox.Show($"{Id}, {Lesson}, {LessonNumber}, {Date}, {HomeworkText}, {File}, {GroupId}");
+    }
 }
 
 public class AddSheduleRequest

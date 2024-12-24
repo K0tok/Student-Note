@@ -376,7 +376,7 @@ namespace Student_Note
                     break;
             }
 
-                    Homework select_homework = new Homework(0, subject, lessonDate.ToString("yyyy-MM-dd"), int.Parse(lessonNumber), "", "", Program.userData.selectGroup.id);
+            Homework select_homework = new Homework(0, subject, lessonDate.ToString("yyyy-MM-dd"), int.Parse(lessonNumber), "", "", Program.userData.selectGroup.id);
 
             foreach (Homework homework in homeworks)
             {
@@ -454,6 +454,7 @@ namespace Student_Note
         {
             // Открываем форму MakeHomework, передавая данные
             MakeHomework HomeworkForm = new MakeHomework(homework);
+            homework.print();
             //HomeworkForm.SetHomeworkData(lessonNumber, subject, lessonDate);
             Program.ReplaceForm(HomeworkForm, ActiveForm);
         }
